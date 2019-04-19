@@ -21,17 +21,19 @@ public class FileUtile {
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			byte[] bytes = file.getBytes();
-			String path2 = "resources/upload/";
+//			String path2 = "resources/upload/";
 			String name = file.getOriginalFilename();
 			
 			String path = "";
-			path = req.getSession().getServletContext().getRealPath("/").concat(path2).concat(dir).concat("/");
+//			path = ("D:/IDE/workspace/ROOT/src/main/webapp/").concat(path2).concat(dir);
+			path = ("/xorms2485/tomcat/webapps/FileStore/").concat(dir);
+//			path = req.getSession().getServletContext().getRealPath("/").concat(path2).concat(dir);
 			System.out.println(path);
 			
 			// 디렉토리 여부 확인 후 생성
 			File uploadDir = new File(path);
 	        if (!uploadDir.exists()) {
-	            uploadDir.mkdir();
+	            uploadDir.mkdirs();
 	        }
 			
 	        // 파일 고유 이름으로 변경 후 생성
@@ -43,11 +45,11 @@ public class FileUtile {
             fileName = one.toString() + ext;
             System.out.println("변경 후 파일이름 : " + fileName);
             /************************************ 파일 이름 변경하기 ************************************/
-			File f = new File(path + fileName);
+			File f = new File(path.concat("/").concat(fileName));
 			OutputStream out = new FileOutputStream(f);
 			out.write(bytes);
 			out.close();
-			resultMap.put("path", path2);
+			resultMap.put("path", path);
 			resultMap.put("OriginalName", name);
 			resultMap.put("name", fileName);
 		} catch (IOException e) {

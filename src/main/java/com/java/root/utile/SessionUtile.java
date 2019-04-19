@@ -22,13 +22,15 @@ public class SessionUtile {
 		session.invalidate();
 	}
 	
-	public static void getSession(HttpSession session) {
+	public static HashMap<String, Object> getSession(HttpSession session) {
 		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
 		if(user == null) {
 			System.out.println("사용자 정보가 없습니다.");
+			return null;
 		}else {
 			System.out.println("사용자 정보가 있습니다.");
 			System.out.println(user.toString());
+			return user;
 		}
 	}
 	

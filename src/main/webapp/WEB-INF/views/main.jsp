@@ -19,7 +19,7 @@
 				<br/>
         			<div id=myPageButton>
         			<button type="button" class="btn btn-default" data-ng-click="relocated_mypage()">마이페이지</button>
-        			<button type="button" class="btn btn-default">글쓰기</button>
+        			<button type="button" class="btn btn-default" data-ng-click="relocated_board()">글쓰기</button>
         			<button type="button" class="btn btn-default" data-ng-click="logout()">로그아웃</button>
         			
         			</div>

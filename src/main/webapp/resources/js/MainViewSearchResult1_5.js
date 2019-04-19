@@ -195,5 +195,9 @@ mainPage.controller('SearchData', function($scope) {
     $scope.logout = function(){
     	location.href = "/Logout";
     }
+    
+    $scope.relocated_board = function(){
+    	location.href = "/board/write";
+    }
 });
 
