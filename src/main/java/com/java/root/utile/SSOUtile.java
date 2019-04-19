@@ -20,7 +20,7 @@ public class SSOUtile {
 	 *  - 사용자 정보
 	 *********************************************/
 	
-	private static final String kakaoClientId = "46ca40dd0e5fe28374abe2eb8d132f8b"; //애플리케이션 클라이언트 아이디값";
+	private static final String kakaoClientId = "a20855d3024b15636c42807d5201bede"; //애플리케이션 클라이언트 아이디값";
 	private static String kakaoRedirectURI = "http://%s/KakaoBack";
 	
 	private static final String naverClientId = "9x_ngmaP_W7dz9cVcoum";	//애플리케이션 클라이언트 아이디값";	

@@ -9,7 +9,7 @@ public class ViewController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "redirect:mypage/professor";
+		return "redirect:main";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
