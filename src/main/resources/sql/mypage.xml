@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+	<select id="studentSelect" parameterType="hashmap" resultType="hashmap">
+		select u.name, 
+		       u.uni_num, 
+			   'Computer-Software' as dept,
+			   t.team_name,
+			   t.team_id
+		from user as u
+		left outer join team as t
+		on (u.team_id = t.team_id)
+		where uni_num = #{uni_num}
+	</select>
+	
+	<update id="teamNameUpdate" parameterType="hashmap">
+		update team set team_name = #{team_name} where team_id = #{team_id};
+	</update>
+</mapper>

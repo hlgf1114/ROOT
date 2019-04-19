@@ -1,6 +1,7 @@
 /* common section */
 html {
 	background-image: url("/resources/img/mypage/img_bg.png");
+	overflow: scroll;
 }
 
 header {
@@ -11,16 +12,16 @@ header {
 	background-image: url("/resources/img/mypage/img_bg.png");
 	width: 100%;
 	min-height: 500px;
-	position: fixed;
+	position: absolute;
 }
 
-footer {
-	background-color: darkslategray;
-	position: relative;
-	left: 0;
-	bottom: 0;
-	width: 100;
-}
+/* footer { */
+/* 	background-color: darkslategray; */
+/* 	position: relative; */
+/* 	left: 0; */
+/* 	bottom: 0; */
+/* 	width: 100; */
+/* } */
 
 /* this page's css */
 #logo_image_wrapper {
@@ -70,11 +71,22 @@ footer {
 	border:
 }
 
-#privateInfo, #whatupost {
+/* ∞≥¿Œ¡§∫∏ ≈« */
+#privateInfo, #whatupost, #set-team {
 	text-align: center;
 	margin: 50px;
 }
 
+.private-window {
+	border: 1px solid grey;
+}
+
+.form-control {
+	text-align: center;
+	font-size: large;
+}
+
+/**/
 #mypagebtn {
 	margin: 10px;
 }

@@ -49,7 +49,7 @@ app.controller('TodoCtrl', function($scope, $http) {
 		console.log(data);
 		
 		
-		$http({method: 'POST', url:"/Board/Insert", data: data})
+		$http({method: 'POST', url:"/Board/Insert", params: data})
 		.success(function (data, status, headers, config) {
 			console.log(data);			
 		})
