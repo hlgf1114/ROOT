@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,8 @@ public class DataController {
 	DataServiceInterface dsi;
 	
 	@RequestMapping(value="user/select", method=RequestMethod.GET)
-	public void user_select(HttpServletRequest req, HttpServletResponse resp) {
-		dsi.selectList(req, resp);
+	public void user_select(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		dsi.selectList(req, resp, session);
 	}
 	
 }

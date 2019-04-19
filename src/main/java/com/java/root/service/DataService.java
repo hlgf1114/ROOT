@@ -6,11 +6,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.root.dao.DataDaoInterface;
+import com.java.root.utile.SessionUtile;
 
 @Service
 public class DataService implements DataServiceInterface {
@@ -21,7 +23,7 @@ public class DataService implements DataServiceInterface {
 	HashMap<String, Object> paramMap;
 	
 	@Override
-	public void selectList(HttpServletRequest req, HttpServletResponse resp) {
+	public void selectList(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
 		resp.setContentType("text/html; charset=UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		String mes = "";
@@ -41,9 +43,12 @@ public class DataService implements DataServiceInterface {
 				System.out.println(paramMap.toString());
 				List<HashMap<String, Object>> list = ddi.selectList(paramMap);
 				if(list.size() > 0) {
+					HashMap<String, Object> userMap = new HashMap<String, Object>();
 					for(int i = 0; i < list.size(); i++) {
 						mes += list.get(i).toString() + "\n";
+						userMap = list.get(i);
 					}
+					SessionUtile.setSession(session, userMap);
 				}else {
 					mes = sso + " 값은 검색 내용이 없습니다.";
 				}
@@ -52,7 +57,7 @@ public class DataService implements DataServiceInterface {
 			e.printStackTrace();
 		} finally {
 			try {
-				resp.getWriter().write(mes);
+				resp.getWriter().write(mes + "<br><a href='/main'>화면 이동</a><br><a href='/SessionCheck'>섹션화면</a>");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

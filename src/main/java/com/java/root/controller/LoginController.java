@@ -41,4 +41,8 @@ public class LoginController {
 		return "redirect:main";
 	}
 	
+	@RequestMapping(value="/SessionCheck", method=RequestMethod.GET)
+	public void naverBack(HttpServletResponse resp, HttpSession session) {
+		SessionUtile.getSession(session);
+	}
 }

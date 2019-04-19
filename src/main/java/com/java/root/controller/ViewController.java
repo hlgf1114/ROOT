@@ -9,7 +9,8 @@ public class ViewController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		return "redirect:main";
+//		return "redirect:main";
+		return "redirect:user/select?sso=0000";
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
