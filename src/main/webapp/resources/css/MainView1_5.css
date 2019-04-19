@@ -1,0 +1,40 @@
+@charset "UTF-8";
+html, body {margin: 0 auto;/*overflow: hidden;*/}
+header {height: 100px;background-color: #000000; border-radius: 60px 0px 60px 60px/ 40px 0px 40px 40px;}
+section {position: relative;  -ms-transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); overflow:scroll;
+background-color: bisque;min-height: calc(100vh - 270px);margin-left:100px;margin-right:100px;
+background-image:url("/resources/img/MainViewBackground.png");border:4px ridge #ccc;border-radius: 0px 0px 60px 60px/ 0px 0px 40px 40px;}
+footer {height: 170px;background-color: #ffffff;text-align: center;}
+
+#search {float: left;width: calc(100% - 300px);height: 100%;}
+#search h1{color:#ffffff;}
+#myPageButton{float:left;margin-left:20px;width:170px;height:70px;}
+#search h1{width:200px;height:40px;margin:0 auto;text-align:center;}
+#personalInformation {float: left;width: 300px;height: 100%;background-color: #000000; border-radius: 0px 0px 60px 60px/ 0px 0px 40px 40px;}
+#userName{text-align:center;margin-top:40px;color:#ffffff;}
+
+section #searchGroup{height:400px;width:100%;}
+.SearchSelect1{margin-top:20px;float:left;width:50%;height:40px;/*background-color: #d1d1d1;*/}
+.SearchSelect2{margin-top:20px;float:left;width:50%;height:40px;/*background-color: #d1d1d1;*/}
+.SearchSelect3{float:left;width:60%;height:40px;/*background-color: #d1d1d1;*//*margin-left:auto;margin-right:auto;*/}
+.SearchReload{float:left;margin-left:50px;width:30%;height:40px;/*background-color: #d1d1d1;*/}
+.SearchResult{margin-top:20px; float:left;width:100%;height:100%;/*background-color: #d1d1d1;*/}
+
+.table{width:85%;text-align:center;}
+
+section #searchGroup form {
+	width: 100%;
+	height:100%;
+	position: relative;
+    /*left: 50%;*/
+	-ms-transform: translateX(5%);
+    -webkit-transform: translateX(5%);
+    transform: translateX(5%);
+}
+
+section #searchGroup form input.btn:hover{
+	display: block;
+	margin-left: auto;margin-right: auto;
+}

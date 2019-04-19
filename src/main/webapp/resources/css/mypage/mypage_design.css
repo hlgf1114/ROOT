@@ -1,0 +1,80 @@
+/* common section */
+html {
+	background-image: url("/resources/img/mypage/img_bg.png");
+}
+
+header {
+	height: 200px;
+}
+
+.main {
+	background-image: url("/resources/img/mypage/img_bg.png");
+	width: 100%;
+	min-height: 500px;
+	position: fixed;
+}
+
+footer {
+	background-color: darkslategray;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100;
+}
+
+/* this page's css */
+#logo_image_wrapper {
+	position: relative;
+	margin-left: 10vw;
+	vertical-align: middle;
+}
+
+#logo_image {
+	height: 50px;
+	width: auto;
+	float: left;
+}
+
+#footer_info {
+	margin: auto;
+	margin-right: 10vw;
+	margin-top: 2vh;
+	text-align: center;
+	float: right;
+}
+
+#profile_img {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	margin-left: 30px;
+	height: 150px;
+	width: 150px;
+}
+
+#profile_info {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#private_info_wrapper {
+	border: 2px solid grey;
+	border-radius: 15px;
+	margin-top: 50px;
+	margin-left: 10vw;
+	height: 50vh;
+	width: 80vw;
+	text-align: center;
+}
+
+#info_list {
+	border:
+}
+
+#privateInfo, #whatupost {
+	text-align: center;
+	margin: 50px;
+}
+
+#mypagebtn {
+	margin: 10px;
+}
