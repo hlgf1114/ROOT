@@ -32,4 +32,12 @@ public class SessionUtile {
 		}
 	}
 	
+	public static boolean checkSession(HttpSession session) {
+		HashMap<String, Object> user = (HashMap<String, Object>) session.getAttribute("user");
+		if(user == null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
 }

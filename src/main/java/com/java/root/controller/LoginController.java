@@ -42,7 +42,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/SessionCheck", method=RequestMethod.GET)
-	public void naverBack(HttpServletResponse resp, HttpSession session) {
+	public void SessionCheck(HttpServletResponse resp, HttpSession session) {
 		SessionUtile.getSession(session);
+	}
+	
+	@RequestMapping(value="/Logout", method=RequestMethod.GET)
+	public String logout(HttpServletResponse resp, HttpSession session) {
+		SessionUtile.delSession(session);
+		return "redirect:/login";
 	}
 }

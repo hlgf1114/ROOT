@@ -192,6 +192,8 @@ mainPage.controller('SearchData', function($scope) {
     }); 페이지네이션모듈*/
   
     
-    
+    $scope.logout = function(){
+    	location.href = "/Logout";
+    }
 });
 
