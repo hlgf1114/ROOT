@@ -13,7 +13,7 @@
         <script src="/resources/js/MainViewSearchResult1_5.js"></script>
         <script src="/resources/js/dirPagination.js"></script>
     </head>
-    <body data-ng-app="MainResult" data-ng-controller="SearchData as list">
+    <body data-ng-app="Main" data-ng-controller="MainCtrl">
         <header>
             <div id="search">
 				<br/>
@@ -67,18 +67,26 @@
 		<form name="ResultForm">
 			<table class="table table-hover" border="1">
 			<tr class="active">
+				<td>제목</td>
 				<td>팀</td>
 				<td>올린이</td>
-				<td>제목</td>
 				<td>시간</td>
 				
 			</tr>
-			<tr class="active" dir-paginate="MainResult in data | itemsPerPage:5 | filter:docFilter | filter:uploaderFilter | filter:teamFilter | filter:allFilter | 
-			filter:pageFilter | orderBy:propertyName:reverse" >
-				<td>{{MainResult.team}}조</td>
-				<td>{{MainResult.user}}</td>
-				<td>{{MainResult.title}}</td>
-				<td><date>{{MainResult.uploadDate | date:"yyyy-MM-dd HH:mm:ss"}}</date></td>
+<!-- 			<tr class="active" dir-paginate="MainResult in data | itemsPerPage:5 | filter:docFilter | filter:uploaderFilter | filter:teamFilter | filter:allFilter |  -->
+<!-- 			filter:pageFilter | orderBy:propertyName:reverse" > -->
+			
+<!-- 				<td>{{info.post_num}}조</td> -->
+<!-- 				<td>{{MainResult.user}}</td> -->
+<!-- 				<td>{{MainResult.title}}</td> -->
+<!-- 				<td>{{MainResult.uploadDate}}</td> -->
+				
+<!-- 			</tr> -->
+			<tr data-ng-repeat="list in MainList" data-ng-click="a()">
+				<th scope="row">{{list.post_name}}</th>
+				<td>{{list.post_num}}</td>
+				<td>{{list.name}}</td>
+				<td>{{list.postDate}}</td>
 				
 			</tr>
 				<!--  <tr>

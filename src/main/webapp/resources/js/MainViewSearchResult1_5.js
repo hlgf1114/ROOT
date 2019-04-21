@@ -1,4 +1,32 @@
 var mainPage = angular.module('MainResult', ['angularUtils.directives.dirPagination']);
+var mainPage2 = angular.module('Main', []);
+
+
+mainPage2.controller('MainCtrl', function($scope, $http) {
+	
+	
+	 $scope.getMainList = function() {
+			$http({method: 'GET', url:"/main/postSelectAll"})
+			.success(function (data, status, headers, config) {
+				$scope.MainList = data;
+				console.log(data);
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+		}
+		$scope.getMainList();
+	    
+		$scope.a = function(){
+	    	location.href = "/board/detail";
+	    }
+		
+		$scope.relocated_board = function(){
+	    	location.href = "/board/write";
+	    }
+});
+
+
 
 mainPage.controller('SearchData', function($scope) {
     
@@ -41,22 +69,14 @@ mainPage.controller('SearchData', function($scope) {
         page:"1"
     },
     {
-    	team:"1",
-        user: '백조',
-        title: 'page1 1조 총평가',
-        download: 'download',
-        uploadDate: Date.now(),
-        docType:"총평가",
-        page:"1"
-    },
-    {
-    	team:"3",
+    	team: "3",
         user: '황새',
-        title: 'page1 3조 제안평가',
+        title: 'page2 1조 회의록',
         download: 'download',
         uploadDate: Date.now(),
-        docType:"제안평가",
-        page:"1"
+        docType:"회의록",
+        page:"2"
+        
     },
     
     
@@ -96,15 +116,6 @@ mainPage.controller('SearchData', function($scope) {
         download: 'download',
         uploadDate: Date.now(),
         docType:"기말평가",
-        page:"2"
-    },
-    {
-    	team:"1",
-        user: '백조',
-        title: 'page2 1조 총평가',
-        download: 'download',
-        uploadDate: Date.now(),
-        docType:"총평가",
         page:"2"
     },
     {
@@ -165,7 +176,8 @@ mainPage.controller('SearchData', function($scope) {
     	$scope.propertyName=propertyName;
         console.log($scope.uploaderFilter);
     };
-    
+    	
+	
     $scope.relocated_mypage = function() {
 
 		window.location = "ProfessorMypage1_2.html";
