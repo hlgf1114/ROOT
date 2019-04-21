@@ -8,10 +8,12 @@ import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
@@ -65,6 +67,19 @@ public class HttpUtile {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void printJsonList(HttpServletResponse resp, List<HashMap<String, Object>> resultMap) {
+		try {
+			resp.setContentType("text/html; charset=UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+			JSONArray jarray = JSONArray.fromObject(JSONSerializer.toJSON(resultMap));
+//			JSONObject jobject = JSONObject.fromObject(JSONSerializer.toJSON(resultMap));
+			resp.getWriter().write(jarray.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	public static HashMap<String, Object> getUrl(String apiURL){
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();

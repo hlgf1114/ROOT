@@ -16,4 +16,29 @@
 	<update id="teamNameUpdate" parameterType="hashmap">
 		update team set team_name = #{team_name} where team_id = #{team_id};
 	</update>
+	
+	<select id="studentSelectAll" parameterType="hashmap" resultType="hashmap">
+		select uni_num, name 
+		from user
+		order by uni_num
+		limit 0, 5;
+	</select>
+	
+	<select id="studentSearch" parameterType="hashmap" resultType="hashmap">
+		select uni_num, name 
+		from user 
+		where name = #{name};
+	</select>
+	
+	<select id="studentScoreSelect" parameterType="hashmap" resultType="hashmap">
+		select score_mid, score_fin, score_team 
+		from score 
+		where uni_num = #{uni_num};
+	</select>
+	
+	<select id="teamSelect" parameterType="hashmap" resultType="hashmap">
+		select uni_num, name 
+		from user 
+		where team_id = #{team_id};
+	</select>
 </mapper>

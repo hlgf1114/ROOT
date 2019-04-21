@@ -77,8 +77,8 @@
 					</div>
 					<div id="priv-team">
 						<h3>나의 팀</h3>
-						<input class="form-control" type="text" placeholder={{info.team_name}}
-							readonly>
+						<input class="form-control" type="text"
+							placeholder={{info.team_name}} readonly>
 					</div>
 					<div id="priv-score">
 						<h3>나의 성적</h3>
@@ -92,9 +92,9 @@
 							</thead>
 							<tbody>
 								<tr>
-									<th scope="row">1</th>
-									<td>1</td>
-									<td>1</td>
+									<th scope="row">{{userScore.score_mid}}</th>
+									<td>{{userScore.score_fin}}</td>
+									<td>{{userScore.score_team}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -145,10 +145,12 @@
 								<span class="input-group-text" id="inputGroup-sizing-lg">팀
 									이름</span>
 							</div>
-							<input type="text" class="form-control" placeholder="캡틴 아메리카"
+							<input type="text" class="form-control"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-lg" data-ng-model="info.team_name">
-							<button type="button" class="btn btn-warning" data-ng-click="te()">변경</button>
+								aria-describedby="inputGroup-sizing-lg"
+								data-ng-model="info.team_name">
+							<button type="button" class="btn btn-warning"
+								data-ng-click="te()">변경</button>
 						</div>
 					</div>
 					<div>
@@ -161,9 +163,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="student in info">
-									<th scope="row">1</th>
-									<td>1</td>
+								<tr ng-repeat="members in teamMembers">
+									<th scope="row">{{members.uni_num}}</th>
+									<td>{{members.name}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -177,43 +179,25 @@
 										<th scope="col">고유 번호</th>
 										<th scope="col">이름</th>
 										<th scope="col">팀원 여부</th>
-										<div class="form-group">
-											<div class="input-group input-group-lg">
-												<div class="input-group-prepend">
-													<span class="input-group-text" id="inputGroup-sizing-lg">이름</span>
-												</div>
-												<input type="text" class="form-control"
-													placeholder="검색할 이름을 쓰세요" aria-label="Sizing example input"
-													aria-describedby="inputGroup-sizing-lg">
-												<button type="button" class="btn btn-primary">검색</button>
-											</div>
+										<div class="form-group mx-sm-3 mb-2">
+											<label for="inputPassword2" class="sr-only"></label> <input
+												type="text" class="form-control" id="inputPassword2"
+												placeholder="이름 검색" data-ng-model="nameValue.name">
 										</div>
+										<button type="submit" class="btn btn-primary mb-2"
+											data-ng-click="getStdSearch()">검색</button>
 									</tr>
 								</thead>
 								<tbody>
-									<tr ng-repeat="student in info">
-										<th scope="row">1</th>
-										<td>1</td>
+									<tr ng-repeat="list in stdList">
+										<th scope="row">{{list.uni_num}}</th>
+										<td>{{list.name}}</td>
 										<td><input type="checkbox" /></td>
 									</tr>
 								</tbody>
 							</table>
 							<button type="button" class="btn btn-primary">적용</button>
-							<br/>
-							<br/>
-							<nav aria-label="...">
-								<ul class="pagination justify-content-center">
-									<li class="page-item disabled"><a class="page-link"
-										href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item active" aria-current="page"><a
-										class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</nav>
+							<br /> <br />
 						</div>
 					</div>
 				</div>

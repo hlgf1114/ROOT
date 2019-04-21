@@ -1,6 +1,7 @@
 package com.java.root.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,31 +22,83 @@ public class MypageController {
 
 //	@Autowired
 //	MypageServiceInterface mysi;
-	
+
 	@Autowired
 	SqlSession session;
-	
-	@RequestMapping(value="/mypage/studentSelect", method=RequestMethod.GET)
-	public void studentSelect(HttpSession sess, HttpServletResponse resp){
-		if(SessionUtile.checkSession(sess)) {
+
+	@RequestMapping(value = "/mypage/studentSelect", method = RequestMethod.GET)
+	public void studentSelect(HttpSession sess, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
 			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
 			HashMap<String, Object> resultMap = session.selectOne("mypage.studentSelect", userMap);
 			HttpUtile.printJson(resp, resultMap);
-		}else {
+		} else {
 			// 예외 처리 넣어라.
 		}
 	}
-	
-	@RequestMapping(value="/mypage/renameTeam", method=RequestMethod.POST)
-	public void renameTeam(HttpSession sess, HttpServletResponse resp, HttpServletRequest req){
-		if(SessionUtile.checkSession(sess)) {
+
+	@RequestMapping(value = "/mypage/renameTeam", method = RequestMethod.POST)
+	public void renameTeam(HttpSession sess, HttpServletResponse resp, HttpServletRequest req) {
+		if (SessionUtile.checkSession(sess)) {
 			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
 			int state = session.update("mypage.teamNameUpdate", paramMap);
 			HashMap<String, Object> resultMap = new HashMap<String, Object>();
 			resultMap.put("state", state);
 			HttpUtile.printJson(resp, resultMap);
-		}else {
+		} else {
 			// 예외 처리 넣어라.
 		}
 	}
+
+	@RequestMapping(value = "/mypage/studentSelectAll", method = RequestMethod.GET)
+	public void stdSelect(HttpSession sess, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+//			HashMap<String, Object> resultMap = session.selectOne("mypage.studentSelectAll", userMap);
+			List<HashMap<String, Object>> resultList = session.selectList("mypage.studentSelectAll", userMap);
+			HttpUtile.printJsonList(resp, resultList);
+//			for(int i = 0; i <resultList.size(); i++) {
+//				HashMap<String, Object> separate = resultList.get(i);
+//				System.out.println(separate + " mypagecontroller");
+//				HttpUtile.printJson(resp, separate);
+//			}
+//			HttpUtile.printJsonList(resp, resultList);
+		} else {
+			// 예외 처리 넣어라.
+		}
+	}
+
+	@RequestMapping(value = "/mypage/studentSearch", method = RequestMethod.GET)
+	public void stdSearch(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> getListMap = session.selectList("mypage.studentSearch", paramMap);
+		System.out.println(getListMap);
+		HttpUtile.printJsonList(resp, getListMap);
+
+	}
+
+	@RequestMapping(value = "/mypage/teamStudent", method = RequestMethod.GET)
+	public void teamStudent(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+			List<HashMap<String, Object>> resultMap = session.selectList("mypage.teamSelect", userMap);
+			System.out.println(resultMap);
+			HttpUtile.printJsonList(resp, resultMap);
+		} else {
+
+		}
+	}
+
+	@RequestMapping(value = "/mypage/stdScore", method = RequestMethod.GET)
+	public void stdScore(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+			HashMap<String, Object> resultMap = session.selectOne("mypage.studentScoreSelect", userMap);
+			System.out.println(resultMap);
+			HttpUtile.printJson(resp, resultMap);
+		} else {
+
+		}
+	}
+
 }
