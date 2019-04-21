@@ -27,8 +27,8 @@
 				</div>
 				<div class="col-md-8">
 					<div class="card-body">
-						<h5 class="card-title">안녕하세요! {{info.name}}교수님!</h5>
-						<p class="card-text">전공학과: {{info.dept}}</p>
+						<h5 class="card-title">안녕하세요! {{profData.name}}교수님!</h5>
+						<!--  <p class="card-text">전공학과: {{info.dept}}</p>-->
 						<p class="card-text">
 							<small class="text-muted">{{loginDate | date:"yyyy-MM-dd HH:mm:ss"}}</small>
 						</p>

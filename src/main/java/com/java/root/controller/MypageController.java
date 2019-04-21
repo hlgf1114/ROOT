@@ -100,5 +100,14 @@ public class MypageController {
 
 		}
 	}
+	
+	// 준혁형 코드 아래부터
+	@RequestMapping(value="/mypage/profSelect", method=RequestMethod.GET)
+	public void profSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+		HashMap<String, Object> resultMap = session.selectOne("mypage.profSelect", userMap);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
 
 }

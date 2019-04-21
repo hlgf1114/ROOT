@@ -1,44 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
-	<select id="studentSelect" parameterType="hashmap" resultType="hashmap">
-		select u.name, 
-		       u.uni_num, 
-			   'Computer-Software' as dept,
-			   t.team_name,
-			   t.team_id
+	<select id="studentSelect" parameterType="hashmap"
+		resultType="hashmap">
+		select u.name,
+		u.uni_num,
+		'Computer-Software' as dept,
+		t.team_name,
+		t.team_id
 		from user as u
 		left outer join team as t
 		on (u.team_id = t.team_id)
 		where uni_num = #{uni_num}
 	</select>
-	
+
 	<update id="teamNameUpdate" parameterType="hashmap">
-		update team set team_name = #{team_name} where team_id = #{team_id};
+		update team set
+		team_name = #{team_name} where team_id = #{team_id};
 	</update>
-	
-	<select id="studentSelectAll" parameterType="hashmap" resultType="hashmap">
-		select uni_num, name 
+
+	<select id="studentSelectAll" parameterType="hashmap"
+		resultType="hashmap">
+		select uni_num, name
 		from user
 		order by uni_num
 		limit 0, 5;
 	</select>
-	
-	<select id="studentSearch" parameterType="hashmap" resultType="hashmap">
-		select uni_num, name 
-		from user 
+
+	<select id="studentSearch" parameterType="hashmap"
+		resultType="hashmap">
+		select uni_num, name
+		from user
 		where name = #{name};
 	</select>
-	
-	<select id="studentScoreSelect" parameterType="hashmap" resultType="hashmap">
-		select score_mid, score_fin, score_team 
-		from score 
+
+	<select id="studentScoreSelect" parameterType="hashmap"
+		resultType="hashmap">
+		select score_mid, score_fin, score_team
+		from score
 		where uni_num = #{uni_num};
 	</select>
-	
-	<select id="teamSelect" parameterType="hashmap" resultType="hashmap">
-		select uni_num, name 
-		from user 
+
+	<select id="teamSelect" parameterType="hashmap"
+		resultType="hashmap">
+		select uni_num, name
+		from user
 		where team_id = #{team_id};
+	</select>
+
+	<!-- 준혁형 작업물 -->
+	<select id="profSelect" parameterType="hashmap"
+		resultType="hashmap">
+		SELECT name FROM user WHERE uni_num=#{uni_num};
 	</select>
 </mapper>
