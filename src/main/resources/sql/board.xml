@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<select id="boardSelect" parameterType="hashmap" resultType="hashmap">
+		SELECT p.post_num, 
+		       p.post_name, 
+				 p.postField,
+				 date_format(p.postDate, "%Y %c/%e%r") as postDate,
+				 case when f.file_name IS NULL then ''
+				      ELSE f.file_name
+				 END AS file_name,
+				 f.url,
+				 f.file_num,
+				 u.name
+		  from post AS p
+		LEFT OUTER JOIN file_manage AS f
+		ON (p.post_num = f.post_num
+		AND f.delYn = 'N')
+		LEFT OUTER JOIN user AS u
+		ON (u.uni_num = p.uni_num)
+		WHERE p.post_num = #{post_num}
+	</select>
+	
+	<insert id="postInsert" parameterType="hashmap">
+		INSERT INTO post 
+			(uni_num, post_name, postField) 
+		VALUES 
+			(#{uni_num}, #{post_name}, #{postField})
+	</insert>
+	
+	<insert id="fileInsert" parameterType="hashmap">
+		<selectKey keyProperty="post_num" resultType="int" order="BEFORE">
+			SELECT max(post_num) AS post_num FROM post
+		</selectKey>
+		INSERT INTO file_manage 
+			(post_num, file_name, url) 
+		VALUES 
+			(#{post_num}, #{file_name}, #{url})
+	</insert>
+</mapper>

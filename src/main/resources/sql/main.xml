@@ -1,19 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="main">
-
-	
-
-	
-	<select id="postSelectAll" parameterType="hashmap" resultType="hashmap">
-	select * from post limit 10;
-	
-	</select>
 	
 	<select id="postSelect" parameterType="hashmap" resultType="hashmap">
-	select * from post where ;
+		SELECT p.post_num,
+		       p.post_name,
+		       t.team_name,
+		       u.name,
+				 date_format(p.postDate, "%Y %c/%e %r") as postDate 
+		  FROM post AS p
+		LEFT OUTER JOIN user AS u
+		  ON (p.uni_num = u.uni_num)
+		INNER JOIN (SELECT u.uni_num,
+								 u.name, 
+						       t.team_name 
+						 FROM user AS u  
+					  LEFT OUTER JOIN team AS t
+					    ON (u.team_id = t.team_id)
+					   WHERE 1 = 1
+					   <if test="authorization == 0">
+							AND u.team_id = (SELECT team_id FROM user WHERE uni_num = #{uni_num})
+					   </if> 
+					   <if test="team_id != null">
+					   		AND u.team_id = #{team_id}
+					   </if>
+		) AS t
+		  ON (p.uni_num = t.uni_num)
+		ORDER BY 1 desc
+		LIMIT ${index}, 5		
 	</select>
 	
+	<select id="postTotCount" parameterType="hashmap" resultType="hashmap">
+		SELECT count(*) tot 
+		  FROM post
+		where uni_num in (SELECT u.uni_num 
+						    FROM user AS u  
+					      inner JOIN team AS t
+					        ON (u.team_id = t.team_id)
+					      WHERE 1 = 1
+					   <if test="authorization == 0">
+							AND u.team_id = (SELECT team_id FROM user WHERE uni_num = #{uni_num})
+					   </if> 
+					   <if test="team_id != null">
+					   		AND u.team_id = #{team_id}
+					   </if>
+					      )
+	</select>
 	
-	
+	<select id="teamSelect" parameterType="hashmap" resultType="hashmap">
+		SELECT team_id,
+		       team_name
+		  FROM team
+		WHERE 1 = 1
+		<if test="authorization == 0">
+			AND team_id = (SELECT team_id FROM user WHERE uni_num = 1)
+		</if>
+	</select>
 </mapper>

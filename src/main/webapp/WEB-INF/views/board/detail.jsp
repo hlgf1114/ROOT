@@ -11,32 +11,25 @@
     <title>글페이지</title>
     
 </head>
-<body data-ng-app="todo" data-ng-controller="TodoCtrl">
+<body data-ng-app="todo" data-ng-controller="DetailCtrl">
 
 	<header>
-	    <button type="button" class="btn btn-primary ">마이 페이지</button>
-	    <button type="button" class="btn btn-primary ">홈으로 가기</button>
+	    <button type="button" class="btn btn-primary " data-ng-click="myPage()">마이 페이지</button>
+	    <button type="button" class="btn btn-primary " data-ng-click="homePage()">홈으로 가기</button>
     </header>
 
     <section>
         <nav>
         
-			<div id = "title" > 제목</div>
-            <div id = "title1">업로드 한사람</div>
-            <div class="filebox" >
-            	<label for="ex_file"> 파일 다운로드</label>
-                <input type="file" id="ex_file">
-            </div>
-            <div id = "title2" >{{todo.createdAt}}</div>
+			<div id = "title" >{{boardData.post_name}}</div>
+            <div id = "title1">{{boardData.name}}</div>
+            <div class="filebox" data-ng-if="boardData.file_name != ''" data-ng-click="fileDownload()">{{boardData.file_name}} 파일 다운로드</div>
+            <div id = "title2" >{{boardData.postDate}}</div>
         </nav>
         
         <hr style="border: solid 1px Black; width: 100%; height: 1px;">   
         
-        <div id = "text">
-
-		<button onclick="openTextFile()">Open</button>
-		<div id='output' style=" font: 0.5em/1em Georgia, serif ; ">...</div>
-        </div>
+        <div id = "text">{{boardData.postField}}</div>
         
         <br>
         <div id = "text1">

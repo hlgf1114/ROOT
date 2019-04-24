@@ -131,5 +131,10 @@ mypage.controller('StdCtrl', function($scope, $http) {
 
 		window.location.href = "/main";
 	}
+	
+	$scope.myPostSelect = function(mypost){
+		console.log(mypost.post_num);
+		location.href = "/board/detail?post_num=" + mypost.post_num;
+	}
 
 });

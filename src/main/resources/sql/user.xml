@@ -4,4 +4,12 @@
 	<select id="select" parameterType="hashmap" resultType="hashmap">
 		select * from user where sso = ${sso}
 	</select>
+	
+	<select id="selectSSO" parameterType="hashmap" resultType="hashmap">
+		SELECT COUNT(*) AS state FROM user WHERE sso = #{sso}
+	</select>
+	
+	<insert id="insertUser" parameterType="hashmap">
+		INSERT INTO user (`name`, `sso`) VALUES (#{name}, #{sso});
+	</insert>
 </mapper>

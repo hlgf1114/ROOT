@@ -1,6 +1,60 @@
 var app = angular.module('todo', []);
 
-app.controller('TodoCtrl', function($scope, $http) {
+app.controller('DetailCtrl', function($scope, $http) {
+	
+	$scope.getPost = function() {
+		var href = location.href;
+		var params = href.substring(href.indexOf("?") + 1, href.length);
+		var value = params.split("=")[1];
+		$scope.params = {
+				post_num : value
+		};
+		console.log($scope.params);
+		
+		$scope.boardData = {};
+		
+		$http({method: 'POST', url:"/Board/Select", params: $scope.params})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.boardData = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.getPost();
+	
+	$scope.fileDownload = function(){
+		var link = document.createElement("a");
+	    link.download = $scope.boardData.file_name;
+	    link.href = "http://xorms2485.cafe24.com/" + $scope.boardData.url;
+	    link.target = "_blank";
+	    link.click();
+	}
+	
+	
+	$scope.myPage = function(){
+		location.href = "/mypage";
+	}
+	
+	$scope.homePage = function(){
+		location.href = "/main";
+	}
+	
+    
+	
+});
+
+app.controller('WriteCtrl', function($scope, $http) {
+	
+	$scope.myPage = function(){
+		location.href = "/mypage";
+	}
+	
+	$scope.homePage = function(){
+		location.href = "/main";
+	}
+	
     
 	$scope.todo=
 	      {
@@ -51,7 +105,12 @@ app.controller('TodoCtrl', function($scope, $http) {
 		
 		$http({method: 'POST', url:"/Board/Insert", params: data})
 		.success(function (data, status, headers, config) {
-			console.log(data);			
+			console.log(data);
+			if(data.state == 1){
+				$scope.homePage();
+			} else {
+				alert("저장 실패!!");
+			}
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);

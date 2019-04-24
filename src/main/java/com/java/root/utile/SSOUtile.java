@@ -9,7 +9,13 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
+
 public class SSOUtile {
+	
 
 	/*********************************************
 	 * 카카오 로그인
@@ -19,7 +25,6 @@ public class SSOUtile {
 	 *  - 토큰 요청
 	 *  - 사용자 정보
 	 *********************************************/
-	
 	private static final String kakaoClientId = "a20855d3024b15636c42807d5201bede"; //애플리케이션 클라이언트 아이디값";
 	private static String kakaoRedirectURI = "http://%s/KakaoBack";
 	
@@ -61,7 +66,7 @@ public class SSOUtile {
 	}
 	
 	public static HashMap<String, Object> getKakaoUser(HttpServletRequest req){
-		HashMap<String, Object> user = new HashMap<String, Object>();
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		String apiURL = "";
 		try {
 			// token key 요청
@@ -85,23 +90,29 @@ public class SSOUtile {
 		    while(iterator.hasNext()) {
 		    	String key = iterator.next();
 		    	String value = returnMap.get(key).toString();
-		    	user.put(key, value);
-//		    	if("properties".equals(key)) {
-//		    		JSONObject jo = JSONObject.fromObject(JSONSerializer.toJSON(value));
-//		    		Iterator<String> iter = jo.keys();
-//		    		while(iter.hasNext()) {
-//		    			String name = iter.next();
-//		    			String text = jo.getString(name);
-//		    			meMap.put(name, text);
-//		    		}
-//		    	}
+		    	if("id".equals(key)) {
+		    		paramMap.put("sso", value);
+		    	}
+		    	if("properties".equals(key)) {
+		    		JSONObject jo = JSONObject.fromObject(JSONSerializer.toJSON(value));
+		    		Iterator<String> iter = jo.keys();
+		    		while(iter.hasNext()) {
+		    			String name = iter.next();
+		    			String text = jo.getString(name);
+//		    			System.out.println(name + " : " + text);
+		    			if("nickname".equals(name)) {
+		    				paramMap.put("name", text);
+		    				break;
+		    			}
+		    		}
+		    	}
 		    }
 		    
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return user;
+		return paramMap;
 	}
 	
 	public static HashMap<String, Object> getNaverUser(HttpServletRequest req){

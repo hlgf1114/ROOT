@@ -13,11 +13,11 @@
     
 </head>
 
-<body data-ng-app="todo" data-ng-controller="TodoCtrl">
+<body data-ng-app="todo" data-ng-controller="WriteCtrl">
 
 	<header>
-	    <button type="button" class="btn btn-primary ">마이 페이지</button>
-	    <button type="button" class="btn btn-primary ">홈으로 가기</button>
+	    <button type="button" class="btn btn-primary " data-ng-click="myPage()">마이 페이지</button>
+	    <button type="button" class="btn btn-primary " data-ng-click="homePage()">홈으로 가기</button>
     </header>
 
     <section>

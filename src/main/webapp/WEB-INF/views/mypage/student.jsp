@@ -113,7 +113,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="mypost in myPostList">
+							<tr ng-repeat="mypost in myPostList" data-ng-click="myPostSelect(mypost)">
 								<th scope="row">{{mypost.post_num}}</th>
 								<td>{{mypost.post_name}}</td>
 								<td>{{mypost.postDate}}</td>

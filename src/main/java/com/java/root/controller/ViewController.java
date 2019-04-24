@@ -1,5 +1,7 @@
 package com.java.root.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -31,19 +33,19 @@ public class ViewController {
 		}		
 	}
 	
-	@RequestMapping(value = "/mypage/professor", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
 	public String mypage_professor(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
-			return "mypage/professor";
-		}else {
-			return "redirect:/login";
-		}
-	}
-	
-	@RequestMapping(value = "/mypage/student", method = RequestMethod.GET)
-	public String mypage_student(HttpSession session) {
-		if(SessionUtile.checkSession(session)) {
-			return "mypage/student";
+			HashMap<String, Object> userMap = SessionUtile.getSession(session);
+			int authorization = (int) userMap.get("authorization");
+			
+			if(authorization == 0) {
+				return "mypage/student";
+			}else if(authorization == 1) {
+				return "mypage/professor";
+			}else {
+				return "redirect:/login";
+			}
 		}else {
 			return "redirect:/login";
 		}

@@ -4,18 +4,46 @@ var mainPage2 = angular.module('Main', []);
 
 mainPage2.controller('MainCtrl', function($scope, $http) {
 	
+	$scope.params = {
+			index : 0
+	};
 	
-	 $scope.getMainList = function() {
-			$http({method: 'GET', url:"/main/postSelectAll"})
+	 $scope.getMainSelect = function() {
+			$http({method: 'POST', url:"/main/postSelect", params: $scope.params})
 			.success(function (data, status, headers, config) {
-				$scope.MainList = data;
 				console.log(data);
+				$scope.MainList = data.resultList;
+				$scope.TeamList = data.teamList;
+				$scope.pagingList = [];
+				var pageSize = Math.ceil(data.totMap.tot / 5);
+				for(var i = 0; i < pageSize; i++){
+					$scope.pagingList[i] = (i + 1);
+				}
 			})
 			.error(function (data, status, header, config) {
 				console.log(data);
 			});
+	}
+	 
+	$scope.getMainSelect();
+	
+	$scope.pagingEvent = function(page){
+		var index = (page - 1) * 5;
+		$scope.params.index = index;
+		$scope.getMainSelect();
+	}
+	
+	$scope.teamEvent = function(team){
+		$scope.params = {index : 0};
+		if(team != null){
+			$scope.params.team_id = team.team_id;
 		}
-		$scope.getMainList();
+		$scope.getMainSelect();
+	}
+	
+	$scope.postEvent = function(row){
+		location.href = "/board/detail?post_num=" + row.post_num;
+	}
 	    
 		$scope.a = function(){
 	    	location.href = "/board/detail";
@@ -24,6 +52,15 @@ mainPage2.controller('MainCtrl', function($scope, $http) {
 		$scope.relocated_board = function(){
 	    	location.href = "/board/write";
 	    }
+		
+		$scope.relocated_mypage = function() {
+			location.href = "/mypage";
+		}
+		
+		$scope.logout = function(){
+	    	location.href = "/Logout";
+	    }
+		
 });
 
 
@@ -178,11 +215,6 @@ mainPage.controller('SearchData', function($scope) {
     };
     	
 	
-    $scope.relocated_mypage = function() {
-
-		window.location = "ProfessorMypage1_2.html";
-	}
-    
     /*$scope.filteredTodos = []
     ,$scope.currentPage = 1
     ,$scope.numPerPage = 10
@@ -204,9 +236,7 @@ mainPage.controller('SearchData', function($scope) {
     }); 페이지네이션모듈*/
   
     
-    $scope.logout = function(){
-    	location.href = "/Logout";
-    }
+    
     
     $scope.relocated_board = function(){
     	location.href = "/board/write";

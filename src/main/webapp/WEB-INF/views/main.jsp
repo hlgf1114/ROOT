@@ -32,36 +32,9 @@
 	<section>
 		<div id="searchGroup">
 		<div class="SearchSelect1">
-			<form name="searchTeam">
-			<button type="button" class="btn btn-info" data-ng-click="setTeamFilter({team:'1'})">1조</button>
-			<button type="button" class="btn btn-info" data-ng-click="setTeamFilter({team:'2'})">2조</button>
-			<button type="button" class="btn btn-info" data-ng-click="setTeamFilter({team:'3'})">3조</button>
-			</form>
+			<button type="button" class="btn btn-info" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>
+			<button type="button" class="btn btn-info" data-ng-click="teamEvent()">전체보기</button>
 		</div>
-		
-		<div class="SearchSelect2">
-			<form name="orderSelecter">
-			<!--  <button type="button" class="btn btn-info">날짜순</button>-->
-			<button type="button" class="btn btn-info" data-ng-click="setNameSort('title')" ><span data-ng-show="propertyName==='name'" data-ng-class="{reverse:reverse}"></span>제목 이름순</button>
-			
-			<!--  <button type="button" class="btn btn-info">수정순</button>-->
-			</form>
-		</div>
-		
-		<div class="SearchSelect3">
-			<form name="sectionSelecter">
-			<button type="button" class="btn btn-primary" data-ng-click="setDocFilter({docType:'회의록'})">회의록</button>
-			<button type="button" class="btn btn-primary" data-ng-click="setDocFilter({docType:'발표자료'})">발표자료</button>
-			<button type="button" class="btn btn-primary" data-ng-click="setDocFilter({docType:'중간평가'})">중간평가</button>
-			<button type="button" class="btn btn-primary" data-ng-click="setDocFilter({docType:'기말평가'})">기말평가</button>
-			<button type="button" class="btn btn-primary" data-ng-click="setDocFilter({docType:'총평가'})">총평가</button>
-			<button type="button" class="btn btn-primary" data-ng-click="setDocFilter({docType:'제안평가'})">제안평가</button>	 
-			</form>
-		</div>
-		<div class="SearchReload">
-		<button type="button" class="btn btn-primary" data-ng-click="setAllFilter({docType:''},{team:''}, {page:''})">전체보기</button>
-		</div>
-		
 		
 		<div class="SearchResult">
 		<form name="ResultForm">
@@ -73,21 +46,12 @@
 				<td>시간</td>
 				
 			</tr>
-<!-- 			<tr class="active" dir-paginate="MainResult in data | itemsPerPage:5 | filter:docFilter | filter:uploaderFilter | filter:teamFilter | filter:allFilter |  -->
-<!-- 			filter:pageFilter | orderBy:propertyName:reverse" > -->
 			
-<!-- 				<td>{{info.post_num}}조</td> -->
-<!-- 				<td>{{MainResult.user}}</td> -->
-<!-- 				<td>{{MainResult.title}}</td> -->
-<!-- 				<td>{{MainResult.uploadDate}}</td> -->
-				
-<!-- 			</tr> -->
-			<tr data-ng-repeat="list in MainList" data-ng-click="a()">
-				<th scope="row">{{list.post_name}}</th>
-				<td>{{list.post_num}}</td>
-				<td>{{list.name}}</td>
-				<td>{{list.postDate}}</td>
-				
+			<tr data-ng-repeat="row in MainList" data-ng-click="postEvent(row)">
+				<th scope="row">{{row.post_name}}</th>
+				<td>{{row.team_name}}</td>
+				<td>{{row.name}}</td>
+				<td>{{row.postDate}}</td>
 			</tr>
 				<!--  <tr>
 					<td>올린이</td><td>제목</td><td>시간</td><td>다운로드</td>
@@ -99,31 +63,21 @@
 		</div>
 	</section>
     <footer>
-	    <!--  <nav aria-label="Page navigation">
+	    <nav aria-label="Page navigation">
 		    <ul class="pagination">
 			    <li>
 				    <a href="#" aria-label="Previous">
 				    	<span aria-hidden="true">&laquo;</span>
 				    </a>
 			    </li>
-			    <li><a ng-click="setPageFilter({page:'1'})">1</a></li>
-			    <li><a ng-click="setPageFilter({page:'2'})">2</a></li>
-			    <li><a ng-click="numOfPages()">3</a></li>
-			    <li><a href="#">4</a></li>
-			    <li><a href="#">5</a></li>
+			    <li data-ng-repeat="page in pagingList"><a data-ng-click="pagingEvent(page)">{{page}}</a></li>
 			    <li>
 				    <a href="#" aria-label="Next">
 				    <span aria-hidden="true">&raquo;</span>
 				    </a>
 			    </li>
 		    </ul>
-	    </nav>-->
-	    <dir-pagination-controls
-	    max-size="5"
-	    direction-links="true"
-	    boundary-links="true">
-	    </dir-pagination-controls>
-	    
+	    </nav>
     </footer>
     </body>
 </html>
