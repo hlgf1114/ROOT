@@ -101,6 +101,44 @@ public class MypageController {
 		}
 	}
 	
+	@RequestMapping(value = "/mypage/myPostSelect", method = RequestMethod.GET)
+	public void myPostSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+			List<HashMap<String, Object>> resultMapList = session.selectList("mypage.myPostSelect", userMap);
+			System.out.println(resultMapList);
+			HttpUtile.printJsonList(resp, resultMapList);
+		} else {
+
+		}
+	}
+	
+	@RequestMapping(value = "/mypage/chooseTeamStudent", method = RequestMethod.GET)
+	public void chooseTeamStudent(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			int state = session.update("mypage.chooseTeamStudent", paramMap);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}else {
+			
+		}
+	}
+	
+	@RequestMapping(value = "/mypage/deleteTeamStudent", method = RequestMethod.GET)
+	public void deleteTeamStudent(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			int state = session.update("mypage.deleteTeamStudent", paramMap);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}else {
+			
+		}
+	}
+	
 	// 준혁형 코드 아래부터
 	@RequestMapping(value="/mypage/profSelect", method=RequestMethod.GET)
 	public void profSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {

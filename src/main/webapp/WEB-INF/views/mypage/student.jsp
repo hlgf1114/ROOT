@@ -58,7 +58,7 @@
 				data-toggle="tab" href="#privateInfo">개인정보</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
-			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+			<li class="nav-item" ng-hide="teamLeaderYN"><a class="nav-link" data-toggle="tab"
 				href="#set-team">팀 관리</a></li>
 		</ul>
 		<button id="mypagebtn" type="button" class="btn btn-primary"
@@ -113,10 +113,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="student in info">
-								<th scope="row">1</th>
-								<td>1</td>
-								<td>1</td>
+							<tr ng-repeat="mypost in myPostList">
+								<th scope="row">{{mypost.post_num}}</th>
+								<td>{{mypost.post_name}}</td>
+								<td>{{mypost.postDate}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -160,12 +160,14 @@
 								<tr>
 									<th scope="col">고유 번호</th>
 									<th scope="col">이름</th>
+									<th scope="col">팀원 삭제 </th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr ng-repeat="members in teamMembers">
 									<th scope="row">{{members.uni_num}}</th>
 									<td>{{members.name}}</td>
+									<td><button type="button" class="btn btn-danger" data-ng-click="deleteTeamStudent(members)">삭제</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -192,11 +194,11 @@
 									<tr ng-repeat="list in stdList">
 										<th scope="row">{{list.uni_num}}</th>
 										<td>{{list.name}}</td>
-										<td><input type="checkbox" /></td>
+										<td><button type="button" class="btn btn-primary" data-ng-click="chooseTeamStudent(list)">적용</button></td>
 									</tr>
 								</tbody>
 							</table>
-							<button type="button" class="btn btn-primary">적용</button>
+							<button type="button" class="btn btn-primary" data-ng-click="chooseTeamStudent()">적용</button>
 							<br /> <br />
 						</div>
 					</div>

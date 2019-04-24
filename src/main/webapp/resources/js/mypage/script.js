@@ -3,6 +3,7 @@ var mypage = angular.module('student', []);
 mypage.controller('StdCtrl', function($scope, $http) {
 	
 	$scope.stdList = {};
+	$scope.info = {};
 
 	$scope.getData = function(){
 		$http({method: 'GET', url:"/mypage/studentSelect"})
@@ -65,6 +66,42 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		});
 	}
 	$scope.stdScore();
+	
+	$scope.myPostSelect = function() {
+		$http({method: 'GET', url:"/mypage/myPostSelect", params: $scope.info})
+		.success(function (data, status, headers, config) {
+			$scope.myPostList = data;
+			console.log($scope.myPostList);
+		})
+	}
+	$scope.myPostSelect();
+	
+//	$scope.selectedStd = {};
+	$scope.chooseTeamStudent = function(list) {
+		list.team_id = $scope.info.team_id;
+		$http({method: 'GET', url:"/mypage/chooseTeamStudent", params: list})
+		.success(function (data, status, headers, config) {
+			console.log(list);
+		})
+	}
+	
+	$scope.deleteTeamStudent = function(members) {
+		$http({method: "GET", url:"/mypage/deleteTeamStudent", params: members})
+		.success(function (data, status, headers, config) {
+			console.log(members);
+			console.log(data);
+		})
+	}
+	
+	// 팀장만 팀 관리 탭이 보이도록 만들기
+	$scope.distTeamLeader = function(author) {
+		console.log(author);
+		console.log($scope.teamLeaderYn);
+		if (author == 1)
+			return true;
+		else
+			return false;
+	}
 	
 	$scope.teamStudent = function() {
 		$http({method: 'GET', url:"/mypage/teamStudent", params: $scope.info})

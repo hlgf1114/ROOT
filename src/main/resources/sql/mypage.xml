@@ -4,13 +4,15 @@
 	<select id="studentSelect" parameterType="hashmap"
 		resultType="hashmap">
 		select u.name,
+		u.authorization,
 		u.uni_num,
 		'Computer-Software' as dept,
 		t.team_name,
 		t.team_id
 		from user as u
 		left outer join team as t
-		on (u.team_id = t.team_id)
+		on
+		(u.team_id = t.team_id)
 		where uni_num = #{uni_num}
 	</select>
 
@@ -38,7 +40,8 @@
 		resultType="hashmap">
 		select score_mid, score_fin, score_team
 		from score
-		where uni_num = #{uni_num};
+		where
+		uni_num = #{uni_num};
 	</select>
 
 	<select id="teamSelect" parameterType="hashmap"
@@ -48,9 +51,28 @@
 		where team_id = #{team_id};
 	</select>
 
+	<select id="myPostSelect" parameterType="hashmap"
+		resultType="hashmap">
+		select post_num, post_name, date_format(postDate, "%Y %c/%e
+		%r") as postDate
+		from post
+		where uni_num = #{uni_num};
+	</select>
+
+	<update id="chooseTeamStudent" parameterType="hashmap">
+		update user set
+		team_id = #{team_id}
+		where uni_num = #{uni_num};
+	</update>
+
+	<update id="deleteTeamStudent" parameterType="hashmap">
+		update user set team_id = NULL
+		where uni_num = #{uni_num};
+	</update>
+
 	<!-- 준혁형 작업물 -->
 	<select id="profSelect" parameterType="hashmap"
 		resultType="hashmap">
-		SELECT name FROM user WHERE uni_num=#{uni_num};
+		SELECT name FROM user WHERE uni_num= #{uni_num};
 	</select>
 </mapper>
