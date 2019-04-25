@@ -32,7 +32,6 @@
               border-radius: 5px;
               color: #5050FF;
               display: block;
-              font-size: 1em;
               font-weight: bold;
             }
             #mypage{
@@ -43,9 +42,9 @@
             #title{
                 float: left;
                 height: 100%;
-                width: 40%;
+                width: 20%;
 				
-                margin: 25px 00px 00px;
+                margin: 25px 15px 00px;
             }
             #title2{
                 float :left;
@@ -68,7 +67,6 @@
               height:auto;
               background-color: #BDBDBD;
               margin: 00px 100px 00px;
-              font-size: 3em;
             }
             #text1{
                 float: left;
@@ -77,52 +75,7 @@
                 background-color: #ffffff;
                 margin: 0px 100px;
             }
-            #output{
             
-            fornt-size:"1em"
-            }
-            .filebox
-            {
-            
-            width: 20%;
-          	height: 100%;
-            display:inline;
-            float:  right;
-            margin: 25px 00px 00px;
-            }
-            .filebox2
-            {
-            background-color: #00fa9a;
-            width: 20%;
-          	height: 100%;
-            display:inline;
-            float:  right;
-            margin: 25px 00px 00px;
-            }
-           .filebox label
-           {
-            display: inline;
-            padding: .5em .75em;
-            color : #999;
-            font-size: inherit;
-            line-height: normal;
-            background-color: #fdfdfd;
-            cursor: pointer;
-            border: 1px solid #ebebeb;
-            border-bottom-color: #e2e2e2;
-            border-radius: .25em;
-			}
-            .filebox input[type="file"]
-            {  /* 파일 필드 숨기기 */
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip:rect(0,0,0,0);
-            border: 0;
-     		}
             .form-control
             {
             float: left;

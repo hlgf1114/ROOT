@@ -13,32 +13,27 @@
         <script src="/resources/js/MainViewSearchResult1_5.js"></script>
         <script src="/resources/js/dirPagination.js"></script>
     </head>
+    
+    
+    
     <body data-ng-app="Main" data-ng-controller="MainCtrl">
         <header>
-            <div id="search">
-				<br/>
-        			<div id=myPageButton>
-        			<button type="button" class="btn btn-default" data-ng-click="relocated_mypage()">마이페이지</button>
-        			<button type="button" class="btn btn-default" data-ng-click="relocated_board()">글쓰기</button>
-        			<button type="button" class="btn btn-default" data-ng-click="logout()">로그아웃</button>
-        			
-        			</div>
-        		<h1>MainView</h1>
-    		</div>
-			<div id="personalInformation">
-			<p id="userName">____님 안녕하세요.</p>
-			</div>
+       		<div id="but">
+       			<button type="button" class="btn btn-primary" id = "bit1" data-ng-click="relocated_mypage()">마이페이지</button>
+       			<button type="button" class="btn btn-success" id = "bit2" data-ng-click="relocated_board()">글쓰기</button>
+       			<button type="button" class="btn btn-danger" id = "bit3" data-ng-click="logout()">로그아웃</button>
+       		</div>
+			<div id = "nsu">남서울 대학교 졸작 메인 페이지</div>
+			<div id = "my">OOO님 환영합니다.</div>
         </header>
-	<section>
-		<div id="searchGroup">
-		<div class="SearchSelect1">
-			<button type="button" class="btn btn-info" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>
-			<button type="button" class="btn btn-info" data-ng-click="teamEvent()">전체보기</button>
+        <div id = "form">
+		<section>
+		<div id="team">
+			<button type="button" class="btn btn-info" id = "bit4" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>
+			<button type="button" class="btn btn-info" id = "bit5" data-ng-click="teamEvent()">전체보기</button>
 		</div>
 		
-		<div class="SearchResult">
-		<form name="ResultForm">
-			<table class="table table-hover" border="1">
+			<table class="table table-bordered" border="1">
 			<tr class="active">
 				<td>제목</td>
 				<td>팀</td>
@@ -53,17 +48,10 @@
 				<td>{{row.name}}</td>
 				<td>{{row.postDate}}</td>
 			</tr>
-				<!--  <tr>
-					<td>올린이</td><td>제목</td><td>시간</td><td>다운로드</td>
-				</tr>-->
 			</table>
-		</form>
 		
-	</div>
-		</div>
 	</section>
     <footer>
-	    <nav aria-label="Page navigation">
 		    <ul class="pagination">
 			    <li>
 				    <a href="#" aria-label="Previous">
@@ -77,7 +65,7 @@
 				    </a>
 			    </li>
 		    </ul>
-	    </nav>
     </footer>
+    </div>
     </body>
 </html>

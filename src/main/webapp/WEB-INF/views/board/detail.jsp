@@ -19,13 +19,13 @@
     </header>
 
     <section>
-        <nav>
-        
-			<div id = "title" >{{boardData.post_name}}</div>
-            <div id = "title1">{{boardData.name}}</div>
-            <div class="filebox" data-ng-if="boardData.file_name != ''" data-ng-click="fileDownload()">{{boardData.file_name}} 파일 다운로드</div>
-            <div id = "title2" >{{boardData.postDate}}</div>
-        </nav>
+    	<div id= "postInfo">
+			<div id = "title" >게시글 제목 : {{boardData.post_name}}</div>
+            <div id = "title1">작성자 : {{boardData.name}}</div>
+            <div id = "title2" >작성일 : {{boardData.postDate}}</div>
+		</div>
+		<br/>
+		<button type="button" class="btn btn-success btn-sm" id = "sm" data-ng-if="boardData.file_name != ''" data-ng-click="fileDownload()">{{boardData.file_name}} 파일 다운로드</button>
         
         <hr style="border: solid 1px Black; width: 100%; height: 1px;">   
         
