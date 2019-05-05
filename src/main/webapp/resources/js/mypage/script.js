@@ -93,16 +93,6 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		})
 	}
 	
-	// 팀장만 팀 관리 탭이 보이도록 만들기
-	$scope.distTeamLeader = function(author) {
-		console.log(author);
-		console.log($scope.teamLeaderYn);
-		if (author == 1)
-			return true;
-		else
-			return false;
-	}
-	
 	$scope.teamStudent = function() {
 		$http({method: 'GET', url:"/mypage/teamStudent", params: $scope.info})
 		.success(function (data, status, headers, config) {
@@ -114,6 +104,16 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		});
 	}
 	$scope.teamStudent();
+	
+	// 권한에 따라  팀 관리탭 비활성화
+	$scope.disableTab = function() {
+		if($scope.info.authorization == 1) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 	
 //	$scope.info = {
 //		name : '김승빈',

@@ -58,7 +58,7 @@
 				data-toggle="tab" href="#privateInfo">개인정보</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
-			<li class="nav-item" ng-hide="teamLeaderYN"><a class="nav-link" data-toggle="tab"
+			<li class="nav-item" ng-hide="disableTab()"><a class="nav-link" data-toggle="tab"
 				href="#set-team">팀 관리</a></li>
 		</ul>
 		<button id="mypagebtn" type="button" class="btn btn-primary"
