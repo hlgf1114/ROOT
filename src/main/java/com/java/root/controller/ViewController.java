@@ -69,10 +69,10 @@ public class ViewController {
 		}
 	}
 	
-	@RequestMapping(value = "/testing/write", method = RequestMethod.GET)
+	@RequestMapping(value = "/testing/evaluate", method = RequestMethod.GET)
 	public String testing_write(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
-			return "testing/write";
+			return "testing/evaluate";
 		}else {
 			return "redirect:/login";
 		}

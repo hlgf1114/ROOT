@@ -1,0 +1,56 @@
+html, body, head {
+    background-image: url("/resources/img/testing/img_bg.png");
+}
+
+li {
+    margin: 5px;
+}
+
+
+/*************** 
+class 관련 css 
+****************/
+.questionBox {
+    margin-left: calc((100vw - 60vw) / 2);
+    margin-top: 50px;
+    border: 2px solid grey;
+    max-width: 60vw;
+    text-align: center;
+    
+}
+
+
+/*************** 
+id 관련 css 
+****************/
+#form_name {
+    text-align: center;
+    font-size: 2em;
+}
+
+#selectedTeam {
+    position: relative;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    text-align: center;
+    background-color: white;
+}
+
+#main_check {
+    background-color: aliceblue;
+}
+
+#scoreEvalBox {
+	margin-left: calc((100vw - 70vw) / 2);
+	margin-top: 50px;
+	margin-bottom: 150px;
+	border: 2px solid yellow;
+    max-width: 70vw;
+    text-align: center;
+}
+
+#teamName {
+}
+
+#teamColleague {
+}
