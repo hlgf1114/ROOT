@@ -26,6 +26,7 @@
 					   </if>
 		) AS t
 		  ON (p.uni_num = t.uni_num)
+		  WHERE delYn = "N"
 		ORDER BY 1 desc
 		LIMIT ${index}, 5		
 	</select>
@@ -45,6 +46,7 @@
 					   		AND u.team_id = #{team_id}
 					   </if>
 					      )
+					      and delYn = "N"
 	</select>
 	
 	<select id="teamSelect" parameterType="hashmap" resultType="hashmap">

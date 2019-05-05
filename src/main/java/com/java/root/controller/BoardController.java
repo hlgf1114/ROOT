@@ -27,6 +27,9 @@ public class BoardController {
 	@Autowired
 	SqlSession session;
 	
+	/*********************
+	 *write.jsp functions*
+	 *********************/
 	@RequestMapping(value="/Board/Insert", method=RequestMethod.POST)
 	public void fileUpload(HttpServletRequest req, HttpServletResponse resp, HttpSession sess) {
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
@@ -52,6 +55,9 @@ public class BoardController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
+	/**********************
+	 *detail.jsp functions*
+	 **********************/
 	@RequestMapping(value="/Board/Select", method=RequestMethod.POST)
 	public void boardSelect(HttpServletRequest req, HttpServletResponse resp, HttpSession sess) {
 		if (SessionUtile.checkSession(sess)) {
@@ -61,6 +67,17 @@ public class BoardController {
 			HttpUtile.printJson(resp, resultMap);
 		} else {
 			
+		}
+	}
+	
+	@RequestMapping(value="/Board/Delete", method=RequestMethod.POST)
+	public void boardDelete(HttpServletRequest req, HttpServletResponse resp, HttpSession sess) {
+		if(SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			int state = session.update("board.boardDelete", paramMap);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			System.out.println("state: " + state);
+			HttpUtile.printJson(resp, resultMap);
 		}
 	}
 	

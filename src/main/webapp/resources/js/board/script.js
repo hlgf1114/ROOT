@@ -21,8 +21,24 @@ app.controller('DetailCtrl', function($scope, $http) {
 		.error(function (data, status, header, config) {
 			console.log(data);
 		});
+		
+		return value;
 	}
-	$scope.getPost();
+	$scope.post_num = $scope.getPost();
+	
+	$scope.boardDelete = function() {
+		// 해쉬맵으로 변환
+		var param = {post_num : $scope.post_num};
+		$http({method: 'POST', url:"/Board/Delete", params: param})
+		.success(function(data, status, headers, config) {
+			console.log("post_num" + $scope.post_num);
+			console.log(data);
+		})
+		.error(function(data, status, header, config) {
+			
+		});
+		location.href = "/main";
+	}
 	
 	$scope.fileDownload = function(){
 		var link = document.createElement("a");
