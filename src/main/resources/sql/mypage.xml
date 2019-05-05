@@ -56,7 +56,9 @@
 		select post_num, post_name, date_format(postDate, "%Y %c/%e
 		%r") as postDate
 		from post
-		where uni_num = #{uni_num};
+		where delYn ="N"
+		and
+		uni_num = #{uni_num};
 	</select>
 
 	<update id="chooseTeamStudent" parameterType="hashmap">
