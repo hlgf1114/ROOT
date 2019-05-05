@@ -150,7 +150,7 @@
 								aria-describedby="inputGroup-sizing-lg"
 								data-ng-model="info.team_name">
 							<button type="button" class="btn btn-warning"
-								data-ng-click="te()">변경</button>
+								data-ng-click="renameTeam()">변경</button>
 						</div>
 					</div>
 					<div>

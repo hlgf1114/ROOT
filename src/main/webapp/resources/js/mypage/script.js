@@ -19,15 +19,19 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	
 	$scope.getData();
 	
-	$scope.te = function(){
-		$http({method: 'POST', url:"/mypage/renameTeam", params: $scope.info})
-		.success(function (data, status, headers, config) {
-			console.log($scope.info);
-			console.log(data);
-		})
-		.error(function (data, status, header, config) {
-			console.log(data);
-		});
+	$scope.renameTeam = function(){
+		var selected = confirm("정말로 팀명을 변경하시겠습니까?")
+		if(selected) {
+			$http({method: 'POST', url:"/mypage/renameTeam", params: $scope.info})
+			.success(function (data, status, headers, config) {
+				console.log($scope.info);
+				console.log(data);
+				location.href = "/mypage"
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+		}
 	}
 	
 	$scope.getStdList = function() {
@@ -79,18 +83,26 @@ mypage.controller('StdCtrl', function($scope, $http) {
 //	$scope.selectedStd = {};
 	$scope.chooseTeamStudent = function(list) {
 		list.team_id = $scope.info.team_id;
-		$http({method: 'GET', url:"/mypage/chooseTeamStudent", params: list})
-		.success(function (data, status, headers, config) {
-			console.log(list);
-		})
+		var selected = confirm(list.name + "님을 팀원으로 허락하겠습니까?")
+		if(selected) {
+			$http({method: 'GET', url:"/mypage/chooseTeamStudent", params: list})
+			.success(function (data, status, headers, config) {
+				console.log(list);
+				location.href ="/mypage";
+			})
+		}
 	}
 	
 	$scope.deleteTeamStudent = function(members) {
-		$http({method: "GET", url:"/mypage/deleteTeamStudent", params: members})
-		.success(function (data, status, headers, config) {
-			console.log(members);
-			console.log(data);
-		})
+		var selected = confirm(members.name + "님을 정말로 팀에서 퇴출 시키시겠습니까?")
+		if(selected) {
+			$http({method: "GET", url:"/mypage/deleteTeamStudent", params: members})
+			.success(function (data, status, headers, config) {
+				console.log(members);
+				console.log(data);
+				location.href = "/mypage"
+			})
+		}
 	}
 	
 	$scope.teamStudent = function() {
