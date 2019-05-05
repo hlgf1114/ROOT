@@ -17,14 +17,16 @@
     
     
     <body data-ng-app="Main" data-ng-controller="MainCtrl">
+        <h2 id = "mainTitle">캡스톤 디자인 관리 시스템 메인 페이지</h2>
         <header>
        		<div id="but">
        			<button type="button" class="btn btn-primary" id = "bit1" data-ng-click="relocated_mypage()">마이페이지</button>
        			<button type="button" class="btn btn-success" id = "bit2" data-ng-click="relocated_board()">글쓰기</button>
        			<button type="button" class="btn btn-danger" id = "bit3" data-ng-click="logout()">로그아웃</button>
        		</div>
-			<div id = "nsu">남서울 대학교 졸작 메인 페이지</div>
-			<div id = "my">OOO님 환영합니다.</div>
+			<div id = "my">
+				<p id="welcomeId">{{info.name}}님 환영합니다.<p>
+			</div>
         </header>
         <div id = "form">
 		<section>
@@ -32,26 +34,27 @@
 			<button type="button" class="btn btn-info" id = "bit4" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>
 			<button type="button" class="btn btn-info" id = "bit5" data-ng-click="teamEvent()">전체보기</button>
 		</div>
-		
-			<table class="table table-bordered" border="1">
-			<tr class="active">
-				<td>제목</td>
-				<td>팀</td>
-				<td>올린이</td>
-				<td>시간</td>
-				
-			</tr>
-			
-			<tr data-ng-repeat="row in MainList" data-ng-click="postEvent(row)">
-				<th scope="row">{{row.post_name}}</th>
-				<td>{{row.team_name}}</td>
-				<td>{{row.name}}</td>
-				<td>{{row.postDate}}</td>
-			</tr>
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">제목</th>
+						<th scope="col">팀</th>
+						<th scope="col">올린이</th>
+						<th scope="col">시간</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="row in MainList" data-ng-click="postEvent(row)">
+						<td>{{row.post_name}}</th>
+						<td>{{row.team_name}}</td>
+						<td>{{row.name}}</td>
+						<td>{{row.postDate}}</td>
+					</tr>
+				</tbody>
 			</table>
-		
 	</section>
     <footer>
+   		<div id="pageNav">
 		    <ul class="pagination">
 			    <li>
 				    <a href="#" aria-label="Previous">
@@ -65,6 +68,7 @@
 				    </a>
 			    </li>
 		    </ul>
+	    </div>
     </footer>
     </div>
     </body>

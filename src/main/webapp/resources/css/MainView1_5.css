@@ -1,44 +1,55 @@
-html,body{
+body{
 	background-image: url('/resources/img/board/img_bg.png');
 	margin-top:  0px;
-	text-align: center;
 }
 header{
 	height: 100px;
 	width: 100%;
-	background: #ffffff;
+	background: white;
 	border-radius: 50px;
 	margin-top: 10px;
 	
 }
 section{
 	height: 700px;
-	width: 100%;
+	max-width: 1200px;
+	margin: auto;
 }
 
 footer {
 	width : auto;
 	margin-top: -400px;
 }
+
+#pageNav {
+	text-align: center;
+}
+
 #but{
-	width: 30%;
 	float: left;
-	margin-top: 40px;
+	margin-left: 50px;
+	transform: translateY(100%);
 }
 #my{
-	width: 20%;
-	float: left;
-	margin-top: 40px;
-	margin-left: 100px;
-	background: #feaa4a;
+	text-align: center;
+	width: 250px;
+	float: right;
+	transform: translateY(50%);
+	margin-right: 100px;
+	background-color: grey;
 	border-radius: 50px;
-	height: 30px;
+	color: white;
+	height: 50px;
 }
-#nsu{
-	width: 30%;
-	float: left;
-	margin-top: 40px;
+
+#welcomeId {
+	transform: translateY(75%);
 }
+
+#mainTitle {
+	text-align: center;
+}
+
 #bit1{
 	margin-left: 2.5px;
 	margin-right: 2.5px;
@@ -64,10 +75,10 @@ footer {
 	margin-right: 10px;
 	margin-top: 10px;
 }
-#form{
-	background: #c8c5c2;
-	border-radius: 50px;
-}
+/* #form{ */
+/* 	background: #c8c5c2; */
+/* 	border-radius: 50px; */
+/* } */
 #team{
 	margin-top: 10px;
 	margin-left: 20px;
