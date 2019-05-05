@@ -2,6 +2,23 @@ var app = angular.module('todo', []);
 
 app.controller('DetailCtrl', function($scope, $http) {
 	
+	$scope.info = {};
+
+	$scope.getData = function(){
+		$http({method: 'GET', url:"/mypage/studentSelect"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.info = data;	
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+			$scope.info= {};
+		});
+	}
+	$scope.getData();
+	
+	
+	$scope.boardData = {};
 	$scope.getPost = function() {
 		var href = location.href;
 		var params = href.substring(href.indexOf("?") + 1, href.length);
@@ -10,8 +27,6 @@ app.controller('DetailCtrl', function($scope, $http) {
 				post_num : value
 		};
 		console.log($scope.params);
-		
-		$scope.boardData = {};
 		
 		$http({method: 'POST', url:"/Board/Select", params: $scope.params})
 		.success(function (data, status, headers, config) {
@@ -27,17 +42,20 @@ app.controller('DetailCtrl', function($scope, $http) {
 	$scope.post_num = $scope.getPost();
 	
 	$scope.boardDelete = function() {
-		// 해쉬맵으로 변환
-		var param = {post_num : $scope.post_num};
-		$http({method: 'POST', url:"/Board/Delete", params: param})
-		.success(function(data, status, headers, config) {
-			console.log("post_num" + $scope.post_num);
-			console.log(data);
-		})
-		.error(function(data, status, header, config) {
-			
-		});
-		location.href = "/main";
+		if($scope.boardData.uni_num == $scope.info.uni_num) {
+			$http({method: 'POST', url:"/Board/Delete", params: $scope.boardData})
+			.success(function(data, status, headers, config) {
+				console.log("post_num" + $scope.post_num);
+				console.log(data);
+			})
+			.error(function(data, status, header, config) {
+				
+			});
+			location.href = "/main";
+		}
+		else {
+			alert("작성자만 게시글을 삭제할 수 있습니다.");
+		}
 	}
 	
 	$scope.fileDownload = function(){

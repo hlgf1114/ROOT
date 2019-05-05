@@ -16,7 +16,6 @@ mypage.controller('StdCtrl', function($scope, $http) {
 			$scope.info= {};
 		});
 	}
-	
 	$scope.getData();
 	
 	$scope.renameTeam = function(){
