@@ -35,7 +35,8 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	}
 	
 	$scope.getStdList = function() {
-		$http({method: 'GET', url:"/mypage/studentSelectAll"})
+		var param = {team_id : $scope.info.team_id};
+		$http({method: 'GET', url:"/mypage/studentSelectAll", params: param})
 		.success(function (data, status, headers, config) {
 			$scope.stdList = data;
 			console.log(data);
