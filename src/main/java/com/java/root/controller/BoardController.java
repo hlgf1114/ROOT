@@ -19,7 +19,7 @@ import com.java.root.utile.HttpUtile;
 import com.java.root.utile.SessionUtile;
 
 @Controller
-public class BoradController {
+public class BoardController {
 
 	@Autowired
 	BoardServiceInterface bsi;
