@@ -17,7 +17,7 @@
     <script src="/resources/js/testing/evaluate.js"></script>
 </head>
 
-<body ng-app="scoreEval" ng-controller="ScoreCtrl">
+<body data-ng-app="scoreEval" data-ng-controller="ScoreCtrl">
 	<br/>
     <p id="form_name">졸업 작품 심사서</p>
     <div id="selectedTeam">
