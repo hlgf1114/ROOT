@@ -27,11 +27,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="card-body">
-						<h5 class="card-title">안녕하세요! {{profData.name}}교수님!</h5>
-						<!--  <p class="card-text">전공학과: {{info.dept}}</p>-->
-						<p class="card-text">
-							<small class="text-muted">{{loginDate | date:"yyyy-MM-dd HH:mm:ss"}}</small>
-						</p>
+						<h5 class="card-title">안녕하세요! {{info.name}}교수님!</h5>
 					</div>
 				</div>
 			</div>
@@ -47,53 +43,31 @@
 	<div class="main">
 		<ul class="nav nav-tabs justify-content-center">
 			<li class="nav-item"><a class="nav-link active"
-				data-toggle="tab" href="#privateInfo">팀 정보</a></li>
+				data-toggle="tab" href="#teamInfo">팀 정보</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
 		</ul>
 		<button id="mypagebtn" type="button" class="btn btn-primary"
 			data-ng-click="relocated_mainView()">메인 페이지로 돌아가기</button>
-		<button type="button" class="btn btn-info" id="testPlan">평가 계획서 설정</button>
+		<button id="testPlan" type="button" class="btn btn-info">평가 계획서 설정</button>
 		<!-- 탭 내용 -->
 		<div class="tab-content">
-			<div id="privateInfo" class="tab-pane active">
-				<!--  <button type="button" class="btn btn-warning">개인정보 수정</button>
-				<br> <br>
-				<h1>개인 정보</h1>
-				<br> <br> <br>
-				<p>ssd</p>-->
-				<table class="table table-bordered" border="1">
-                <tr class="info">
-					<td>이름</td>
-					<td>학번</td>
-					<td>팀</td>
-					<td>중간평가</td>
-					<td>최종평가</td>
-				</tr>
-				<tr class="info" data-ng-repeat="student in data | filter:teamFilter">
-					<td>{{student.name}}</td>
-					<td>{{student.stdnum}}</td>
-					<td>{{student.team}}</td>
-					<td>{{student.midEx}}</td>
-					<td>{{student.finEx}}</td>
-				</tr>
-				</table>
-				
-				<table class="table table-bordered" border="1">
-				<tr class="info">
-					<td>1조 팀점수</td>
-					<td>3조 팀점수</td>
-					<td>5조 팀점수</td>
-					<td>6조 팀점수</td>
-					<td>7조 팀점수</td>
-				</tr>
-				<tr class="info" >
-					<td>{{teamScore.team1}}</td>
-					<td>{{teamScore.team3}}</td>
-					<td>{{teamScore.team5}}</td>
-					<td>{{teamScore.team6}}</td>
-					<td>{{teamScore.team7}}</td>
-				</tr>
+			<div id="teamInfo" class="tab-pane active">
+				<table class="table">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th scope="col">팀 이름</th>
+				      <th scope="col">평가 점수</th>
+				      <th scope="col">합격 여부</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr data-ng-repeat="team in teamList">
+				      <th scope="row">{{team.team_name}}</th>
+				      <td>{{team.team_score}}</td>
+				      <td>{{team.yesNo}}</td>
+				    </tr>
+				  </tbody>
 				</table>
 			</div>
 			<div id="whatupost" class="tab-pane">

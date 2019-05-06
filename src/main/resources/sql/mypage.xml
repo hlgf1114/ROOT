@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
+	<!-- student.jsp -->
 	<select id="studentSelect" parameterType="hashmap"
 		resultType="hashmap">
 		select u.name,
@@ -74,9 +75,8 @@
 		where uni_num = #{uni_num};
 	</update>
 
-	<!-- 준혁형 작업물 -->
-	<select id="profSelect" parameterType="hashmap"
-		resultType="hashmap">
-		SELECT name FROM user WHERE uni_num= #{uni_num};
+	<!-- professor.jsp -->
+	<select id="profTeamSelect" parameterType="hashmap" resultType="hashmap">
+		select team_id, team_name from team where charge_prof = #{uni_num};
 	</select>
 </mapper>

@@ -25,7 +25,11 @@ public class MypageController {
 
 	@Autowired
 	SqlSession session;
-
+	
+	
+	/******************
+	 * student.jsp 기능 *
+	 * ****************/
 	@RequestMapping(value = "/mypage/studentSelect", method = RequestMethod.GET)
 	public void studentSelect(HttpSession sess, HttpServletResponse resp) {
 		if (SessionUtile.checkSession(sess)) {
@@ -139,13 +143,23 @@ public class MypageController {
 		}
 	}
 	
-	// 준혁형 코드 아래부터
-	@RequestMapping(value="/mypage/profSelect", method=RequestMethod.GET)
-	public void profSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
-		HashMap<String, Object> userMap = SessionUtile.getSession(sess);
-		HashMap<String, Object> resultMap = session.selectOne("mypage.profSelect", userMap);
-		System.out.println(resultMap);
-		HttpUtile.printJson(resp, resultMap);
+	/********************
+	 * professor.jsp 기능 *
+	 * ******************/
+//	@RequestMapping(value="/mypage/profSelect", method=RequestMethod.GET)
+//	public void profSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+//		HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+//		HashMap<String, Object> resultMap = session.selectOne("mypage.profSelect", userMap);
+//		System.out.println(resultMap);
+//		HttpUtile.printJson(resp, resultMap);
+//	}
+	
+	@RequestMapping(value ="/mypage/profTeamSelect", method=RequestMethod.GET)
+	public void profTeamSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> getProfTeams = session.selectList("mypage.profTeamSelect", paramMap);
+		System.out.println(getProfTeams);
+		HttpUtile.printJsonList(resp, getProfTeams);
 	}
 
 }

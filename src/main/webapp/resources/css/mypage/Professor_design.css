@@ -77,11 +77,15 @@ footer {
 	border:
 }
 
-#privateInfo, #whatupost {
+#teamInfo, #whatupost {
 	text-align: center;
 	margin: 50px;
 }
 
 #mypagebtn {
+	margin: 10px;
+}
+
+#testPlan {
 	margin: 10px;
 }

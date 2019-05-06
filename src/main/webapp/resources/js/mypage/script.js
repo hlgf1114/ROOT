@@ -153,25 +153,39 @@ mypage.controller('StdCtrl', function($scope, $http) {
 
 mypage.controller('ProfCtrl', function($scope, $http) {
 	
-//	// 개인정보를 세션에서 가져온다
-//	$scope.info = {};
-//	$scope.getData = function(){
-//		$http({method: 'GET', url:"/mypage/studentSelect"})
-//		.success(function (data, status, headers, config) {
-//			console.log(data);
-//			$scope.info = data;	
-//		})
-//		.error(function (data, status, header, config) {
-//			console.log(data);
-//			$scope.info= {};
-//		});
-//	}
-//	$scope.getData();
-//	 
+	// 개인정보를 세션에서 가져온다
+	$scope.info = {};
+	$scope.getData = function(){
+		$http({method: 'GET', url:"/mypage/studentSelect"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.info = data;	
+			$scope.getTeamData();
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+			$scope.info= {};
+		});
+	}
+	$scope.getData();
+	 
+	// 교수님이 맡은 팀 정보를 가져온다.
+	$scope.teamList = {};
+	$scope.getTeamData = function() {
+		$http({method: 'GET', url: "/mypage/profTeamSelect", params: $scope.info})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.teamList = data;
+		})
+		.error(function (data, status, header, config) {
+			
+		});
+	}
 	
 	$scope.relocated_mainView = function() {
 		location.href = "/main";
 	}
+	
 	
 	
 });
