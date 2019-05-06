@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="testing">
+	<select id="testDB" resultType="hashmap">
+		select 1 as data
+	</select>
+	
+	<insert id="sendEval" parameterType="hashmap">
+		insert into eval_article(uni_num, team_id, article1, article2, article3, article4, article5, article6, article7, 
+		article_opinion1, article_opinion2, article_opinion3, article_opinion4, article_opinion5, article_opinion6, article_opinion7)
+ 		values(${uni_num}, #{team_id}, #{article1}, #{article2}, #{article3}, #{article4}, #{article5}, #{article6},
+ 		#{article7}, #{article_opinion1}, #{article_opinion2}, #{article_opinion3}, #{article_opinion4},
+ 		#{article_opinion5}, #{article_opinion6}, #{article_opinion7})
+	</insert>
+</mapper>
