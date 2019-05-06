@@ -150,3 +150,28 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	}
 
 });
+
+mypage.controller('ProfCtrl', function($scope, $http) {
+	
+//	// 개인정보를 세션에서 가져온다
+//	$scope.info = {};
+//	$scope.getData = function(){
+//		$http({method: 'GET', url:"/mypage/studentSelect"})
+//		.success(function (data, status, headers, config) {
+//			console.log(data);
+//			$scope.info = data;	
+//		})
+//		.error(function (data, status, header, config) {
+//			console.log(data);
+//			$scope.info= {};
+//		});
+//	}
+//	$scope.getData();
+//	 
+	
+	$scope.relocated_mainView = function() {
+		location.href = "/main";
+	}
+	
+	
+});

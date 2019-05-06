@@ -21,7 +21,7 @@ footer {
 	bottom: 0;
 	width: 100;
 }
-
+ 
 /* this page's css */
 #logo_image_wrapper {
 	position: relative;
@@ -51,7 +51,12 @@ footer {
 	width: 150px;
 }
 
-#testCustom{float:right;}
+#testPlan{
+	position: relative;
+	float:right;
+	margin-right: 100px;
+
+}
 
 #profile_info {
 	margin-top: 20px;

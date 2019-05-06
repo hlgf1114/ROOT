@@ -5,9 +5,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="/resources/css/mypage/layout_init.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/mypage/ProfessorMypage1_2.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/mypage/Professor_design.css" />
 <script src="/js/angularjs/1.5.11/angular.min.js"></script>
-<script src="/resources/js/mypage/ProfessorMypage1_2.js"></script>
+<script src="/resources/js/mypage/script.js"></script>
 
 <script src="/js/jquery/3.3.1/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="/resources/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
@@ -16,8 +16,8 @@
 <title>교수님 마이페이지</title>
 </head>
 
-<body data-ng-app="student" data-ng-controller="StdCtrl">
-	<header>
+<body data-ng-app="student" data-ng-controller="ProfCtrl">
+	<header> 
 		<div class="card mb-3 float-left"
 			style="min-width: 540px; max-height: 200px;">
 			<div class="row no-gutters">
@@ -41,17 +41,6 @@
 			<br /> <br />
 			<p>-담당 조 목록-</p>
 			<br>
-			
-			<!--  <p>{{info.team}}</p>-->
-			<table class="table table-hover" border="1">
-			<tr class="info">
-				<td class="info"><button type="button" class="btn btn-secondary" data-ng-click="setTeamFilter({team:'1'})">1조</button></td>
-				<td class="active"><button type="button" class="btn btn-secondary" data-ng-click="setTeamFilter({team:'3'})">3조</button></td>
-				<td class="info"><button type="button" class="btn btn-secondary" data-ng-click="setTeamFilter({team:'5'})">5조</button></td>
-				<td class="info"><button type="button" class="btn btn-secondary" data-ng-click="setTeamFilter({team:'6'})">6조</button></td>
-				<td class="info"><button type="button" class="btn btn-secondary" data-ng-click="setTeamFilter({team:'7'})">7조</button></td>
-			</tr>
-			</table>
 		</div>
 	</header>
 	<!-- 탭 구현 -->
@@ -62,19 +51,9 @@
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
 		</ul>
-		
-		<!-- 추가한 버튼 -->
-		<button type="button" class="btn btn-info">중간평가하기</button>
-		<button type="button" class="btn btn-info">최종평가하기</button>
-		<button type="button" class="btn btn-info" data-ng-click="setTeamFilter({team:''})">학생 전체보기</button>
-		
 		<button id="mypagebtn" type="button" class="btn btn-primary"
 			data-ng-click="relocated_mainView()">메인 페이지로 돌아가기</button>
-		
-		
-		
-		<button type="button" class="btn btn-info" id="testCustom">평가페이지 수정하기</button>
-			
+		<button type="button" class="btn btn-info" id="testPlan">평가 계획서 설정</button>
 		<!-- 탭 내용 -->
 		<div class="tab-content">
 			<div id="privateInfo" class="tab-pane active">
