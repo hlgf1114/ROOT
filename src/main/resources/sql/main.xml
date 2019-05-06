@@ -21,6 +21,9 @@
 					   <if test="authorization == 0">
 							AND u.team_id = (SELECT team_id FROM user WHERE uni_num = #{uni_num})
 					   </if> 
+					   <if test="authorization == 1">
+					   		AND u.team_id = (SELECT team_id FROM user WHERE uni_num = #{uni_num})
+					   </if>
 					   <if test="team_id != null">
 					   		AND u.team_id = #{team_id}
 					   </if>

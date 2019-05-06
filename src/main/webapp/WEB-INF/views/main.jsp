@@ -31,8 +31,11 @@
         <div id = "form">
 		<section>
 		<div id="team">
-			<button type="button" class="btn btn-info" id = "bit4" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>
+			<button type="button" class="btn btn-info" ng-hide="disableButton()" id = "bit4" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>
 			<button type="button" class="btn btn-info" id = "bit5" data-ng-click="teamEvent()">전체보기</button>
+		</div>
+		<div id="selectPostType">
+			<button type="button" class="btn btn-info" data-ng-repeat="postType in postTypeList">{{postType}}</button>
 		</div>
 			<table class="table table-striped">
 				<thead class="thead-dark">

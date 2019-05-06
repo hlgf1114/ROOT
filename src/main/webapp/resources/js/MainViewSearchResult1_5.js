@@ -4,8 +4,21 @@ var mainPage = angular.module('Main', []);
 
 mainPage.controller('MainCtrl', function($scope, $http) {
 	
+
+	$scope.PostTypeList = { // 문서타입 정형화
+			1 : "공지사항",
+			2 : "회의록",
+			3 : "제안서",
+			4 : "요구분석서",
+			5 : "설계서",
+			6 : "구현서",
+			7 : "형성관리서",
+			8 : "메뉴얼",
+			9 : "최종보고서"
+	}
+	
 	$scope.info = {};
-	$scope.getData = function(){
+	$scope.getData = function(){ // 세션정보 받아오기
 		$http({method: 'GET', url:"/mypage/studentSelect"})
 		.success(function (data, status, headers, config) {
 			console.log(data);
@@ -54,6 +67,17 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 			$scope.params.team_id = team.team_id;
 		}
 		$scope.getMainSelect();
+	}
+	
+	// 권한에 따라  팀 버튼 비활성화
+	$scope.disableButton = function() {
+		// 권한 2는 교수님 권한
+		if($scope.info.authorization == 2) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	
 	$scope.postEvent = function(row){
