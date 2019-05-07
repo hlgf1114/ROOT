@@ -48,7 +48,7 @@
 				</thead>
 				<tbody>
 					<tr data-ng-repeat="row in MainList" data-ng-click="postEvent(row)">
-						<td>{{row.post_name}}</th>
+						<td>{{row.post_name}}</td>
 						<td>{{row.team_name}}</td>
 						<td>{{row.name}}</td>
 						<td>{{row.postDate}}</td>

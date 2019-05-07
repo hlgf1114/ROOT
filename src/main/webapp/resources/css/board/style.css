@@ -5,20 +5,23 @@
             }
             header {
                 height: 50px;
-                margin: 00px 300px 00px;
+                max-width : 80%;
+                margin-left : 10%;
             }
             nav{
                 height: 40px;
                 background-color: #ffffff;
                 width: auto;
-                margin: 00px 100px 00px;
+                max-width : 80%;
+                margin-left : 10%;
                 border-radius:50px;
             }
             section {
                 border-radius:50px;
                 background-color: #ffffff;
                 min-height: calc(100vh - 50px);
-                margin: 00px 150px 00px;
+                max-width : 80%;
+                margin-left : 10%;
             }
             footer {
 
@@ -63,7 +66,7 @@
 
             #text{
               border-radius:50px;
-              min-height: 650px;
+              min-height: 300px;
               height:auto;
               background-color: #BDBDBD;
               margin: 00px 100px 00px;

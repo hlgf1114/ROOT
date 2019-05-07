@@ -5,7 +5,8 @@
             }
             header {
                 height: 50px;
-                margin: 00px 300px 00px;
+                max-width: 80%;
+				margin-left: 10%;
             }
             nav{
                 height: 40px;
@@ -91,7 +92,7 @@
             border-radius: .25em;
 			}
             .filebox input[type="file"]
-            {  /* 파일 필드 숨기기 */
+            {  /* �뙆�씪 �븘�뱶 �닲湲곌린 */
             position: absolute;
             width: 1px;
             padding: 0;

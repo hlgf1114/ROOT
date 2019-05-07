@@ -6,6 +6,8 @@ html {
 
 header {
 	height: 200px;
+	max-width: 80%;
+	margin-left: 10%;
 }
 
 .main {
@@ -13,6 +15,8 @@ header {
 	width: 100%;
 	min-height: 500px;
 	position: absolute;
+	max-width: 80%;
+	margin-left: 10%;
 }
 
 /* footer { */
