@@ -63,7 +63,8 @@ scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 			})
 			.error(function (data, status, header, config) {
 				console.log(data);
-				alert("평가 저장에 실패하였습니다.");
+				alert("평가 저장에 실패하였습니다." +
+					  "평가가 가능한 교수님이 아니거나 권한이 없습니다.");
 			});
 		}
 		
