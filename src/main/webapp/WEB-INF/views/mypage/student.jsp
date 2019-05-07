@@ -198,7 +198,6 @@
 									</tr>
 								</tbody>
 							</table>
-							<button type="button" class="btn btn-primary" data-ng-click="chooseTeamStudent()">적용</button>
 							<br /> <br />
 						</div>
 					</div>
