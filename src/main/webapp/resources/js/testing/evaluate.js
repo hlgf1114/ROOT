@@ -60,6 +60,7 @@ scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 			.success(function (data, status, headers, config) {
 				console.log(data);
 				alert("평가 내용이 정상적으로 완료되었습니다.");
+				location.href="/main";
 			})
 			.error(function (data, status, header, config) {
 				console.log(data);

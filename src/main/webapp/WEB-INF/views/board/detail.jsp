@@ -12,7 +12,8 @@
     
 </head>
 <body data-ng-app="todo" data-ng-controller="DetailCtrl">
-
+	<br/>
+	<br/>
 	<header>
 	    <button type="button" class="btn btn-primary " data-ng-click="myPage()">마이 페이지</button>
 	    <button type="button" class="btn btn-primary " data-ng-click="homePage()">홈으로 가기</button>

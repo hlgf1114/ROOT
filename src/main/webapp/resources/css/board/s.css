@@ -1,110 +1,96 @@
- html, body {
-                margin-top: 00px;     
-                text-align: center;
-                background-image: url('/resources/img/board/img_bg.png');
-            }
-            header {
-                height: 50px;
-                max-width: 80%;
-				margin-left: 10%;
-            }
-            nav{
-                height: 40px;
-                background-color: #BDBDBD;
-                width: auto;
-                margin: 00px 100px 00px;
-                border-radius:50px;
-            }
-            section {
-                border-radius:50px;
-                background-color: #BDBDBD;
-                min-height: calc(100vh - 50px);
-                margin: 00px 150px 00px;
-            }
-            footer {
+html, body {
+/* 	margin-top: 00px; */
+	text-align: center;
+	background-image: url('/resources/img/board/img_bg.png');
+}
 
-            }
-            #school{
-              float:right;
-              width: 150px;
-              height: 30px;
-              background-color: #ffffff;
-              border: 3px solid #0000FF;
-              border-radius: 5px;
-              color: #5050FF;
-              display: block;
-              font-size: 1em;
-              font-weight: bold;
-            }
-            #mypage{
-              float:right;
-              width: 150px;
-              height: 30px;
-            }
-            #title{
-                float: left;
-                height: 100%;
-                width: 80%;
-                margin: 18px 00px 00px;
-            }
-            #text{
-              border-radius:50px;
-              min-height: 650px;
-              height:auto;
-              background-color: #ffffff;
-              margin: 00px 100px 00px;
-              font-size: 3em;
-            }
-            
-            #output{
-            
-            fornt-size:"1em"
-            }
-            .filebox
-            {
-            
-            width: 20%;
-          	height: 100%;
-            display:inline;
-            float:  right;
-            margin: 25px 00px 00px;
-            }
-            .filebox2
-            {
-            background-color: #00fa9a;
-            width: 20%;
-          	height: 100%;
-            display:inline;
-            float:  right;
-            margin: 25px 00px 00px;
-            }
-           .filebox label
-           {
-            display: inline;
-            padding: .5em .75em;
-            color : #999;
-            font-size: inherit;
-            line-height: normal;
-            background-color: #fdfdfd;
-            cursor: pointer;
-            border: 1px solid #ebebeb;
-            border-bottom-color: #e2e2e2;
-            border-radius: .25em;
-			}
-            .filebox input[type="file"]
-            {  /* �뙆�씪 �븘�뱶 �닲湲곌린 */
-            position: absolute;
-            width: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip:rect(0,0,0,0);
-            border: 0;
-     		}
-            .form-control
-            {
-            float: left;
-	        width: 100%;
-          	height: 34px;
-            }
-           
+header {
+	min-height: 50px;
+/* 	max-width: 80%; */
+/* 	margin-left: 10%; */
+}
+
+/* nav { */
+/* 	height: 40px; */
+/* 	background-color: #BDBDBD; */
+/* 	width: auto; */
+/* 	margin: 00px 100px 00px; */
+/* 	border-radius: 50px; */
+/* } */
+
+section {
+	border-radius: 10px;
+	background-color: #BDBDBD;
+	max-width: 80vw;
+	height: 500px;
+	margin-left: 10vw;
+/* 	margin: 00px 150px 00px; */
+}
+
+footer {
+	margin-bottom: 100px;
+}
+
+/* #school { */
+/* 	float: right; */
+/* 	width: 150px; */
+/* 	height: 30px; */
+/* 	background-color: #ffffff; */
+/* 	border: 3px solid #0000FF; */
+/* 	border-radius: 5px; */
+/* 	color: #5050FF; */
+/* 	display: block; */
+/* 	font-size: 1em; */
+/* 	font-weight: bold; */
+/* } */
+
+/* #mypage { */
+/* 	float: right; */
+/* 	width: 150px; */
+/* 	height: 30px; */
+/* } */
+
+#title {
+	float: left;
+/* 	height: 100%; */
+	width: 80%;
+	margin-top: 20px;
+}
+
+#text {
+	border-radius: 10px;
+/* 	min-height: 400px; */
+	margin: 00px 100px 00px;
+/* 	font-size: 3em; */
+}
+
+#post_select {
+	float: right;
+	transform: translateY(20%);
+}
+
+#post_field {
+	resize: none;
+}
+
+#post_name {
+}
+
+#output {
+	fornt-size: "1em"
+}
+
+.filebox {
+/* 	margin-left: 45%; */
+
+}
+
+.form-control {
+	float: left;
+	width: 100%;
+	height: 34px;
+}
+
+.input-group {
+	margin-left: 12%;
+}

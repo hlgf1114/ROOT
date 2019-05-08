@@ -10,58 +10,46 @@
     <script src="/resources/js/board/script.js"></script>
     <meta charset = "UTF-8">
     <title>글 쓰기 페이지</title>
-    
 </head>
-
 <body data-ng-app="todo" data-ng-controller="WriteCtrl">
-
+	<br/>
+	<br/>
 	<header>
 	    <button type="button" class="btn btn-primary " data-ng-click="myPage()">마이 페이지</button>
 	    <button type="button" class="btn btn-primary " data-ng-click="homePage()">홈으로 가기</button>
     </header>
-
     <section>
     	<form>
-	        <nav>
-				<div id = "title" >
+			<div id="title">
 				<div class="input-group">
-				
-				<div class="input-group-btn">
-		    		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">게시판 선택<span class="caret"></span></button>
-		       		 <ul class="dropdown-menu" role="menu">
-		       		   <li><a href="#">회의록</a></li>
-		       		   <li><a href="#">제출물</a></li>
-		      		    <li><a href="#">기타 </a></li>
-		      		  </ul>
-	  			</div>
-	  				<input type="text" class="form-control" id="post_name" data-ng-model="post_name">
+					<label id="post_select">게시판 선택::</label>
+					<div class="form-group">
+					  <select class="form-control" id="exampleFormControlSelect1">
+					    <option>회의록</option>
+					    <option>2</option>
+					    <option>3</option>
+					    <option>4</option>
+					    <option>5</option>
+					  </select>
+					</div>
+					<input type="text" class="form-control" id="post_name" data-ng-model="post_name"/>
 				</div>
-				</div>
-				
-	            <div class="filebox" >
+				<div class="filebox" >
 	            	<label for="ex_file"> 파일 업로드</label>
 	                <input type="file" id="ex_file" name="file">
 	            </div>
-	            
-	        </nav>
-	        <br>
-	        
-	        <hr style="border: solid 1px Black; width: 100%; height: 1px;">   
-	        
+			</div>
 	        <div id = "text">
 				<div class="form-group">
-	    			<label for="exampleInputPassword1"></label>
-	    			<textarea style="resize: none;" class="form-control" rows="33" id="postField" data-ng-model="postField" placeholder="내용을 입력해주세요"></textarea>
+	    			<textarea class="form-control" rows="15" id="post_field" data-ng-model="postField" placeholder="내용을 입력해주세요"></textarea>
 	  			</div>
-	        	<br>
-	        	<button type="button" class="btn btn-success btn-lg" data-ng-click="btnEvent()">글 등록</button>
-	        	<button type="button" class="btn btn-danger btn-lg" data-ng-click="close()">글 취소</button>
 			</div>
         </form>​
     </section>
+    <br/>
     <footer>
-
+		<button type="button" class="btn btn-success btn-lg" data-ng-click="btnEvent()">글 등록</button>
+		<button type="button" class="btn btn-danger btn-lg" data-ng-click="close()">글 취소</button>
     </footer>
 </body>
-
 </html>

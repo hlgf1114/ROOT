@@ -71,7 +71,7 @@
 	</update>
 
 	<update id="deleteTeamStudent" parameterType="hashmap">
-		update user set team_id = NULL
+		update user set team_id = 0
 		where uni_num = #{uni_num};
 	</update>
 

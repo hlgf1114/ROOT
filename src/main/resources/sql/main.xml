@@ -36,20 +36,20 @@
 	
 	<select id="postTotCount" parameterType="hashmap" resultType="hashmap">
 		SELECT count(*) tot 
-		  FROM post
+		  FROM post as p
 		where uni_num in (SELECT u.uni_num 
 						    FROM user AS u  
 					      inner JOIN team AS t
 					        ON (u.team_id = t.team_id)
 					      WHERE 1 = 1
-					   <if test="authorization == 0">
+					   <if test="authorization == 0 || authorization == 1">
 							AND u.team_id = (SELECT team_id FROM user WHERE uni_num = #{uni_num})
 					   </if> 
 					   <if test="team_id != null">
 					   		AND u.team_id = #{team_id}
 					   </if>
 					      )
-					      and delYn = "N"
+					      and p.delYn = "N"
 	</select>
 	
 	<select id="teamSelect" parameterType="hashmap" resultType="hashmap">

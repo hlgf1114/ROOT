@@ -43,15 +43,18 @@ app.controller('DetailCtrl', function($scope, $http) {
 	
 	$scope.boardDelete = function() {
 		if($scope.boardData.uni_num == $scope.info.uni_num) {
-			$http({method: 'POST', url:"/Board/Delete", params: $scope.boardData})
-			.success(function(data, status, headers, config) {
-				console.log("post_num" + $scope.post_num);
-				console.log(data);
-			})
-			.error(function(data, status, header, config) {
-				
-			});
-			location.href = "/main";
+			var selected = confirm("정말로 이 글을 삭제하시겠습니까?");
+			if(selected) {
+				$http({method: 'POST', url:"/Board/Delete", params: $scope.boardData})
+				.success(function(data, status, headers, config) {
+					console.log("post_num" + $scope.post_num);
+					console.log(data);
+				})
+				.error(function(data, status, header, config) {
+					
+				});
+				location.href = "/main";
+			}
 		}
 		else {
 			alert("작성자만 게시글을 삭제할 수 있습니다.");
