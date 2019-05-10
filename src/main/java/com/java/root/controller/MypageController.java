@@ -26,6 +26,20 @@ public class MypageController {
 	@Autowired
 	SqlSession session;
 	
+	/********************
+	 * common 기능               *
+	 * ******************/
+	@RequestMapping(value= "/mypage/postTotCount", method = RequestMethod.GET)
+	public void postTotCount(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+			HashMap<String, Object> totMap = session.selectOne("main.postTotCount", userMap);
+			HttpUtile.printJson(resp, totMap);
+		} else {
+			// 예외 처리 넣어라.
+		}
+	}
+	
 	
 	/******************
 	 * student.jsp 기능 *
@@ -109,6 +123,9 @@ public class MypageController {
 	public void myPostSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
 		if (SessionUtile.checkSession(sess)) {
 			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			userMap.put("index", paramMap.get("index"));
+			System.out.println(userMap);
 			List<HashMap<String, Object>> resultMapList = session.selectList("mypage.myPostSelect", userMap);
 			System.out.println(resultMapList);
 			HttpUtile.printJsonList(resp, resultMapList);

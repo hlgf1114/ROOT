@@ -25,9 +25,9 @@
 	
 	<insert id="postInsert" parameterType="hashmap">
 		INSERT INTO post 
-			(uni_num, post_name, postField) 
+			(uni_num, post_name, postField, postType) 
 		VALUES 
-			(#{uni_num}, #{post_name}, #{postField})
+			(#{uni_num}, #{post_name}, #{postField}, #{postType})
 	</insert>
 	
 	<insert id="fileInsert" parameterType="hashmap">

@@ -92,6 +92,23 @@ app.controller('WriteCtrl', function($scope, $http) {
 		location.href = "/main";
 	}
 	
+	$scope.postTypes = [
+		{"postType": 2, "name": "회의록"},
+		{"postType": 3, "name": "제안서"},
+		{"postType": 4, "name": "요구분석서"},
+		{"postType": 5, "name": "설계서"},
+		{"postType": 6, "name": "구현서"},
+		{"postType": 7, "name": "형성관리서"},
+		{"postType": 8, "name": "메뉴얼"},
+		{"postType": 9, "name": "최종보고서"}
+	];
+	
+	$scope.selectedPostType ={};
+	
+	$scope.test = function() {
+		console.log($scope.selectedPostType);
+	}
+	
     
 	$scope.todo=
 	      {
@@ -106,6 +123,7 @@ app.controller('WriteCtrl', function($scope, $http) {
 		
 		param.postField = $scope.postField;
 		param.post_name = $scope.post_name;
+		param.postType = $scope.selectedPostType["postType"];
 
 		if($scope.file.length > 0){
 			var formData = new FormData();

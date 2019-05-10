@@ -19,15 +19,12 @@ header {
 	margin-left: 10%;
 }
 
-/* footer { */
-/* 	background-color: darkslategray; */
-/* 	position: relative; */
-/* 	left: 0; */
-/* 	bottom: 0; */
-/* 	width: 100; */
-/* } */
-
 /* this page's css */
+#pageNav {
+	display: table;
+	margin: 0 auto;
+}
+
 #logo_image_wrapper {
 	position: relative;
 	margin-left: 10vw;

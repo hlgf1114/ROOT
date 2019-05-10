@@ -4,6 +4,11 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	
 	$scope.stdList = {};
 	$scope.info = {};
+	$scope.postCount = {};
+	
+	$scope.params = {
+			index : 0
+	};
 
 	$scope.getData = function(){
 		$http({method: 'GET', url:"/mypage/studentSelect"})
@@ -71,14 +76,38 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	}
 	$scope.stdScore();
 	
-	$scope.myPostSelect = function() {
-		$http({method: 'GET', url:"/mypage/myPostSelect", params: $scope.info})
+	$scope.postTotCount = function() {
+		$http({method: 'GET', url:"/mypage/postTotCount"})
+		.success(function (data, status, headers, config) {
+			$scope.postCount = data;
+			console.log($scope.postCount);	
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.postTotCount();
+	
+	$scope.myPostSelectAll = function() {
+		$http({method: 'GET', url:"/mypage/myPostSelect", params: $scope.info, params: $scope.params})
 		.success(function (data, status, headers, config) {
 			$scope.myPostList = data;
+			$scope.pagingList = [];
+			var pageSize = Math.ceil($scope.postCount.tot / 5);
+			for(var i = 0; i < pageSize; i++){
+				$scope.pagingList[i] = (i + 1);
+			}
 			console.log($scope.myPostList);
 		})
 	}
-	$scope.myPostSelect();
+	$scope.myPostSelectAll();
+	
+	$scope.pagingEvent = function(page){
+		var index = (page - 1) * 5;
+		$scope.params.index = index;
+		console.log($scope.params);
+		$scope.myPostSelectAll();
+	}
 	
 //	$scope.selectedStd = {};
 	$scope.chooseTeamStudent = function(list) {
@@ -127,14 +156,6 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		}
 	}
 	
-//	$scope.info = {
-//		name : '김승빈',
-//		stdNum : '16100776',
-//		dept : 'Computer-Software',
-//		address : "오산시 수청동 등등등",
-//		team : "캡틴 아메리카"
-//	};
-
 	$scope.mainView = 'http://www.naver.com';
 
 	$scope.loginDate = Date.now();

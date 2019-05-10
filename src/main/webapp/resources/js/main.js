@@ -1,21 +1,19 @@
-//var mainPage = angular.module('MainResult', ['angularUtils.directives.dirPagination']);
 var mainPage = angular.module('Main', []);
 
 
 mainPage.controller('MainCtrl', function($scope, $http) {
 	
 
-	$scope.PostTypeList = { // 문서타입 정형화
-			1 : "공지사항",
-			2 : "회의록",
-			3 : "제안서",
-			4 : "요구분석서",
-			5 : "설계서",
-			6 : "구현서",
-			7 : "형성관리서",
-			8 : "메뉴얼",
-			9 : "최종보고서"
-	}
+	$scope.postTypes = [
+		{"postType": 2, "name": "회의록"},
+		{"postType": 3, "name": "제안서"},
+		{"postType": 4, "name": "요구분석서"},
+		{"postType": 5, "name": "설계서"},
+		{"postType": 6, "name": "구현서"},
+		{"postType": 7, "name": "형성관리서"},
+		{"postType": 8, "name": "메뉴얼"},
+		{"postType": 9, "name": "최종보고서"}
+	];
 	
 	$scope.info = {};
 	$scope.getData = function(){ // 세션정보 받아오기
@@ -52,20 +50,25 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 				console.log(data);
 			});
 	}
-	 
 	$scope.getMainSelect();
 	
-	$scope.pagingEvent = function(page){
-		var index = (page - 1) * 5;
-		$scope.params.index = index;
-		$scope.getMainSelect();
-	}
 	
-	$scope.teamEvent = function(team){
+	$scope.teamEvent = function(team, postType){
 		$scope.params = {index : 0};
 		if(team != null){
 			$scope.params.team_id = team.team_id;
 		}
+		if(postType != null) {
+			$scope.params.postType = postType.postType;
+			console.log($scope.params);
+		}
+		$scope.getMainSelect();
+	}
+	
+	
+	$scope.pagingEvent = function(page){
+		var index = (page - 1) * 5;
+		$scope.params.index = index;
 		$scope.getMainSelect();
 	}
 	

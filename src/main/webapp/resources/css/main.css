@@ -2,6 +2,7 @@ body{
 	background-image: url('/resources/img/board/img_bg.png');
 	margin-top:  0px;
 }
+
 header{
 	height: 100px;
 	max-width: 80%;
@@ -11,6 +12,7 @@ header{
 	margin-top: 10px;
 	
 }
+
 section{
 	height: 700px;
 	max-width: 1200px;
@@ -45,9 +47,31 @@ nav {
 	margin: auto;
 }
 
+#selectPostType {
+	margin-left: 50px;
+	float: left;
+}
+
+#searchButton {
+	float: right;
+}
+
+#left {
+	float: left;
+	margin-right: 10px;
+}
+
+#right {
+	float: right;
+}
+
 #showTable {
-/* 	margin-top: 50px; */
+	margin-top: 50px;
 	text-align: center;
+}
+
+#navButton {
+	
 }
 
 #team{
@@ -73,6 +97,14 @@ nav {
 	height: 50px;
 }
 
+#teamDrops {
+	float: right;
+}
+
+#searchTeam {
+	float: right;
+}
+
 #welcomeId {
 	transform: translateY(75%);
 }
@@ -81,28 +113,12 @@ nav {
 	text-align: center;
 }
 
-#bit1{
+.bit {
 	margin-left: 2.5px;
 	margin-right: 2.5px;
 }
-#bit2{
-	margin-left: 2.5px;
-	margin-right: 2.5px;
-}
-#bit3{
-	margin-left: 2.5px;
-	margin-right: 2.5px;
-}
-#bit4{
+
+#bitTotal{
 	float: left;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-#bit5{
-	float: left;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
+/* 	margin-top: 10px; */
 }

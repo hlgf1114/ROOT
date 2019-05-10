@@ -7,6 +7,7 @@
 		       p.post_name,
 		       t.team_name,
 		       u.name,
+		       p.postType,
 				 date_format(p.postDate, "%Y %c/%e %r") as postDate 
 		  FROM post AS p
 		LEFT OUTER JOIN user AS u
@@ -30,6 +31,9 @@
 		) AS t
 		  ON (p.uni_num = t.uni_num)
 		  WHERE delYn = "N"
+		  <if test="postType != null">
+		  	AND p.postType = #{postType}
+		  </if>
 		ORDER BY 1 desc
 		LIMIT ${index}, 5		
 	</select>
@@ -50,6 +54,9 @@
 					   </if>
 					      )
 					      and p.delYn = "N"
+					   <if test="postType != null">
+					   		AND p.postType = #{postType}
+					   </if>
 	</select>
 	
 	<select id="teamSelect" parameterType="hashmap" resultType="hashmap">
