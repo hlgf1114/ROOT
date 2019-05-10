@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>평가 리스트 페이지</title>
-    <link rel="stylesheet" href="/resources/css/testing/appraisalselect.css">
+    <link rel="stylesheet" href="/resources/css/testing/evalsetting.css">
     <link rel="stylesheet" href="/js/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="/js/angularjs/1.5.11/angular.min.js"></script>
-    <script src = "/resources/js/testing/appraisalselect.js"></script>
+    <script src = "/resources/js/testing/evalsetting.js"></script>
   </head>
 
   <body data-ng-controller="actrl">

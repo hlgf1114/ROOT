@@ -186,6 +186,10 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		location.href = "/main";
 	}
 	
+	$scope.relocate_evalSetView = function() {
+		location.href = "/testing/evalSetting"
+	}
+	
 	
 	
 });

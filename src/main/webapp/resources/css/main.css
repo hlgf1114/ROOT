@@ -22,8 +22,38 @@ footer {
 	margin-top: -400px;
 }
 
+nav {
+	display: inline-block;
+}
+
 #pageNav {
+	margin-top: 100px;
+	width: 100%;
 	text-align: center;
+}
+
+#notice {
+	text-align: center;
+	max-width: 1200px;
+	margin: auto;
+	padding-top: 25px;
+}
+
+#noticeTable {
+	text-align: center;
+	max-width: 1200px;
+	margin: auto;
+}
+
+#showTable {
+/* 	margin-top: 50px; */
+	text-align: center;
+}
+
+#team{
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 #but{
@@ -75,13 +105,4 @@ footer {
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 10px;
-}
-/* #form{ */
-/* 	background: #c8c5c2; */
-/* 	border-radius: 50px; */
-/* } */
-#team{
-	margin-top: 10px;
-	margin-left: 20px;
-	margin-right: 20px;
 }
