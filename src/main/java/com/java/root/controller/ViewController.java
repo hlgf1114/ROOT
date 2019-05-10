@@ -77,5 +77,22 @@ public class ViewController {
 			return "redirect:/login";
 		}
 	}
+	@RequestMapping(value = "/testing/appraisalselect", method = RequestMethod.GET)
+	public String testing_appraisalselect(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			return "testing/appraisalselect";
+		}else {
+			return "redirect:/login";
+		}
+	}
+	
+	@RequestMapping(value = "/testing/evaluatelist", method = RequestMethod.GET)
+	public String testing_evaluatelist(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			return "testing/evaluatelist";
+		}else {
+			return "redirect:/login";
+		}
+	}
 	
 }
