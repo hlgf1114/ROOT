@@ -2,55 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/resources/css/login.css" />
         <title>학생 로그인</title>
-        <style>
-            html, body {
-                margin: 0 auto;
-                overflow: hidden;
-                text-align: center;
-                background-image: url('/resources/img/login/img_bg.png')
-            }
-            header {
-            }
-
-            #login_block {
-                width:500px;
-                height: 500px;
-                border-radius:50px;
-                background-color: white;
-            }
-
-            #wrapper {
-                position: absolute;
-                left: calc(50% - 250px);
-                top: calc(50% - 250px);
-            }
-
-            footer {
-                background-color:
-                margin: 00px 300px 00px;
-            }
-
-            #naver{
-                position: relative;
-                margin-top: 50px;
-                width: 250px;
-                height: 50px;
-            }
-            #kakao{
-                position: relative;
-                margin-top: 30px;
-                border-radius:10px;
-                width: 250px;
-                height: 50px;
-            }
-            #nsu{
-              margin: 00px 100px 00px;
-              width: 300px;
-              height: 200px;
-            }
-            img {cursor: pointer;}
-        </style>
     </head>
     <body>
         <header>

@@ -9,7 +9,7 @@
         <script src="/js/jquery/3.3.1/dist/jquery.min.js"></script>
     	<script src="/js/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         
-        <link rel="stylesheet" type="text/css" href="/resources/css/MainView1_5.css" />
+        <link rel="stylesheet" type="text/css" href="/resources/css/main.css" />
         <script src="/resources/js/MainViewSearchResult1_5.js"></script>
         <script src="/resources/js/dirPagination.js"></script>
     </head>
@@ -29,6 +29,9 @@
 			</div>
         </header>
         <div id = "form">
+        <div id="notice">
+        	<h3>공지사항</h3>
+        </div>
 		<section>
 		<div id="team">
 			<button type="button" class="btn btn-info" ng-hide="disableButton()" id = "bit4" data-ng-repeat="team in TeamList" data-ng-click="teamEvent(team)">{{team.team_name}}</button>

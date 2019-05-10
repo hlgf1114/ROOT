@@ -9,8 +9,8 @@
   <script src="/js/angularjs/1.5.11/angular.min.js"></script>
   <link rel="stylesheet" href="/js/bootstrap/3.4.1/css/bootstrap.min.css">
   
-  <script src="/resources/js/testing/admin04_08.js"></script>
-  <link rel="stylesheet" type="text/css" href="/resources/css/testing/admin04_08.css" />
+  <script src="/resources/js/testing/write_old.js"></script>
+  <link rel="stylesheet" type="text/css" href="/resources/css/testing/write_old.css" />
   <title>Document</title>
 </head>
 <body>
