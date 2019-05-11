@@ -256,6 +256,21 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		console.log(mypost.post_num);
 		location.href = "/board/detail?post_num=" + mypost.post_num;
 	}
+	
+	// 평가를 중단
+	$scope.stopEval = function() {
+		var selected = confirm("정말로 평가를 중단 하시겠습니까?");
+		if(selected) {
+			$http({method: 'POST', url:"/mypage/stopEval"})
+			.success(function (data, status, headers, config) {
+				console.log(data);	
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+			location.href = "/mypage";
+		}
+	}
 	 
 	// 교수님이 맡은 팀 정보를 가져온다.
 	$scope.teamList = {};

@@ -84,6 +84,13 @@
 
 	<!-- professor.jsp -->
 	<select id="profTeamSelect" parameterType="hashmap" resultType="hashmap">
-		select team_id, team_name, team_score from team where charge_prof = #{uni_num};
+		select team_id, team_name, team_score 
+		from team 
+		where charge_prof = #{uni_num};
 	</select>
+	
+	<update id="stopEval">
+		update eval_set 
+		set startYn = "N"
+	</update>
 </mapper>

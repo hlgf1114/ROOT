@@ -178,5 +178,16 @@ public class MypageController {
 		System.out.println(getProfTeams);
 		HttpUtile.printJsonList(resp, getProfTeams);
 	}
+	
+	@RequestMapping(value ="/mypage/stopEval", method=RequestMethod.POST)
+	public void stopEval(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			int state = session.update("mypage.stopEval");
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			resultMap.put("state", state);
+			System.out.println(resultMap);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
 
 }
