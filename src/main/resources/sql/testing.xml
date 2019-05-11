@@ -12,4 +12,17 @@
  		#{article7}, #{article_opinion1}, #{article_opinion2}, #{article_opinion3}, #{article_opinion4},
  		#{article_opinion5}, #{article_opinion6}, #{article_opinion7})
 	</insert>
+	
+	<select id="selectTeamAll" resultType="hashmap">
+		select team_name, team_id 
+		from team 
+		where team_id != 0
+	</select>
+	
+	<select id="selectProfAll" resultType="hashmap">
+		select uni_num, name 
+		from user 
+		where authorization = 2 
+		or authorization = 3
+	</select>
 </mapper>

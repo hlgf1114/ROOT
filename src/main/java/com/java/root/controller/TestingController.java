@@ -1,6 +1,7 @@
 package com.java.root.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,6 +41,20 @@ public class TestingController {
 		} else {
 			// 예외 처리 넣어라.
 		}
+	}
+	
+	@RequestMapping(value = "/testing/selectTeamAll", method = RequestMethod.POST)
+	public void selectTeamAll(HttpServletResponse resp) {
+		List<HashMap<String, Object>> resultList = session.selectList("testing.selectTeamAll");
+		System.out.println(resultList);
+		HttpUtile.printJsonList(resp, resultList);
+	}
+	
+	@RequestMapping(value = "/testing/selectProfAll", method = RequestMethod.POST)
+	public void selectProfAll(HttpServletResponse resp) {
+		List<HashMap<String, Object>> resultList = session.selectList("testing.selectProfAll");
+		System.out.println(resultList);
+		HttpUtile.printJsonList(resp, resultList);
 	}
 	
 	

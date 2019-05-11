@@ -79,11 +79,17 @@ public class ViewController {
 		}
 	}
 	@RequestMapping(value = "/testing/evalsetting", method = RequestMethod.GET)
-	public String testing_appraisalselect(HttpSession session) {
+	public String evalsetting(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
-			return "testing/evalsetting";
-		}else {
-			return "redirect:/login";
+			HashMap<String, Object> userMap = SessionUtile.getSession(session);
+			int authorization = (int) userMap.get("authorization");
+			if(authorization == 3 || authorization == 4)
+				return "testing/evalsetting";
+			else
+				return "redirect:/main";
+		}
+		else {
+			return "redirect:/main";
 		}
 	}
 	

@@ -3,41 +3,37 @@ var evalApp = angular.module('evalSetting',[]);
 evalApp.controller('EvalSetCtrl', function($scope,$http) {
 	
 	$scope.exit = function(){
-		location.href =  "mypage/professor";
+		location.href =  "/mypage";
     }
 	$scope.setEvalSetting = function(){
 		location.href =  "/main";
     }
 	
-	$scope.team = [
-		{name : "1팀"},
-		{name : "2팀"},
-		{name : "3팀"},
-		{name : "4팀"},
-		{name : "5팀"},
-		{name : "6팀"}
-	];
-	$scope.pro = [
-		{name : "김점구"},
-		{name : "김정길"},
-		{name : "송은지"},
-		{name : "몰라"},
-		{name : "암거나"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"},
-		{name : "사람"}
-	];
+	$scope.teamList = {};
+	$scope.selectTeamAll = function () {
+		$http({method: 'POST', url:"/testing/selectTeamAll"})
+		.success(function (data, status, headers, config) {
+			$scope.teamList = data;
+			console.log($scope.teamList);
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.selectTeamAll();
+	
+	$scope.profList = {};
+	$scope.selectProfAll = function () {
+		$http({method: 'POST', url:"/testing/selectProfAll"})
+		.success(function (data, status, headers, config) {
+			$scope.profList = data;
+			console.log($scope.teamList);
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.selectProfAll();
 	
 	
 });

@@ -13,18 +13,18 @@
   </head>
   <body data-ng-app="evalSetting" data-ng-controller="EvalSetCtrl">
     <header>
-      <div id = "team">평가가 가능한 팀의 리스트</div>
+      <div id = "team">평가할 팀</div>
       <div id = "pros">평가에 참여할 교수 선택</div>
     </header>
 	<form>
     <section>
        	<article>
-			<div data-ng-repeat="row in team" id = "teamlist">
-				{{row.name}}
+			<div data-ng-repeat="row in teamList" id = "teamlist">
+				{{row.team_name}}
 			</div>
 		</article>
 		<article>
-			<div class="form-check" data-ng-repeat="row in pro" id = "proflist">
+			<div class="form-check" data-ng-repeat="row in profList" id = "proflist">
 			  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
 			  <label class="form-check-label" for="defaultCheck1">
 			    {{row.name}}
