@@ -16,12 +16,7 @@
     </header>
 
     <section>
-       	<div id = "case">
-			<div data-ng-repeat="row in team" id = "a" data-ng-click = "responsibility(row)">
-				{{row.id}}
-			</div>
-		
-		<article>
+    <article>
     		
     		<table class="table table-striped">
 				<thead class="thead-dark">
@@ -42,7 +37,12 @@
 		<button type="button" class="btn btn-info btn-lg" data-ng-click="stert()">최종 결과</button>
     
     	</article>
-  </div>
+    	
+    	    <article>
+			<div data-ng-repeat="row in team" id = "a" data-ng-click = "responsibility(row)">
+				{{row.id}}
+			</div>
+		</article>
     </section>
     
 
