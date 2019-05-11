@@ -89,7 +89,7 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	$scope.postTotCount();
 	
 	$scope.myPostSelectAll = function() {
-		$http({method: 'GET', url:"/mypage/myPostSelect", params: $scope.info, params: $scope.params})
+		$http({method: 'GET', url:"/mypage/myPostSelectAll", params: $scope.info, params: $scope.params})
 		.success(function (data, status, headers, config) {
 			$scope.myPostList = data;
 			$scope.pagingList = [];
