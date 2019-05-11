@@ -1,13 +1,12 @@
-var as = angular.module('as',[]);
+var evalApp = angular.module('evalSetting',[]);
 
-as.controller('actrl', function($scope,$http) {
-	
+evalApp.controller('EvalSetCtrl', function($scope,$http) {
 	
 	$scope.exit = function(){
 		location.href =  "mypage/professor";
     }
-	$scope.stert = function(){
-		location.href =  "evaluate";
+	$scope.setEvalSetting = function(){
+		location.href =  "/main";
     }
 	
 	$scope.team = [
@@ -39,21 +38,6 @@ as.controller('actrl', function($scope,$http) {
 		{name : "사람"},
 		{name : "사람"}
 	];
-	
-	
-//	$scope.prolist = function(){
-//		$http({method: 'POST', url:"/testing/proselect"})
-//		.success(function (data, status, header, config) { 
-//			console.log(data);
-//			$scope.prolist = data;
-//		})
-//		.error(function (data, status, header, config) {
-//			console.log(data);
-//		});
-//	}
-//	$scope.prolist();
-	
-	
 	
 	
 });

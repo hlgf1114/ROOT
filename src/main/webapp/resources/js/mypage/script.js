@@ -151,11 +151,17 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	
 	// 권한에 따라  팀 관리탭 비활성화
 	$scope.disableTab = function() {
-		if($scope.info.authorization == 1) {
-			return false;
+		// team_id = 0 이면 팀이 없음
+		if($scope.info.team_id == 0) {
+			return true;
 		}
 		else {
-			return true;
+			if($scope.info.authorization == 1) {
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
 	}
 	
@@ -253,6 +259,16 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		.error(function (data, status, header, config) {
 			
 		});
+	}
+	
+	$scope.disableButton = function() {
+		// 권한 3는 학과장 권한
+		if($scope.info.authorization == 3) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	
 	$scope.relocate_mainView = function() {

@@ -75,7 +75,7 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 	// 권한에 따라  팀 버튼 비활성화
 	$scope.disableButton = function() {
 		// 권한 2는 교수님 권한
-		if($scope.info.authorization == 2) {
+		if($scope.info.authorization == 2 || $scope.info.authorization == 3) {
 			return false;
 		}
 		else {

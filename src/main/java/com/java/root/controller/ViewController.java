@@ -39,9 +39,10 @@ public class ViewController {
 			HashMap<String, Object> userMap = SessionUtile.getSession(session);
 			int authorization = (int) userMap.get("authorization");
 			
+			// authorization: 0=학생, 1=팀장, 2=교수, 3=학과장
 			if(authorization == 0 || authorization == 1) {
 				return "mypage/student";
-			}else if(authorization == 2) {
+			}else if(authorization == 2 || authorization == 3) {
 				return "mypage/professor";
 			}else {
 				return "redirect:/login";
