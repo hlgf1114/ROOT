@@ -63,6 +63,7 @@ app.controller('DetailCtrl', function($scope, $http) {
 	
 	$scope.fileDownload = function(){
 		var link = document.createElement("a");
+		console.log($scope.boardData.url);
 	    link.download = $scope.boardData.file_name;
 	    link.href = "http://xorms2485.cafe24.com/" + $scope.boardData.url;
 	    link.target = "_blank";

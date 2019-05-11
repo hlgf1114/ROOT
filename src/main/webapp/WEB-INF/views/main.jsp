@@ -59,7 +59,7 @@
 							</div>
 							<div id="right">
 								<select class="form-control" id="teamDrops"
-								 id="teamSelect" data-ng-hide="disableButton()" data-ng-model="selectedTeam" 
+								 data-ng-hide="disableButton()" data-ng-model="selectedTeam" 
 								 data-ng-options="team.team_name for team in TeamList">
 								<option value="">--팀 선택--</option>
 								</select>

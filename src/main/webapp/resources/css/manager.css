@@ -1,0 +1,33 @@
+body{
+  text-align: center;
+  background-image: url('/resources/img/board/img_bg.png');
+}
+header{
+  margin-top : 2%;
+  width: 80%;
+  margin-left: 10%;
+  background-color:#51F89F;	
+  min-height: 5vh;
+  border-radius: 5px;
+}
+section{
+  width: 80%;
+  margin-left:  10%;
+  margin-right : 10%;
+  background-color: #A9A8A6;
+  min-height: 70vh;
+  margin-top: 1%;
+  border-radius: 5px;
+  float: left;
+  margin-bottom: 3%;
+  
+}
+footer{
+  margin-top: 3%;
+  border-radius: 5px;
+}
+#hd{
+
+ font-size: 3em;
+}
+

@@ -95,4 +95,13 @@ public class ViewController {
 		}
 	}
 	
+	@RequestMapping(value = "/manager", method = RequestMethod.GET)
+	public String manager(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			return "manager";
+		}else {
+			return "redirect:/login";
+		}
+	}
+	
 }

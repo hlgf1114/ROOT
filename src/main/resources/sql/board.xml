@@ -7,7 +7,7 @@
 		       p.post_name, 
 				 p.postField,
 				 u.uni_num,
-				 date_format(p.postDate, "%Y %c/%e%r") as postDate,
+				 date_format(p.postDate, "%Y %c/%e %r") as postDate,
 				 case when f.file_name IS NULL then ''
 				      ELSE f.file_name
 				 END AS file_name,
