@@ -281,6 +281,30 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		}
 	}
 	
+	// 평가가 시작되었는지 중단되었는지 확인
+	$scope.startYn = {};
+	$scope.evalStartSelect = function() {
+		$http({method: 'POST', url:"/main/evalStartSelect"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.startYn = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.evalStartSelect();
+	
+	$scope.disableEvalButton = function() {
+		if($scope.info.authorization == 3)
+			if($scope.startYn.startYn == "Y")
+				return false;
+			else
+				return true;
+		else
+			return true;
+	}
+	
 	$scope.relocate_mainView = function() {
 		location.href = "/main";
 	}

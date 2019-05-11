@@ -33,8 +33,8 @@
     	</article>
     </section>
     <footer>
-      <button type="button" class="btn btn-info btn-lg" data-ng-click="setEvalSetting()">평가를 시작 합니다</button>
-	  <button type="button" class="btn btn-danger btn-lg" data-ng-click="exit()">평가를 취소 합니다</button>
+      <button type="button" class="btn btn-info" data-ng-click="setEvalSetting()">평가를 시작 합니다</button>
+	  <button type="button" class="btn btn-danger" data-ng-click="exit()">평가를 취소 합니다</button>
     </footer>
     </form>
   </body>

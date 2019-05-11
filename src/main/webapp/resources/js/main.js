@@ -5,6 +5,7 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 	
 
 	$scope.postTypes = [
+		{"postType": 1, "name": "공지사항"},
 		{"postType": 2, "name": "회의록"},
 		{"postType": 3, "name": "제안서"},
 		{"postType": 4, "name": "요구분석서"},
@@ -108,7 +109,6 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);
-			$scope.info= {};
 		});
 	}
 	$scope.evalStartSelect();

@@ -31,7 +31,6 @@
 		) AS t
 		  ON (p.uni_num = t.uni_num)
 		  WHERE delYn = "N"
-		  OR p.postType != 1
 		  <if test="postType != null">
 		  	AND p.postType = #{postType}
 		  </if>
