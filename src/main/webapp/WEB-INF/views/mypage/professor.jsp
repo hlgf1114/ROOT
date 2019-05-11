@@ -48,8 +48,9 @@
 				href="#whatupost">내가 쓴 글</a></li>
 		</ul>
 		<button id="mypagebtn" type="button" class="btn btn-primary"
-			data-ng-click="relocated_mainView()">메인 페이지로 돌아가기</button>
-		<button id="testPlan" type="button" class="btn btn-info" data-ng-click="">평가 계획서 설정</button>
+			data-ng-click="relocate_mainView()">메인 페이지로 돌아가기</button>
+		<button id="testPlan" type="button" class="btn btn-warning"
+		 data-ng-click="relocate_evalSetView()">평가 계획서 설정</button>
 		<!-- 탭 내용 -->
 		<div class="tab-content">
 			<div id="teamInfo" class="tab-pane active">

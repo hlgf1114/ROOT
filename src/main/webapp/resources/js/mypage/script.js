@@ -1,5 +1,8 @@
 var mypage = angular.module('student', []);
 
+/**************************
+ * student.jsp controller *
+ * ************************/
 mypage.controller('StdCtrl', function($scope, $http) {
 	
 	$scope.stdList = {};
@@ -173,7 +176,9 @@ mypage.controller('StdCtrl', function($scope, $http) {
 });
 
 
-
+/****************************
+ * professor.jsp controller *
+ * **************************/
 mypage.controller('ProfCtrl', function($scope, $http) {
 	
 	// 개인정보를 세션에서 가져온다
@@ -250,14 +255,13 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		});
 	}
 	
-	$scope.relocated_mainView = function() {
+	$scope.relocate_mainView = function() {
 		location.href = "/main";
 	}
 	
 	$scope.relocate_evalSetView = function() {
-		location.href = "/testing/evalSetting"
+		location.href = "/testing/evalsetting"
 	}
-	
 	
 	
 });

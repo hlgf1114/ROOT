@@ -24,6 +24,19 @@ as.controller('actrl', function($scope,$http) {
 		{name : "송은지"},
 		{name : "몰라"},
 		{name : "암거나"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
+		{name : "사람"},
 		{name : "사람"}
 	];
 	
