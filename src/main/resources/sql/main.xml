@@ -8,7 +8,7 @@
 		       t.team_name,
 		       u.name,
 		       p.postType,
-				 date_format(p.postDate, "%Y %c/%e %r") as postDate 
+			   date_format(p.postDate, "%Y %c/%e %r") as postDate 
 		  FROM post AS p
 		LEFT OUTER JOIN user AS u
 		  ON (p.uni_num = u.uni_num)
@@ -31,6 +31,7 @@
 		) AS t
 		  ON (p.uni_num = t.uni_num)
 		  WHERE delYn = "N"
+		  OR p.postType != 1
 		  <if test="postType != null">
 		  	AND p.postType = #{postType}
 		  </if>
@@ -67,5 +68,16 @@
 		<if test="authorization == 0">
 			AND team_id = (SELECT team_id FROM user WHERE uni_num = 1)
 		</if>
+	</select>
+	
+	<select id="evalStartSelect" resultType="hashmap">
+		select startYn 
+		from eval_set
+	</select>
+	
+	<select id="getNoticeList" resultType="hashmap">
+		select post_name, post_num, date_format(postDate, "%Y %c/%e %r") as postDate 
+		from post 
+		where postType = 1
 	</select>
 </mapper>

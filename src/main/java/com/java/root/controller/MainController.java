@@ -48,5 +48,19 @@ public class MainController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
+	@RequestMapping(value="/main/evalStartSelect", method=RequestMethod.POST)
+	public void evalStartSelect(HttpServletResponse resp) {
+		HashMap<String, Object> resultMap = session.selectOne("main.evalStartSelect");
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
+	@RequestMapping(value="/main/getNoticeList", method=RequestMethod.POST)
+	public void getNoticeList(HttpServletResponse resp) {
+		List<HashMap<String, Object>> resultMap = session.selectList("main.getNoticeList");
+		System.out.println(resultMap);
+		HttpUtile.printJsonList(resp, resultMap);
+	}
+	
 	
 }

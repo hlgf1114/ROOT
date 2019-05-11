@@ -111,7 +111,7 @@ public class MypageController {
 	public void stdScore(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
 		if (SessionUtile.checkSession(sess)) {
 			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
-			HashMap<String, Object> resultMap = session.selectOne("mypage.studentScoreSelect", userMap);
+			HashMap<String, Object> resultMap = session.selectOne("mypage.stdScore", userMap);
 			System.out.println(resultMap);
 			HttpUtile.printJson(resp, resultMap);
 		} else {
@@ -171,10 +171,10 @@ public class MypageController {
 //		HttpUtile.printJson(resp, resultMap);
 //	}
 	
-	@RequestMapping(value ="/mypage/profTeamSelect", method=RequestMethod.GET)
+	@RequestMapping(value ="/mypage/profTeamSelect", method=RequestMethod.POST)
 	public void profTeamSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
-		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
-		List<HashMap<String, Object>> getProfTeams = session.selectList("mypage.profTeamSelect", paramMap);
+		HashMap<String, Object> userMap = SessionUtile.getSession(sess);
+		List<HashMap<String, Object>> getProfTeams = session.selectList("mypage.profTeamSelect", userMap);
 		System.out.println(getProfTeams);
 		HttpUtile.printJsonList(resp, getProfTeams);
 	}

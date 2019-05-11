@@ -43,7 +43,7 @@
             </div>
             </form>
         <br>
-        <button type="button" class="btn btn-info btn-lg">글 수정</button>
+<!--         <button type="button" class="btn btn-info btn-lg">글 수정</button> -->
         <button type="button" class="btn btn-danger btn-lg" data-ng-click="boardDelete()">글 삭제</button>
         </div>
              ​

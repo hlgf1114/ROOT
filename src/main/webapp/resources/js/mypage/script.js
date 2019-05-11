@@ -66,7 +66,7 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		});
 	}
 	
-	
+	$scope.userScore = {};
 	$scope.stdScore = function() {
 		$http({method: 'GET', url:"/mypage/stdScore", params: $scope.info})
 		.success(function (data, status, headers, config) {
@@ -78,6 +78,15 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		});
 	}
 	$scope.stdScore();
+	
+	$scope.checkPassNo = function() {
+		if($scope.userScore.team_score >= 54)
+			return "합격";
+		else if($scope.userScore.team_score >= 45)
+			return "재심사";
+		else
+			return "불합격";
+	}
 	
 	$scope.postTotCount = function() {
 		$http({method: 'GET', url:"/mypage/postTotCount"})
@@ -251,7 +260,7 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 	// 교수님이 맡은 팀 정보를 가져온다.
 	$scope.teamList = {};
 	$scope.getTeamData = function() {
-		$http({method: 'GET', url: "/mypage/profTeamSelect", params: $scope.info})
+		$http({method: 'POST', url: "/mypage/profTeamSelect", params: $scope.info})
 		.success(function (data, status, headers, config) {
 			console.log(data);
 			$scope.teamList = data;
@@ -260,6 +269,7 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 			
 		});
 	}
+	$scope.getTeamData();
 	
 	$scope.disableButton = function() {
 		// 권한 3는 학과장 권한

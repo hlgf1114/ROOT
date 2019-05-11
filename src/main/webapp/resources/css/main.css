@@ -34,6 +34,16 @@ nav {
 	text-align: center;
 }
 
+#evalNotice {
+	text-align: center;
+	max-width: 1200px;
+	margin: auto;
+	margin-top: 20px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 5px;
+}
+
 #notice {
 	text-align: center;
 	max-width: 1200px;

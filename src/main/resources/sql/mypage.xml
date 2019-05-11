@@ -45,12 +45,11 @@
 		where name = #{name};
 	</select>
 
-	<select id="studentScoreSelect" parameterType="hashmap"
+	<select id="stdScore" parameterType="hashmap"
 		resultType="hashmap">
-		select score_mid, score_fin, score_team
-		from score
-		where
-		uni_num = #{uni_num};
+		select team_name, team_score
+		from team
+		where team_id = #{team_id}
 	</select>
 
 	<select id="teamSelect" parameterType="hashmap"
@@ -85,6 +84,6 @@
 
 	<!-- professor.jsp -->
 	<select id="profTeamSelect" parameterType="hashmap" resultType="hashmap">
-		select team_id, team_name from team where charge_prof = #{uni_num};
+		select team_id, team_name, team_score from team where charge_prof = #{uni_num};
 	</select>
 </mapper>

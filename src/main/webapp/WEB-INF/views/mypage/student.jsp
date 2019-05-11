@@ -36,9 +36,6 @@
 					<div class="card-body">
 						<h5 class="card-title">안녕하세요! {{info.name}}님!</h5>
 						<p class="card-text">전공학과: {{info.dept}}</p>
-						<!-- 						<p class="card-text"> -->
-						<!-- 							<small class="text-muted">{{loginDate}}</small> -->
-						<!-- 						</p> -->
 					</div>
 				</div>
 			</div>
@@ -82,19 +79,21 @@
 					</div>
 					<div id="priv-score">
 						<h3>나의 성적</h3>
-						<table class="table">
+						<table class="table table-striped">
 							<thead class="thead-dark">
 								<tr>
-									<th scope="col">중간 발표 점수</th>
-									<th scope="col">최종 발표 점수</th>
-									<th scope="col">팀 내 개인 점수</th>
+									<th scope="col">평가 점수</th>
+									<th scope="col">합격 여부</th>
+									<th scope="col">자세히 보기</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<th scope="row">{{userScore.score_mid}}</th>
-									<td>{{userScore.score_fin}}</td>
-									<td>{{userScore.score_team}}</td>
+									<th scope="row">{{userScore.team_score}}</th>
+									<td>{{checkPassNo()}}</td>
+									<td><button class="btn btn-primary" 
+									data-ng-click="">자세히 보기</button>
+									</td>
 								</tr>
 							</tbody>
 						</table>

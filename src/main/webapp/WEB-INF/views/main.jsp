@@ -28,22 +28,24 @@
 			</div>
         </header>
         <div id = "form">
+        	<div id="evalNotice" data-ng-hide="disableEval()">
+        		<p>평가가 진행중입니다.</p>
+        		<button type="button" class="btn btn-danger" data-ng-click="goEval()">평가하기</button>
+        	</div>
 	        <div id="notice">
 	        	<div class="alert alert-primary" role="alert">
 	  				공지사항
+	  				<div id="showTable">
+						<table class="table table-striped">
+							<tbody>
+								<tr data-ng-repeat="row in noticeList" data-ng-click="postEvent(row)">
+									<td>{{row.post_name}}</td>
+									<td>{{row.postDate}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-	        </div>
-	        <div id="noticeTable">
-	        	<table class="table table-striped">
-					<tbody>
-						<tr data-ng-repeat="row in noticeList" data-ng-click="postEvent(row)">
-							<td>{{row.post_name}}</td>
-							<td>{{row.team_name}}</td>
-							<td>{{row.name}}</td>
-							<td>{{row.postDate}}</td>
-						</tr>
-					</tbody>
-				</table>
 	        </div>
 			<section>
 			<div>

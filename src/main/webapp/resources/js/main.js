@@ -34,7 +34,7 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 			index : 0
 	};
 	
-	 $scope.getMainSelect = function() {
+	$scope.getMainSelect = function() {
 			$http({method: 'POST', url:"/main/postSelect", params: $scope.params})
 			.success(function (data, status, headers, config) {
 				console.log(data);
@@ -72,6 +72,47 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 		$scope.getMainSelect();
 	}
 	
+	$scope.noticeList = {};
+	$scope.getNoticeList = function() {
+		$http({method: 'POST', url:"/main/getNoticeList"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.noticeList = data;	
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+			$scope.info= {};
+		});
+	}
+	$scope.getNoticeList();
+	
+	$scope.disableEval = function() {
+		// 평가가 시작되었는지 확인
+		if($scope.startYn.startYn == "Y")
+			if($scope.info.authorization == 2 || $scope.info.authorization == 3) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		else
+			return true;
+	}
+	
+	$scope.startYn = {};
+	$scope.evalStartSelect = function() {
+		$http({method: 'POST', url:"/main/evalStartSelect"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.startYn = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+			$scope.info= {};
+		});
+	}
+	$scope.evalStartSelect();
+	
 	// 권한에 따라  팀 버튼 비활성화
 	$scope.disableButton = function() {
 		// 권한 2는 교수님 권한
@@ -83,24 +124,28 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 		}
 	}
 	
+	$scope.goEval = function() {
+		
+	}
+	
 	$scope.postEvent = function(row){
 		location.href = "/board/detail?post_num=" + row.post_num;
 	}
 	    
-		$scope.a = function(){
-	    	location.href = "/board/detail";
-	    }
-		
-		$scope.relocated_board = function(){
-	    	location.href = "/board/write";
-	    }
-		
-		$scope.relocated_mypage = function() {
-			location.href = "/mypage";
-		}
-		
-		$scope.logout = function(){
-	    	location.href = "/Logout";
-	    }
+	$scope.a = function(){
+    	location.href = "/board/detail";
+    }
+	
+	$scope.relocated_board = function(){
+    	location.href = "/board/write";
+    }
+	
+	$scope.relocated_mypage = function() {
+		location.href = "/mypage";
+	}
+	
+	$scope.logout = function(){
+    	location.href = "/Logout";
+    }
 		
 });

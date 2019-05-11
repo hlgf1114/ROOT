@@ -54,7 +54,7 @@
 		<!-- 탭 내용 -->
 		<div class="tab-content">
 			<div id="teamInfo" class="tab-pane active">
-				<table class="table">
+				<table class="table table-striped">
 				  <thead class="thead-dark">
 				    <tr>
 				      <th scope="col">팀 이름</th>
@@ -66,14 +66,14 @@
 				    <tr data-ng-repeat="team in teamList">
 				      <th scope="row">{{team.team_name}}</th>
 				      <td>{{team.team_score}}</td>
-				      <td>{{team.yesNo}}</td>
+				      <td>{{}}</td>
 				    </tr>
 				  </tbody>
 				</table>
 			</div>
 			<div id="whatupost" class="tab-pane">
 				<div class="private-window">
-					<table class="table">
+					<table class="table table-striped">
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col">게시판 번호</th>
