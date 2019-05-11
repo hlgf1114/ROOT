@@ -43,7 +43,7 @@
 	<div class="main">
 		<ul class="nav nav-tabs justify-content-center">
 			<li class="nav-item"><a class="nav-link active"
-				data-toggle="tab" href="#teamInfo">팀 정보</a></li>
+				data-toggle="tab" href="#teamInfo">담당 팀 정보</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
 		</ul>
@@ -71,8 +71,32 @@
 				</table>
 			</div>
 			<div id="whatupost" class="tab-pane">
-				<h1>dsd</h1>
-				<p>ssds</p>
+				<div class="private-window">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">게시판 번호</th>
+								<th scope="col">제목</th>
+								<th scope="col">업로드 날짜</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-ng-repeat="mypost in myPostList" data-ng-click="myPostSelect(mypost)">
+								<th scope="row">{{mypost.post_num}}</th>
+								<td>{{mypost.post_name}}</td>
+								<td>{{mypost.postDate}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<br />
+				<div id="pageNav">
+					<nav aria-label="...">
+					  <ul class="pagination pagination-sm">
+					    <li class="page-item" data-ng-repeat="page in pagingList"><a class="page-link" data-ng-click="pagingEvent(page)">{{page}}</a></li>
+					  </ul>
+					</nav>
+				</div>
 			</div>
 		</div>
 		<footer>

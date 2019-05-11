@@ -172,10 +172,19 @@ mypage.controller('StdCtrl', function($scope, $http) {
 
 });
 
+
+
 mypage.controller('ProfCtrl', function($scope, $http) {
 	
 	// 개인정보를 세션에서 가져온다
 	$scope.info = {};
+	$scope.postCount = {};
+	
+	$scope.params = {
+			index : 0
+	};
+	
+	
 	$scope.getData = function(){
 		$http({method: 'GET', url:"/mypage/studentSelect"})
 		.success(function (data, status, headers, config) {
@@ -189,6 +198,44 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		});
 	}
 	$scope.getData();
+	
+	$scope.postTotCount = function() {
+		$http({method: 'GET', url:"/mypage/postTotCount"})
+		.success(function (data, status, headers, config) {
+			$scope.postCount = data;
+			console.log($scope.postCount);	
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.postTotCount();
+	
+	$scope.myPostSelectAll = function() {
+		$http({method: 'GET', url:"/mypage/myPostSelectAll", params: $scope.info, params: $scope.params})
+		.success(function (data, status, headers, config) {
+			$scope.myPostList = data;
+			$scope.pagingList = [];
+			var pageSize = Math.ceil($scope.postCount.tot / 5);
+			for(var i = 0; i < pageSize; i++){
+				$scope.pagingList[i] = (i + 1);
+			}
+			console.log($scope.myPostList);
+		})
+	}
+	$scope.myPostSelectAll();
+	
+	$scope.pagingEvent = function(page){
+		var index = (page - 1) * 5;
+		$scope.params.index = index;
+		console.log($scope.params);
+		$scope.myPostSelectAll();
+	}
+	
+	$scope.myPostSelect = function(mypost){
+		console.log(mypost.post_num);
+		location.href = "/board/detail?post_num=" + mypost.post_num;
+	}
 	 
 	// 교수님이 맡은 팀 정보를 가져온다.
 	$scope.teamList = {};
