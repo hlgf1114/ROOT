@@ -119,14 +119,14 @@ public class MypageController {
 		}
 	}
 	
-	@RequestMapping(value = "/mypage/myPostSelect", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/myPostSelectAll", method = RequestMethod.GET)
 	public void myPostSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
 		if (SessionUtile.checkSession(sess)) {
 			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
 			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
 			userMap.put("index", paramMap.get("index"));
 			System.out.println(userMap);
-			List<HashMap<String, Object>> resultMapList = session.selectList("mypage.myPostSelect", userMap);
+			List<HashMap<String, Object>> resultMapList = session.selectList("mypage.myPostSelectAll", userMap);
 			System.out.println(resultMapList);
 			HttpUtile.printJsonList(resp, resultMapList);
 		} else {

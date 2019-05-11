@@ -61,7 +61,7 @@
 		and uni_num != #{uni_num};
 	</select>
 
-	<select id="myPostSelect" parameterType="hashmap"
+	<select id="myPostSelectAll" parameterType="hashmap"
 		resultType="hashmap">
 		select post_num, post_name, date_format(postDate, "%Y %c/%e
 		%r") as postDate
