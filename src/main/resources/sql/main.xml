@@ -79,5 +79,6 @@
 		select post_name, post_num, date_format(postDate, "%Y %c/%e %r") as postDate 
 		from post 
 		where postType = 1
+		and delYn = "N"
 	</select>
 </mapper>

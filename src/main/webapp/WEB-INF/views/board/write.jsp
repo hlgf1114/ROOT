@@ -25,7 +25,11 @@
 					<label id="post_select">게시판 선택::</label>
 					<div class="form-group">
 					  <select class="form-control" id="exampleFormControlSelect1" data-ng-model="selectedPostType"
-					   data-ng-options="postType.name for postType in postTypes" data-ng-click="test()">
+					   data-ng-options="postType.name for postType in postTypes" data-ng-hide="disableStd()">
+					   <option value="">--게시글 선택--</option>
+					  </select>
+					  <select class="form-control" id="exampleFormControlSelect1" data-ng-model="selectedPostType"
+					   data-ng-options="postType.name for postType in profPostTypes" data-ng-hide="disableProf()">
 					   <option value="">--게시글 선택--</option>
 					  </select>
 					</div>

@@ -85,12 +85,40 @@ app.controller('DetailCtrl', function($scope, $http) {
 
 app.controller('WriteCtrl', function($scope, $http) {
 	
+	$scope.info = {};
+	$scope.getData = function(){
+		$http({method: 'GET', url:"/mypage/studentSelect"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.info = data;	
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+			$scope.info= {};
+		});
+	}
+	$scope.getData();
+	
 	$scope.myPage = function(){
 		location.href = "/mypage";
 	}
 	
 	$scope.homePage = function(){
 		location.href = "/main";
+	}
+	
+	$scope.disableStd = function() {
+		if($scope.info.authorization == 0 || $scope.info.authorization == 1)
+			return false;
+		else
+			return true;
+	}
+	
+	$scope.disableProf = function() {
+		if($scope.info.authorization == 2 || $scope.info.authorization == 3)
+			return false;
+		else
+			return true;
 	}
 	
 	$scope.postTypes = [
@@ -104,9 +132,13 @@ app.controller('WriteCtrl', function($scope, $http) {
 		{"postType": 9, "name": "최종보고서"}
 	];
 	
+	$scope.profPostTypes = [
+		{"postType": 1, name: "공지사항"}
+	]
+	
 	$scope.selectedPostType ={};
 	
-	$scope.test = function() {
+	$scope.chooseType = function() {
 		console.log($scope.selectedPostType);
 	}
 	
