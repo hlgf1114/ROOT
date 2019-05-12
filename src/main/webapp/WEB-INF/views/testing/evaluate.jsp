@@ -176,6 +176,7 @@
 			</div>
 		</form>
 		<div id="scoreEvalBox">
+			<h4>합격: 54점 이상, 재심사: 45점 이상, 불합격: 45점 미만</h4>
 			<h2>평가 점수 : {{getTotal()}}</h2>
 			<br /> <br />
 			<button class="btn btn-sm btn-success" data-ng-click="sendResult()">완료</button>

@@ -57,5 +57,32 @@ public class TestingController {
 		HttpUtile.printJsonList(resp, resultList);
 	}
 	
+	/************************
+	 *finaleval.jsp functions*
+	 ************************/
+	@RequestMapping(value = "/testing/getTeamEval", method = RequestMethod.POST)
+	public void getTeamEval(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> resultMapList = session.selectList("testing.getTeamEval", paramMap);
+		System.out.println(resultMapList);
+		HttpUtile.printJsonList(resp, resultMapList);
+	}
+	
+	@RequestMapping(value = "/testing/getEvalList", method = RequestMethod.POST)
+	public void getEvalScore(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> resultMapList = session.selectList("testing.getEvalList", paramMap);
+		System.out.println(resultMapList);
+		HttpUtile.printJsonList(resp, resultMapList);
+	}
+	
+	@RequestMapping(value = "/testing/sendFinalEval", method = RequestMethod.POST)
+	public void sendFinalEval(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		int state = session.update("testing.sendFinalEval", paramMap);
+		HashMap<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("state", state);
+		HttpUtile.printJson(resp, resultMap);
+	}
 	
 }

@@ -25,4 +25,24 @@
 		where authorization = 2 
 		or authorization = 3
 	</select>
+	
+	<select id="getTeamEval" parameterType="hashmap" resultType="hashmap">
+		select t.team_id, t.team_name, u.name 
+		from team as t, user as u
+		where t.team_id = u.team_id
+		and t.team_id = #{team_id}
+	</select>
+	
+	<select id="getEvalList" parameterType="hashmap" resultType="hashmap">
+		select e.eval_team_no, u.name, e.article1, e.article2, e.article3, e.article4, e.article5, e.article6, e.article7 
+			from eval_article as e, user as u
+			where u.uni_num = e.uni_num
+			and e.team_id = #{team_id}
+	</select>
+	
+	<update id="sendFinalEval" parameterType="hashmap">
+		update team 
+		set eval_end = #{eval_end}, eval_end_comm = #{eval_end_comm} 
+		where team_id = #{team_id}
+	</update>
 </mapper>
