@@ -189,5 +189,16 @@ public class MypageController {
 			HttpUtile.printJson(resp, resultMap);
 		}
 	}
+	
+	@RequestMapping(value ="/mypage/getTeamStd", method=RequestMethod.POST)
+	public void getTeamStd(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			List<HashMap<String, Object>> resultMapList = session.selectList("mypage.getTeamStd", paramMap);
+			System.out.println(resultMapList);
+			HttpUtile.printJsonList(resp, resultMapList);
+		}
+	}
+	
 
 }

@@ -27,13 +27,12 @@ footer {
 	max-width: 80%;
 	margin-left: 10%;
 }
- 
+
 /* this page's css */
 #pageNav {
 	display: table;
 	margin: 0 auto;
 }
-
 
 #logo_image_wrapper {
 	position: relative;
@@ -63,11 +62,10 @@ footer {
 	width: 150px;
 }
 
-#testPlan{
+#testPlan {
 	position: relative;
-	float:right;
+	float: right;
 	margin-right: 100px;
-
 }
 
 #profile_info {
@@ -89,7 +87,7 @@ footer {
 	border:
 }
 
-#teamInfo, #whatupost {
+#teamInfo, #whatupost, #teamLeader {
 	text-align: center;
 	margin: 50px;
 }

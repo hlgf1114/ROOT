@@ -198,7 +198,7 @@ mypage.controller('StdCtrl', function($scope, $http) {
 /****************************
  * professor.jsp controller *
  * **************************/
-mypage.controller('ProfCtrl', function($scope, $http) {
+mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	
 	// 개인정보를 세션에서 가져온다
 	$scope.info = {};
@@ -213,8 +213,8 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		$http({method: 'GET', url:"/mypage/studentSelect"})
 		.success(function (data, status, headers, config) {
 			console.log(data);
-			$scope.info = data;	
-			$scope.getTeamData();
+			$scope.info = data;
+			return $scope.getTeamData();
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);
@@ -222,6 +222,61 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 		});
 	}
 	$scope.getData();
+	
+	
+	// 리스트로 나오는 팀의 정보를 받아 파라미터 값으로 넘겨 그 팀의 팀원 정보를 받아온다
+//	$scope.teamLeaderList = {}; // 팀 리더만 따로 뺀다
+	$scope.teamStd = []; // 팀원들 리스트
+	var getTeamStd = function(row, count) {
+		var teamStd;
+		$http({method: 'POST', url: "/mypage/getTeamStd", params: row})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			teamStd = data;
+//			console.log($scope.teamStd);
+			
+			$scope.teamList[count].teamStd = teamStd;
+
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+//		return $scope.mergeTeamInfo(count);
+	}
+	
+//	$scope.mergeTeamInfo = function (count) {
+//		
+//		console.log(teamStd);
+//		$scope.teamList[count].teamStd = $scope.teamStd;
+//		console.log($scope.teamList);
+//	}
+	 
+	
+	// 교수님이 맡은 팀 정보를 가져온다.
+	$scope.teamList = {};
+	$scope.getTeamData = function() {
+		$http({method: 'POST', url: "/mypage/profTeamSelect", params: $scope.info})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.teamList = data;
+//			console.log($scope.teamList);
+//			
+			var count = 0;
+			angular.forEach($scope.teamList, function(value, key) {
+				console.log(value);
+				getTeamStd(value, count);
+				count++;
+			});
+//			
+			console.log($scope.teamList);
+		})
+		.error(function (data, status, header, config) {
+			
+		});
+		
+		
+	}
+//	$scope.getTeamData();
 	
 	$scope.postTotCount = function() {
 		$http({method: 'GET', url:"/mypage/postTotCount"})
@@ -275,20 +330,9 @@ mypage.controller('ProfCtrl', function($scope, $http) {
 			location.href = "/mypage";
 		}
 	}
-	 
-	// 교수님이 맡은 팀 정보를 가져온다.
-	$scope.teamList = {};
-	$scope.getTeamData = function() {
-		$http({method: 'POST', url: "/mypage/profTeamSelect", params: $scope.info})
-		.success(function (data, status, headers, config) {
-			console.log(data);
-			$scope.teamList = data;
-		})
-		.error(function (data, status, header, config) {
-			
-		});
-	}
-	$scope.getTeamData();
+
+	
+
 	
 	$scope.disableButton = function() {
 		// 권한 3는 학과장 권한

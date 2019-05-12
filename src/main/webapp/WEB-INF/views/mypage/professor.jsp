@@ -47,7 +47,7 @@
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
-				href="#setTeamLeader">팀 및 팀장 정하기</a></li>
+				href="#setTeamLeader">팀 만들기 및 관리</a></li>
 		</ul>
 		<button id="mypagebtn" type="button" class="btn btn-primary"
 		 data-ng-click="relocate_mainView()">메인 페이지로 돌아가기</button>
@@ -94,9 +94,6 @@
 						</tbody>
 					</table>
 				</div>
-				<div id="setTeamLeader" class="tab-pane">
-					
-				</div>
 				<br />
 				<div id="pageNav">
 					<nav aria-label="...">
@@ -104,6 +101,36 @@
 					    <li class="page-item" data-ng-repeat="page in pagingList"><a class="page-link" data-ng-click="pagingEvent(page)">{{page}}</a></li>
 					  </ul>
 					</nav>
+				</div>
+			</div>
+			<div id="setTeamLeader" class="tab-pane">
+				<div id="teamLeader">
+					<h3>나의 지도 팀 리스트</h3>
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">팀 이름</th>
+								<th scope="col">팀장</th>
+								<th scope="col">팀장 선택</th>
+								<th scope="col">팀 삭제 </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-ng-repeat="team in teamList">
+								<td>{{team.team_name}}</td>
+								<td>
+<!-- 								  	{{getTeamStd(team)}} -->
+								</td>
+								<td>
+<!-- 									<select class="form-control" data-ng-model="selectedTeamLeader" -->
+<!-- 								   data-ng-options=""> -->
+<!-- 								   <option value="">-</option> -->
+<!-- 								  	</select> -->
+								</td>
+								<td><button type="button" class="btn btn-danger" data-ng-click="deleteTeam(team)">삭제</button></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

@@ -155,7 +155,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="members in teamMembers">
+								<tr data-ng-repeat="members in teamMembers">
 									<th scope="row">{{members.uni_num}}</th>
 									<td>{{members.name}}</td>
 									<td><button type="button" class="btn btn-danger" data-ng-click="deleteTeamStudent(members)">삭제</button></td>
