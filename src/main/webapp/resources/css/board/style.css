@@ -1,88 +1,93 @@
-          html, body {
-                margin-top: 00px;     
-                text-align: center;
-                background-image: url('/resources/img/board/img_bg.png');
-            }
-            header {
-                height: 50px;
-                max-width : 80%;
-                margin-left : 10%;
-            }
-            nav{
-                height: 40px;
-                background-color: #ffffff;
-                width: auto;
-                max-width : 80%;
-                margin-left : 10%;
-                border-radius:50px;
-            }
-            section {
-                border-radius:50px;
-                background-color: #ffffff;
-                min-height: calc(100vh - 50px);
-                max-width : 80%;
-                margin-left : 10%;
-            }
-            footer {
+html, body {
+	margin-top: 00px;
+	text-align: center;
+	background-image: url('/resources/img/board/img_bg.png');
+}
 
-            }
-            #school{
-              float:right;
-              width: 150px;
-              height: 30px;
-              background-color: #ffffff;
-              border: 3px solid #0000FF;
-              border-radius: 5px;
-              color: #5050FF;
-              display: block;
-              font-weight: bold;
-            }
-            #mypage{
-              float:right;
-              width: 150px;
-              height: 30px;
-            }
-            #title{
-                float: left;
-                height: 100%;
-                width: 20%;
-				
-                margin: 25px 15px 00px;
-            }
-            #title2{
-                float :left;
-                height: 100%;
-                width: 20%;
-				
-                margin: 25px 00px 00px;
-            }
-            #title1{
-                float:left;
-                height: 100%;
-                width: 20%;
-				
-                margin: 25px 00px 00px;
-            }
+header {
+	height: 50px;
+	max-width: 80%;
+	margin-left: 10%;
+}
 
-            #text{
-              border-radius:50px;
-              min-height: 300px;
-              height:auto;
-              background-color: #BDBDBD;
-              margin: 00px 100px 00px;
-            }
-            #text1{
-                float: left;
-                width: calc(100% - 200px);
-                height: 100px;
-                background-color: #ffffff;
-                margin: 0px 100px;
-            }
-            
-            .form-control
-            {
-            float: left;
-	        width: 90%;
-          	height: 50px;
-            }
-           
+nav {
+	height: 40px;
+	background-color: #ffffff;
+	width: auto;
+	max-width: 80%;
+	margin-left: 10%;
+	border-radius: 50px;
+}
+
+section {
+	border-radius: 50px;
+	background-color: #ffffff;
+	min-height: calc(100vh - 50px);
+	max-width: 80%;
+	margin-left: 10%;
+}
+
+footer {
+	
+}
+
+#school {
+	float: right;
+	width: 150px;
+	height: 30px;
+	background-color: #ffffff;
+	border: 3px solid #0000FF;
+	border-radius: 5px;
+	color: #5050FF;
+	display: block;
+	font-weight: bold;
+}
+
+#mypage {
+	float: right;
+	width: 150px;
+	height: 30px;
+}
+
+#title {
+	float: left;
+	height: 100%;
+	width: 20%;
+	margin: 25px 15px 00px;
+}
+
+#title2 {
+	float: left;
+	height: 100%;
+	width: 20%;
+	margin: 25px 00px 00px;
+}
+
+#title1 {
+	float: left;
+	height: 100%;
+	width: 20%;
+	margin: 25px 00px 00px;
+}
+
+#text {
+	border-radius: 50px;
+	min-height: 300px;
+	height: auto;
+	background-color: #BDBDBD;
+	margin: 00px 100px 00px;
+}
+
+#text1 {
+	float: left;
+	width: calc(100% - 200px);
+	height: 100px;
+	background-color: #ffffff;
+	margin: 0px 100px;
+}
+
+.form-control {
+	float: left;
+	width: 90%;
+	height: 50px;
+}
