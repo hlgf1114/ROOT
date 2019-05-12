@@ -1,25 +1,20 @@
 body{
-  text-align: center;
   background-image: url('/resources/img/board/img_bg.png');
 }
 header{
-  margin-top : 2%;
+  margin : 10px 10% 10px 10%;
   width: 80%;
-  margin-left: 10%;
-/*   background-color: #00FF40; */
   min-height: 5vh;
   border-radius: 5px;
 }
 section{
   width: 80%;
-  margin-left:  10%;
-  margin-right : 10%;
+  margin: 10px 10% 20px 10%;
   background-color: #A9A8A6;
   min-height: 70vh;
-  margin-top: 1%;
   border-radius: 5px;
   float: left;
-  margin-bottom: 3%;
+
   
 }
 article{
@@ -27,34 +22,34 @@ article{
   margin : 1% 5% 2% 5%;
   background-color: #ffffff;
   min-height: 70vh;
+  max-height: 70vh;
   border-radius: 5px;
   float: right;
   font-size: 1em;
+  overflow:scroll;
 	
 }
-footer{
-  margin-top: 3%;
-  border-radius: 5px;
-}
-#evaluate{
-	width: 100%;
-	float: left;
-	height: 3vh;
-	border-radius: 5px;
+.evaluate{
+	height: 50px;
+	border-radius: 10px;
 	background-color: #5882FA;
 	font-size: 2em;
+	text-align: center;
 }
-#b{
+#proBox{
 	border-bottom : 1px solid #000000;
 }
-#a{
-  	margin : 1% 5% 1% 5%;
+#teamBox{
+  	margin : 1% 5% 2% 5%;
   	background-color: #ffffff;
  	border-radius: 5px;
  	font-size: 1em;
  	border : 1px solid #000000;
 }
-#case{
-	margin-top : 3%;
-	width: 100%;
+.button1,.button2{
+	text-align: center;
+	margin-bottom: 1vh;
 }
+/* .button2{ */
+/* 	text-align: center; */
+/* } */

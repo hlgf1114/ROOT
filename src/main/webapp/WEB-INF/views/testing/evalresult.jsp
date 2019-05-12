@@ -3,16 +3,25 @@
 <html data-ng-app="evaluatelist">
   <head>
     <meta charset="utf-8">
-    <title>평가 시작을 위한 페이지</title>
+    <title>팀별 심사 리스트</title>
     <link rel="stylesheet" href="/resources/css/testing/evalresult.css">
-    <link rel="stylesheet" href="/js/bootstrap/3.4.1/css/bootstrap.min.css">
+<!--     <link rel="stylesheet" href="/js/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<!--     <script src="/js/angularjs/1.5.11/angular.min.js"></script> -->
+    
+    <link rel="stylesheet"
+	href="/resources/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+	<script src="/js/jquery/3.3.1/dist/jquery.min.js"></script>
+	<script src="/resources/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <script src="/js/angularjs/1.5.11/angular.min.js"></script>
+    
+    
+    
     <script src = "/resources/js/testing/evalresult.js"></script>
   </head>
 
   <body data-ng-controller="evaluatelistctrl">
     <header>
-      <div id = "evaluate">평가들의 리스트 </div>
+      <div class = "evaluate">팀별 심사 리스트 </div>
     </header>
 
     <section>
@@ -27,28 +36,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr data-ng-repeat="row in pro" id = "b">
+					<tr data-ng-repeat="row in pro" id = "proBox">
 						<td>{{row.progress}}</td>
 						<td>{{row.name}}</td>
 						<td>{{row.result}}</td>
 					</tr>
 				</tbody>
 			</table>
-		<button type="button" class="btn btn-info btn-lg" data-ng-click="stert()">최종 결과</button>
-    
+		<div class = "button1">
+			<button type="button" class="btn btn-success btn-round" data-ng-click=" final()">최종 평가 하기</button>
+    	</div>
     	</article>
     	
     	    <article>
-			<div data-ng-repeat="row in team" id = "a" data-ng-click = "responsibility(row)">
+			<div data-ng-repeat="row in team" id = "teamBox" data-ng-click = "responsibility(row)">
 				{{row.id}}
 			</div>
 		</article>
+		<div class = "button2">
+			<button type="button" class="btn btn-info btn-round" data-ng-click="myPage()">마이페이지 이동</button>
+	    	<button type="button" class="btn btn-danger btn-round" data-ng-click="exit()">평가를 종료 합니다</button>
+	    </div>
     </section>
-    
-
-    <footer>
-	  <button type="button" class="btn btn-danger btn-lg" data-ng-click="exit()">평가를 종료 합니다</button>
-    </footer>
   </body>
 </html>
 	
