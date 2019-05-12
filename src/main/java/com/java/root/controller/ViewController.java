@@ -78,6 +78,7 @@ public class ViewController {
 			return "redirect:/login";
 		}
 	}
+	
 	@RequestMapping(value = "/testing/evalsetting", method = RequestMethod.GET)
 	public String evalsetting(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
@@ -92,6 +93,22 @@ public class ViewController {
 			return "redirect:/main";
 		}
 	}
+	
+	@RequestMapping(value = "/testing/finaleval", method = RequestMethod.GET)
+	public String finaleval(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			HashMap<String, Object> userMap = SessionUtile.getSession(session);
+			int authorization = (int) userMap.get("authorization");
+			if(authorization == 3 || authorization == 4)
+				return "testing/finaleval";
+			else
+				return "redirect:/main";
+		}
+		else {
+			return "redirect:/main";
+		}
+	}
+	
 	
 	@RequestMapping(value = "/testing/evalresult", method = RequestMethod.GET)
 	public String testing_evaluatelist(HttpSession session) {

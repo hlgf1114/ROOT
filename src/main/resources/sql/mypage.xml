@@ -47,8 +47,8 @@
 
 	<select id="stdScore" parameterType="hashmap"
 		resultType="hashmap">
-		select team_name, team_score
-		from team
+		select team_name, eval_end 
+		from team 
 		where team_id = #{team_id}
 	</select>
 

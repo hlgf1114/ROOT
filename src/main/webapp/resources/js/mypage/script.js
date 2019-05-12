@@ -67,11 +67,12 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	}
 	
 	$scope.userScore = {};
+	$scope.passYn = null;
 	$scope.stdScore = function() {
 		$http({method: 'GET', url:"/mypage/stdScore", params: $scope.info})
 		.success(function (data, status, headers, config) {
 			$scope.userScore = data;
-			console.log($scope.userScore);	
+			console.log($scope.userScore);
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);
@@ -80,13 +81,15 @@ mypage.controller('StdCtrl', function($scope, $http) {
 	$scope.stdScore();
 	
 	$scope.checkPassNo = function() {
-		if($scope.userScore.team_score >= 54)
+		if($scope.userScore.eval_end == 1)
 			return "합격";
-		else if($scope.userScore.team_score >= 45)
+		else if($scope.userScore.eval_end == 2)
 			return "재심사";
 		else
 			return "불합격";
+		
 	}
+	
 	
 	$scope.postTotCount = function() {
 		$http({method: 'GET', url:"/mypage/postTotCount"})

@@ -82,14 +82,12 @@
 						<table class="table table-striped">
 							<thead class="thead-dark">
 								<tr>
-									<th scope="col">평가 점수</th>
 									<th scope="col">합격 여부</th>
 									<th scope="col">자세히 보기</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<th scope="row">{{userScore.team_score}}</th>
 									<td>{{checkPassNo()}}</td>
 									<td><button class="btn btn-primary" 
 									data-ng-click="">자세히 보기</button>
