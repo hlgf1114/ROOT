@@ -108,6 +108,7 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		.success(function (data, status, headers, config) {
 			$scope.myPostList = data;
 			$scope.pagingList = [];
+			console.log($scope.postCount);
 			var pageSize = Math.ceil($scope.postCount.tot / 5);
 			for(var i = 0; i < pageSize; i++){
 				$scope.pagingList[i] = (i + 1);

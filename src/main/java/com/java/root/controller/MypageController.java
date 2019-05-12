@@ -32,8 +32,8 @@ public class MypageController {
 	@RequestMapping(value= "/mypage/postTotCount", method = RequestMethod.GET)
 	public void postTotCount(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
 		if (SessionUtile.checkSession(sess)) {
-			HashMap<String, Object> userMap = SessionUtile.getSession(sess);
-			HashMap<String, Object> totMap = session.selectOne("main.postTotCount", userMap);
+			HashMap<String, Object> paramMap = SessionUtile.getSession(sess);
+			HashMap<String, Object> totMap = session.selectOne("mypage.postTotCount", paramMap);
 			HttpUtile.printJson(resp, totMap);
 		} else {
 			// 예외 처리 넣어라.

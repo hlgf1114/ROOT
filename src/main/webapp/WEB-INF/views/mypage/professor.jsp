@@ -46,6 +46,8 @@
 				data-toggle="tab" href="#teamInfo">담당 팀 정보</a></li>
 			<li class="nav-item"><a class="nav-link" data-toggle="tab"
 				href="#whatupost">내가 쓴 글</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				href="#setTeamLeader">팀 및 팀장 정하기</a></li>
 		</ul>
 		<button id="mypagebtn" type="button" class="btn btn-primary"
 		 data-ng-click="relocate_mainView()">메인 페이지로 돌아가기</button>
@@ -91,6 +93,9 @@
 							</tr>
 						</tbody>
 					</table>
+				</div>
+				<div id="setTeamLeader" class="tab-pane">
+					
 				</div>
 				<br />
 				<div id="pageNav">

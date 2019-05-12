@@ -5,8 +5,8 @@
 	<select id="postTotCount" parameterType="hashmap" resultType="hashmap">
 		SELECT count(*) tot 
 		  FROM post
-		  where uni_num = #{uni_num}
-		  and delYn = "N";
+		  where delYn = "N"
+		  and uni_num = #{uni_num}
 	</select>
 	<!-- student.jsp -->
 	<select id="studentSelect" parameterType="hashmap"
@@ -35,14 +35,14 @@
 		from user
 		where team_id != #{team_id}
 		order by uni_num
-		limit 0, 5;
+		limit 0, 5
 	</select>
 
 	<select id="studentSearch" parameterType="hashmap"
 		resultType="hashmap">
 		select uni_num, name
 		from user
-		where name = #{name};
+		where name = #{name}
 	</select>
 
 	<select id="stdScore" parameterType="hashmap"
@@ -57,7 +57,7 @@
 		select uni_num, name
 		from user
 		where team_id = #{team_id}
-		and uni_num != #{uni_num};
+		and uni_num != #{uni_num}
 	</select>
 
 	<select id="myPostSelectAll" parameterType="hashmap"
@@ -68,23 +68,23 @@
 		where delYn ="N"
 		and
 		uni_num = #{uni_num}
-		LIMIT ${index}, 5;
+		LIMIT ${index}, 5
 	</select>
 
 	<update id="chooseTeamStudent" parameterType="hashmap">
 		update user set
 		team_id = #{team_id}
-		where uni_num = #{uni_num};
+		where uni_num = #{uni_num}
 	</update>
 
 	<update id="deleteTeamStudent" parameterType="hashmap">
 		update user set team_id = 0
-		where uni_num = #{uni_num};
+		where uni_num = #{uni_num}
 	</update>
 
 	<!-- professor.jsp -->
 	<select id="profTeamSelect" parameterType="hashmap" resultType="hashmap">
-		select team_id, team_name, team_score 
+		select team_id, team_name
 		from team 
 		where charge_prof = #{uni_num};
 	</select>
