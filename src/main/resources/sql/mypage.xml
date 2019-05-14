@@ -88,7 +88,7 @@
 
 	<!-- professor.jsp -->
 	<select id="profTeamSelect" parameterType="hashmap" resultType="hashmap">
-		select team_id, team_name 
+		select team_id, team_name, eval_end
 		from team 
 		where charge_prof = #{uni_num};
 	</select>

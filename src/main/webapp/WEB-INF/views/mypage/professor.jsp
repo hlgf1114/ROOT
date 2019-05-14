@@ -62,15 +62,13 @@
 				  <thead class="thead-dark">
 				    <tr>
 				      <th scope="col">팀 이름</th>
-				      <th scope="col">평가 점수</th>
 				      <th scope="col">합격 여부</th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				    <tr data-ng-repeat="team in teamList">
 				      <th scope="row">{{team.team_name}}</th>
-				      <td>{{team.team_score}}</td>
-				      <td>{{}}</td>
+				      <td>{{checkPassNo(team)}}</td>
 				    </tr>
 				  </tbody>
 				</table>
@@ -106,6 +104,7 @@
 			<div id="setTeamLeader" class="tab-pane">
 				<div id="teamLeader">
 					<h3>나의 지도 팀 리스트</h3>
+					<br/>
 					<table class="table">
 						<thead class="thead-dark">
 							<tr>

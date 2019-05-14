@@ -278,16 +278,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 		.error(function (data, status, header, config) {
 			console.log(data);
 		});
-//		return $scope.mergeTeamInfo(count);
 	}
-	
-//	$scope.mergeTeamInfo = function (count) {
-//		
-//		console.log(teamStd);
-//		$scope.teamList[count].teamStd = $scope.teamStd;
-//		console.log($scope.teamList);
-//	}
-	 
 	
 	// 교수님이 맡은 팀 정보를 가져온다.
 	$scope.teamList = {};
@@ -296,25 +287,22 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 		.success(function (data, status, headers, config) {
 			console.log(data);
 			$scope.teamList = data;
-//			console.log($scope.teamList);
-//			
 			var count = 0;
 			angular.forEach($scope.teamList, function(value, key) {
 				console.log(value);
 				getTeamStd(value, count);
 				count++;
 			});
-//			
 			console.log($scope.teamList);
 		})
 		.error(function (data, status, header, config) {
-			
+			console.log(data);
 		});
 		
 		
 	}
-//	$scope.getTeamData();
 	
+	// 게시글 개수 가져오기
 	$scope.postTotCount = function() {
 		$http({method: 'GET', url:"/mypage/postTotCount"})
 		.success(function (data, status, headers, config) {
@@ -327,6 +315,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	}
 	$scope.postTotCount();
 	
+	// 내가 쓴 게시글 목록 가져오기
 	$scope.myPostSelectAll = function() {
 		$http({method: 'GET', url:"/mypage/myPostSelectAll", params: $scope.info, params: $scope.params})
 		.success(function (data, status, headers, config) {
@@ -341,6 +330,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	}
 	$scope.myPostSelectAll();
 	
+	// 페이지 이벤트
 	$scope.pagingEvent = function(page){
 		var index = (page - 1) * 5;
 		$scope.params.index = index;
@@ -348,6 +338,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 		$scope.myPostSelectAll();
 	}
 	
+	// 내가 쓴 글 중 하나 선택하면 넘어가게
 	$scope.myPostSelect = function(mypost){
 		console.log(mypost.post_num);
 		location.href = "/board/detail?post_num=" + mypost.post_num;
@@ -367,10 +358,18 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 			location.href = "/mypage";
 		}
 	}
-
 	
+	// 평가 심사 출력
+	$scope.checkPassNo = function(row) {
+		if(row.eval_end == 1)
+			return "합격";
+		else if(row.eval_end == 2)
+			return "재심사";
+		else
+			return "불합격";	
+	}
 
-	
+	// 평가 계획서 학과장만 보이게
 	$scope.disableButton = function() {
 		// 권한 3는 학과장 권한
 		if($scope.info.authorization == 3) {
@@ -395,6 +394,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	}
 	$scope.evalStartSelect();
 	
+	// 평가 중단하기 학과장만 보이게 또는 중단시 버튼 사라지게
 	$scope.disableEvalButton = function() {
 		if($scope.info.authorization == 3)
 			if($scope.startYn.startYn == "Y")
