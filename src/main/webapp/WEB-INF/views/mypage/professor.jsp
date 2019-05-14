@@ -122,19 +122,12 @@
 								  	{{team.teamLeader.name}}
 								</td>
 								<td>
-<!-- 									<select class="form-control" id="exampleFormControlSelect1"> -->
-<!-- 									 <option value="">--팀장 선택--</option> -->
-<!-- 									 <option data-ng-model="selectedTeamStd"  -->
-<!-- 									 data-ng-repeat="teamStd in team.teamStd"> -->
-<!-- 									 	{{teamStd.name}} -->
-<!-- 									 </option> -->
-<!-- 									</select> -->
-									<select class="form-control" id="exampleFormControlSelect1"
+									<select class="form-control" id="setTeamLead"
 									 data-ng-model="selectedTeamStd"
 									  data-ng-options="teamStd.name for teamStd in team.teamStd">
 									 <option value="">--팀장 선택--</option>
 									</select>
-									<button class="btn btn-danger" 
+									<button class="btn btn-warning" id="changeLeaderBtn"
 									data-ng-click="updateTeamLeader(selectedTeamStd, team)">변경</button>
 								</td>
 								<td>

@@ -54,6 +54,16 @@ footer {
 	float: right;
 }
 
+#setTeamLead {
+	float:left;
+	max-width: 60%;	
+}
+
+#changeLeaderBtn {
+	float: left;
+	margin-left: 10px;
+}
+
 #profile_img {
 	margin-top: 25px;
 	margin-bottom: 25px;
