@@ -115,4 +115,37 @@
 		set authorization = 0 
 		where team_id = #{team_id}
 	</update>
+	
+	<select id="notInTeamStdSelect" resultType="hashmap">
+		select uni_num, name
+		from user
+		where team_id = 0
+		and authorization != 2
+		and authorization != 3
+		and authorization != 4
+		order by uni_num
+	</select>
+	
+	<update id="setStdLeader" parameterType="hashmap">
+		update user 
+		set authorization = 1, team_id = #{team_id}
+		where uni_num = #{uni_num}
+	</update>
+	
+	<insert id="makeTeam" parameterType="hashmap">
+		insert into team(team_name, charge_prof) 
+		values(#{team_name}, #{charge_prof})
+	</insert>
+	
+	<select id="checkTeamName" parameterType="hashmap" resultType="hashmap">
+		select count(team_id) as count
+		from team
+		where team_name = #{team_name};
+	</select>
+	
+	<select id="getTeamId" parameterType="hashmap" resultType="hashmap">
+		select team_id
+		from team
+		where team_name = #{team_name};
+	</select>
 </mapper>

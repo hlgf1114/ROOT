@@ -210,12 +210,15 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	
 	$scope.selectedTeamStd = {};
 	
+	$scope.stdList = {};
+	
 	
 	$scope.getData = function(){
 		$http({method: 'GET', url:"/mypage/studentSelect"})
 		.success(function (data, status, headers, config) {
 			console.log(data);
 			$scope.info = data;
+			$scope.getStdList(); // 팀이 정해지지 않은 학생 불러오기
 			return $scope.getTeamData();
 		})
 		.error(function (data, status, header, config) {
@@ -298,9 +301,95 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 		.error(function (data, status, header, config) {
 			console.log(data);
 		});
-		
+	}
+	
+	// 팀이 정해지지 않은 사람 불러오기
+	$scope.getStdList = function() {
+		var param = {team_id : 0};
+		console.log(param);
+		$http({method: 'POST', url:"/mypage/notInTeamStdSelect", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.stdList = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	
+	/********************************팀 생성********************************/
+	
+	// 팀을 만든다.
+	$scope.makeTeam = function(param) {
+		console.log(param);
+		$http({method: 'POST', url:"/mypage/makeTeam", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.state == 1) {
+				return $scope.getTeamId(param);
+			}
+			else {
+				alert("팀 생성에 실패했거나, 다른 문제가 있습니다.");
+			}
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	
+	// 팀 이름이 중복되는지 알아온다.
+	$scope.checkTeamName = function(makeTeamName, notInTeamStd) {
+		//count가 0이면 없는 것이고, 1이면 있다는 것이다.
+		var selected = confirm("정말로 팀을 생성하시겠습니까?");
+		if(selected) {
+			var param = {team_name: makeTeamName,
+						charge_prof: $scope.info.uni_num,
+						uni_num: notInTeamStd.uni_num};
+			console.log(param);
+			// 이름이 있는지 체크한다.
+			$http({method: 'POST', url:"/mypage/checkTeamName", params: param})
+			.success(function (data, status, headers, config) {
+				console.log(data);
+				if(data.count == 0)
+					// 팀을 만든다.
+					return $scope.makeTeam(param);
+				else
+					alert("이미 있는 이름입니다. 다른 이름을 시도해 주세요.");
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+		}
+	}
+	
+	// 방금 생성한 team_id를 가져온다.
+	$scope.getTeamId = function(param) {
+		$http({method: 'POST', url:"/mypage/getTeamId", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			return $scope.setStdLeader(data, param);
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
 		
 	}
+	
+	// 팀장을 정한다.
+	$scope.setStdLeader = function(team_id, param) {
+		param.team_id = team_id.team_id;
+		console.log(param);
+		$http({method: 'POST', url:"/mypage/setStdLeader", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			alert("팀 생성이 완료되었습니다.");
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	
+	/************************************************************************/
 	
 	// 게시글 개수 가져오기
 	$scope.postTotCount = function() {

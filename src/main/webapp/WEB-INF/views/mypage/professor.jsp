@@ -107,15 +107,20 @@
 					<br/>
 					<div class="input-group input-group-lg">
 						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-lg">팀
-								이름</span>
+							<span class="input-group-text" id="inputGroup-sizing-lg">팀장</span>
 						</div>
+						<select class="form-control" id="setTeamLead"
+						 data-ng-model="notInTeamStd"
+						  data-ng-options="students.name for students in stdList">
+						 <option value="">--팀장 선택--</option>
+						</select>
 						<input type="text" class="form-control"
 							aria-label="Sizing example input"
 							aria-describedby="inputGroup-sizing-lg"
-							data-ng-model="info.team_name">
+							data-ng-model="makeTeamName"
+							placeholder="팀 이름을 입력해 주세요">
 						<button type="button" class="btn btn-warning"
-							data-ng-click="renameTeam()">변경</button>
+							data-ng-click="checkTeamName(makeTeamName, notInTeamStd)">팀 생성</button>
 					</div>
 				</div>
 				<div id="teamLeader">

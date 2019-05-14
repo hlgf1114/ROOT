@@ -221,4 +221,54 @@ public class MypageController {
 			HttpUtile.printJson(resp, resultMap);
 		}
 	}
+	
+	@RequestMapping(value ="/mypage/notInTeamStdSelect", method=RequestMethod.POST)
+	public void notInTeamStdSelect(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			List<HashMap<String, Object>> resultMapList = session.selectList("mypage.notInTeamStdSelect", paramMap);
+			HttpUtile.printJsonList(resp, resultMapList);
+		}
+	}
+	
+	@RequestMapping(value ="/mypage/setStdLeader", method=RequestMethod.POST)
+	public void setStdLeader(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.update("mypage.setStdLeader", paramMap);
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
+	@RequestMapping(value ="/mypage/makeTeam", method=RequestMethod.POST)
+	public void makeTeam(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.insert("mypage.makeTeam", paramMap);
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
+	@RequestMapping(value ="/mypage/checkTeamName", method=RequestMethod.POST)
+	public void checkTeamName(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = session.selectOne("mypage.checkTeamName", paramMap);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
+	@RequestMapping(value ="/mypage/getTeamId", method=RequestMethod.POST)
+	public void getTeamId(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = session.selectOne("mypage.getTeamId", paramMap);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
 }
