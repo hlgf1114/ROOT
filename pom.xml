@@ -130,11 +130,11 @@
 		</dependency>
 		
 		<!-- MySQL -->
-<!-- 		<dependency> -->
-<!-- 		   <groupId>mysql</groupId> -->
-<!-- 		   <artifactId>mysql-connector-java</artifactId> -->
-<!-- 		   <version>5.1.35</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+		   <groupId>mysql</groupId>
+		   <artifactId>mysql-connector-java</artifactId>
+		   <version>5.1.35</version>
+		</dependency>
 		
 		<!-- MyBatis -->
 		<dependency>

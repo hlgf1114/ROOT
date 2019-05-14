@@ -200,5 +200,25 @@ public class MypageController {
 		}
 	}
 	
-
+	@RequestMapping(value ="/mypage/updateTeamLeader", method=RequestMethod.POST)
+	public void updateTeamLeader(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.update("mypage.updateTeamLeader", paramMap);
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
+	@RequestMapping(value ="/mypage/resetTeamLeader", method=RequestMethod.POST)
+	public void resetTeamLeader(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.update("mypage.resetTeamLeader", paramMap);
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
 }

@@ -99,4 +99,16 @@
 		from user
 		where team_id = #{team_id}
 	</select>
+	
+	<update id="updateTeamLeader" parameterType="hashmap">
+		update user 
+		set authorization = 1 
+		where uni_num = #{uni_num}
+	</update>
+	
+	<update id="resetTeamLeader">
+		update user 
+		set authorization = 0 
+		where team_id = #{team_id}
+	</update>
 </mapper>

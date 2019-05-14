@@ -119,15 +119,27 @@
 							<tr data-ng-repeat="team in teamList">
 								<td>{{team.team_name}}</td>
 								<td>
-<!-- 								  	{{getTeamStd(team)}} -->
+								  	{{team.teamStd[0].name}}
 								</td>
 								<td>
-<!-- 									<select class="form-control" data-ng-model="selectedTeamLeader" -->
-<!-- 								   data-ng-options=""> -->
-<!-- 								   <option value="">-</option> -->
-<!-- 								  	</select> -->
+<!-- 									<select class="form-control" id="exampleFormControlSelect1"> -->
+<!-- 									 <option value="">--팀장 선택--</option> -->
+<!-- 									 <option data-ng-model="selectedTeamStd"  -->
+<!-- 									 data-ng-repeat="teamStd in team.teamStd"> -->
+<!-- 									 	{{teamStd.name}} -->
+<!-- 									 </option> -->
+<!-- 									</select> -->
+									<select class="form-control" id="exampleFormControlSelect1"
+									 data-ng-model="selectedTeamStd"
+									  data-ng-options="teamStd.name for teamStd in team.teamStd">
+									 <option value="">--팀장 선택--</option>
+									</select>
+									<button class="btn btn-danger" 
+									data-ng-click="updateTeamLeader(selectedTeamStd, team)">변경</button>
 								</td>
-								<td><button type="button" class="btn btn-danger" data-ng-click="deleteTeam(team)">삭제</button></td>
+								<td>
+									<button type="button" class="btn btn-danger" data-ng-click="deleteTeam(team)">삭제</button>
+								</td>
 							</tr>
 						</tbody>
 					</table>

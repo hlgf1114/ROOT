@@ -208,6 +208,8 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 			index : 0
 	};
 	
+	$scope.selectedTeamStd = {};
+	
 	
 	$scope.getData = function(){
 		$http({method: 'GET', url:"/mypage/studentSelect"})
@@ -223,6 +225,35 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	}
 	$scope.getData();
 	
+	//팀장을 변경한다.
+	$scope.updateTeamLeader = function(row, team) {
+		console.log(row);
+		console.log(team);
+		// 팀원들의 권한 초기화 == 0으로
+		var state = 0;
+		$http({method: 'POST', url: "/mypage/resetTeamLeader", params: team})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+		
+		// 선택한 팀장의 권한을 부여
+			$http({method: 'POST', url: "/mypage/updateTeamLeader", params: row})
+			.success(function (data, status, headers, config) {
+				console.log(data);
+				// 초기화가 잘 되었는지 확인
+				state = data.state;
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+			
+			if(state != 1)
+				alert("팀장이 업데이트 되었습니다.");
+	}
+	
 	
 	// 리스트로 나오는 팀의 정보를 받아 파라미터 값으로 넘겨 그 팀의 팀원 정보를 받아온다
 //	$scope.teamLeaderList = {}; // 팀 리더만 따로 뺀다
@@ -236,6 +267,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 //			console.log($scope.teamStd);
 			
 			$scope.teamList[count].teamStd = teamStd;
+			console.log($scope.teamList[0].teamStd[0]["name"]);
 
 		})
 		.error(function (data, status, header, config) {
