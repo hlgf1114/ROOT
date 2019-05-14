@@ -119,7 +119,7 @@
 							<tr data-ng-repeat="team in teamList">
 								<td>{{team.team_name}}</td>
 								<td>
-								  	{{team.teamStd[0].name}}
+								  	{{team.teamLeader.name}}
 								</td>
 								<td>
 <!-- 									<select class="form-control" id="exampleFormControlSelect1"> -->

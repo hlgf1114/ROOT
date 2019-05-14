@@ -267,7 +267,12 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 //			console.log($scope.teamStd);
 			
 			$scope.teamList[count].teamStd = teamStd;
-			console.log($scope.teamList[0].teamStd[0]["name"]);
+			
+			// 팀 리더의 정보도 넣는다.
+				for(j = 0; j < $scope.teamList[count].teamStd.length; j++)
+					if($scope.teamList[count].teamStd[j].authorization == 1) {
+					$scope.teamList[count].teamLeader = $scope.teamList[count].teamStd[j];
+					}
 
 		})
 		.error(function (data, status, header, config) {
