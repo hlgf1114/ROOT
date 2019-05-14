@@ -41,6 +41,24 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		}
 	}
 	
+	$scope.checkTeamName = function() {
+		//count가 0이면 없는 것이고, 1이면 있다는 것이다.
+		// 이름이 있는지 체크한다.
+		$http({method: 'POST', url:"/mypage/checkTeamName", params: $scope.info})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.count == 0)
+				// 팀을 만든다.
+				return renameTeam();
+			else
+				alert("이미 있는 이름입니다. 다른 이름을 시도해 주세요.");
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+
+	}
+	
 	$scope.getStdList = function() {
 		var param = {team_id : $scope.info.team_id};
 		$http({method: 'GET', url:"/mypage/studentSelectAll", params: param})
@@ -383,6 +401,7 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 		.success(function (data, status, headers, config) {
 			console.log(data);
 			alert("팀 생성이 완료되었습니다.");
+			location.href="/mypage";
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);
