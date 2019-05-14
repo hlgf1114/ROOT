@@ -35,6 +35,9 @@
 		from user
 		where team_id != #{team_id}
 		and team_id = 0
+		and authorization != 2
+		and authorization != 3
+		and authorization != 4
 		order by uni_num
 		limit 0, 5
 	</select>
