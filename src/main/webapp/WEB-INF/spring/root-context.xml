@@ -7,7 +7,7 @@
 	
 	<!-- JNDI 연결 2가지 방법 -->
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
-		<property name="jndiName" value="java:/comp/env/jdbc/capstone"></property>
+		<property name="jndiName" value="java:/comp/env/jdbc/xorms2485"></property>
 		<property name="resourceRef" value="true"></property>
 	</bean>
 	
