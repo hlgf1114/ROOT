@@ -102,6 +102,22 @@
 				</div>
 			</div>
 			<div id="setTeamLeader" class="tab-pane">
+				<div id="makeTeam">
+					<h3>팀 생성</h3>
+					<br/>
+					<div class="input-group input-group-lg">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-lg">팀
+								이름</span>
+						</div>
+						<input type="text" class="form-control"
+							aria-label="Sizing example input"
+							aria-describedby="inputGroup-sizing-lg"
+							data-ng-model="info.team_name">
+						<button type="button" class="btn btn-warning"
+							data-ng-click="renameTeam()">변경</button>
+					</div>
+				</div>
 				<div id="teamLeader">
 					<h3>나의 지도 팀 리스트</h3>
 					<br/>

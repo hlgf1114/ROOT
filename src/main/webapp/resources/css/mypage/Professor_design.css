@@ -1,6 +1,7 @@
 /* common section */
 html {
 	background-image: url("/resources/img/mypage/img_bg.png");
+	overflow: scroll;
 }
 
 header {
@@ -13,7 +14,7 @@ header {
 	background-image: url("/resources/img/mypage/img_bg.png");
 	width: 100%;
 	min-height: 500px;
-	position: fixed;
+	position: absolute;
 	max-width: 80%;
 	margin-left: 10%;
 }
@@ -59,6 +60,16 @@ footer {
 	max-width: 60%;	
 }
 
+#makeTeam {
+	text-align: center;
+}
+
+#teamLeader {
+	text-align: center;
+	margin: 50px;
+	margin-bottom: 100px;;
+}
+
 #changeLeaderBtn {
 	float: left;
 	margin-left: 10px;
@@ -97,7 +108,7 @@ footer {
 	border:
 }
 
-#teamInfo, #whatupost, #teamLeader {
+#teamInfo, #whatupost {
 	text-align: center;
 	margin: 50px;
 }
