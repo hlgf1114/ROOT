@@ -151,7 +151,8 @@
 									data-ng-click="updateTeamLeader(selectedTeamStd, team)">변경</button>
 								</td>
 								<td>
-									<button type="button" class="btn btn-danger" data-ng-click="deleteTeam(team)">삭제</button>
+									<button type="button" class="btn btn-danger" 
+									data-ng-click="deleteTeam(team)">삭제</button>
 								</td>
 							</tr>
 						</tbody>

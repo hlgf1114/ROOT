@@ -410,6 +410,43 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 	
 	/************************************************************************/
 	
+	/********************************팀 삭제********************************/
+	$scope.deleteTeam = function(team) {
+		console.log(team);
+		var selected = confirm("정말로 팀을 삭제하시겠습니까?");
+		if(selected) {
+			$http({method: 'POST', url:"/mypage/deleteTeam", params: team})
+			.success(function (data, status, headers, config) {
+				console.log(data);
+				if(data.state == 1) {
+					alert("팀 삭제가 완료되었습니다.");
+					return $scope.resetTeamStd(team);
+				}
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+		}
+	}
+	
+	$scope.resetTeamStd = function(team) {
+		$http({method: 'POST', url:"/mypage/resetTeamStd", params: team})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.state == team.teamStd.length) {
+				alert("팀원 초기화 되었습니다.");
+				location.href="/mypage";
+			}
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+		
+	}
+	
+	
+	/************************************************************************/
+	
 	// 게시글 개수 가져오기
 	$scope.postTotCount = function() {
 		$http({method: 'GET', url:"/mypage/postTotCount"})

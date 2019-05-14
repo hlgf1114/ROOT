@@ -271,4 +271,26 @@ public class MypageController {
 		}
 	}
 	
+	@RequestMapping(value ="/mypage/deleteTeam", method=RequestMethod.POST)
+	public void deleteTeam(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.delete("mypage.deleteTeam", paramMap);
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
+	@RequestMapping(value ="/mypage/resetTeamStd", method=RequestMethod.POST)
+	public void resetTeamStd(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+		if (SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.update("mypage.resetTeamStd", paramMap);
+			resultMap.put("state", state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
 }

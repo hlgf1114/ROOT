@@ -148,4 +148,15 @@
 		from team
 		where team_name = #{team_name};
 	</select>
+	
+	<delete id="deleteTeam" parameterType="hashmap">
+		delete from team
+		where team_id = #{team_id}
+	</delete>
+	
+	<update id="resetTeamStd" parameterType="hashmap">
+		update user
+		set team_id = 0
+		where team_id = #{team_id}
+	</update>
 </mapper>
