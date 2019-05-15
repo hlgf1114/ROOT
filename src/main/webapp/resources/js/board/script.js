@@ -109,19 +109,23 @@ app.controller('DetailCtrl', function($scope, $http) {
 	$scope.getComment()
 	
 	$scope.delComm = function(row) {
-		$http({method: 'POST', url:"/Board/delComm", params: row})
-		.success(function (data, status, headers, config) {
-			console.log(data);
-			if(data.state == 1)
-				alert("댓글이 삭제 되었습니다.");
-			else
-				alert("댓글을 삭제하지 못했습니다.");
-			
-			location.href = "/board/detail?post_num=" + $scope.params.post_num;
-		})
-		.error(function (data, status, header, config) {
-			console.log(data);
-		});
+		if($scope.info.uni_num == row.uni_num) {
+			$http({method: 'POST', url:"/Board/delComm", params: row})
+			.success(function (data, status, headers, config) {
+				console.log(data);
+				if(data.state == 1)
+					alert("댓글이 삭제 되었습니다.");
+				else
+					alert("댓글을 삭제하지 못했습니다.");
+				
+				location.href = "/board/detail?post_num=" + $scope.params.post_num;
+			})
+			.error(function (data, status, header, config) {
+				console.log(data);
+			});
+		}
+		else
+			alert("자신의 댓글만 삭제 할 수 있습니다.");
 	}
 	
 	$scope.myPage = function(){
