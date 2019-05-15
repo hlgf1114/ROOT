@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>사용자 권한 설정</title>
-    <link rel="stylesheet" href="/resources/css/manager.css">
+    <link rel="stylesheet" href="/resources/css/admin.css">
     <link rel="stylesheet" href="/js/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="/js/angularjs/1.5.11/angular.min.js"></script>
-    <script src = "/resources/js/manager.js"></script>
+    <script src = "/resources/js/admin.js"></script>
   </head>
 
   <body data-ng-app="manage" data-ng-controller="ManageCtrl">

@@ -128,10 +128,15 @@ public class ViewController {
 		}
 	}
 	
-	@RequestMapping(value = "/manager", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String manager(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
-			return "manager";
+			HashMap<String, Object> userMap = SessionUtile.getSession(session);
+			int authorization = (int) userMap.get("authorization");
+			if(authorization == 4)
+				return "admin";
+			else
+				return "redirect:/login";
 		}else {
 			return "redirect:/login";
 		}
