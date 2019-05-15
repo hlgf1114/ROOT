@@ -26,21 +26,33 @@
             <div id = "title2" >작성일 : {{boardData.postDate}}</div>
 		</div>
 		<br/>
-		<button type="button" class="btn btn-success btn-sm" id = "sm" data-ng-if="boardData.file_name != ''" data-ng-click="fileDownload()">{{boardData.file_name}} 파일 다운로드</button>
-        
+		<button type="button" class="btn btn-success btn-sm" id = "download" 
+		data-ng-if="boardData.file_name != ''" 
+		data-ng-click="fileDownload()">{{boardData.file_name}} 파일 다운로드</button>
         <hr style="border: solid 1px Black; width: 100%; height: 1px;">   
-        
         <div id = "text">{{boardData.postField}}</div>
-        
         <br>
+        <div>
+        	<table class="table" id="commBox">
+				<tbody>
+					<tr data-ng-repeat="row in uni_comm">
+						<td id="commName">{{row.name}}</td>
+						<td>{{row.comm_date}}</td>
+						<td>{{row.std_comm}}</td>
+						<td><button type="button" class="btn btn-danger" 
+						data-ng-click="delComm(row)">삭제</button></td>
+					</tr>
+				</tbody>
+			</table>
+        </div>
         <div id = "text1">
-             <form name="todoForm" data-ng-submit="add(newTodoTitle)">
-            <div class = "input-group">
-            <input type="text" class="form-control input-lg" data-ng-model="newTodoTitle" placeholder = "덧글을 입력 하세요..." minlength="3">
-            <span class = "input-group-btn">
-                <button class="btn btn-success btn-lg btn-block" type="submit">등록</button>
-            </span>
-            </div>
+             <form name="todoForm">
+	            <div class = "input-group">
+	            	<input type="text" class="form-control input-lg" data-ng-model="commentValue" placeholder = "덧글을 입력 하세요">
+	            <span class = "input-group-btn">
+	                <button class="btn btn-success btn-lg btn-block" data-ng-click="setComm(commentValue)">등록</button>
+	            </span>
+	            </div>
             </form>
         <br>
 <!--         <button type="button" class="btn btn-info btn-lg">글 수정</button> -->

@@ -70,6 +70,59 @@ app.controller('DetailCtrl', function($scope, $http) {
 	    link.click();
 	}
 	
+	// 댓글 관련 기능
+	$scope.setComm = function(comment) {
+		var param = {std_comm : comment,
+					 uni_num : $scope.info.uni_num,
+					 post_num : $scope.params.post_num};
+		console.log(param);
+		
+		$http({method: 'POST', url:"/Board/setComm", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.state == 1) {
+				alert("댓글이 등록 되었습니다.");
+				location.href = "/board/detail?post_num=" + $scope.params.post_num;
+			}
+			else
+				alert("댓글 등록에 실패하였습니다.");
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+		
+	}
+	
+//	$scope.uni_comm = {};
+	$scope.getComment = function() {
+		$http({method: 'POST', url:"/Board/getComment", params: $scope.params})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.uni_comm = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+		
+	}
+	// 댓글도 가져온다.
+	$scope.getComment()
+	
+	$scope.delComm = function(row) {
+		$http({method: 'POST', url:"/Board/delComm", params: row})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.state == 1)
+				alert("댓글이 삭제 되었습니다.");
+			else
+				alert("댓글을 삭제하지 못했습니다.");
+			
+			location.href = "/board/detail?post_num=" + $scope.params.post_num;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
 	
 	$scope.myPage = function(){
 		location.href = "/mypage";

@@ -81,4 +81,38 @@ public class BoardController {
 		}
 	}
 	
+	@RequestMapping(value="/Board/setComm", method=RequestMethod.POST)
+	public void setComm(HttpServletRequest req, HttpServletResponse resp, HttpSession sess) {
+		if(SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			int state = session.insert("board.setComm", paramMap);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			resultMap.put("state", state);
+			System.out.println("state: " + state);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
+	@RequestMapping(value="/Board/getComment", method=RequestMethod.POST)
+	public void getComment(HttpServletRequest req, HttpServletResponse resp, HttpSession sess) {
+		if(SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			List<HashMap<String, Object>> resultMapList = session.selectList("board.getComment", paramMap);
+			System.out.println(resultMapList);
+			HttpUtile.printJsonList(resp, resultMapList);
+		}
+	}
+	
+	@RequestMapping(value="/Board/delComm", method=RequestMethod.POST)
+	public void delComm(HttpServletRequest req, HttpServletResponse resp, HttpSession sess) {
+		if(SessionUtile.checkSession(sess)) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+			HashMap<String, Object> resultMap = new HashMap<String, Object>();
+			int state = session.delete("board.delComm", paramMap);
+			resultMap.put("state", state);
+			System.out.println(resultMap);
+			HttpUtile.printJson(resp, resultMap);
+		}
+	}
+	
 }

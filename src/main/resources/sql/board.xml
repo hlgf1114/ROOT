@@ -44,4 +44,21 @@
 	<update id="boardDelete" parameterType="hashmap">
 		update post set delYn="Y" where post_num = ${post_num}
 	</update>
+	
+	<insert id="setComm" parameterType="hashmap">
+		insert into comment(post_num, uni_num, std_comm)
+		values (#{post_num}, #{uni_num}, #{std_comm})
+	</insert>
+	
+	<select id="getComment" parameterType="hashmap" resultType="hashmap">
+		select c.comm_num, c.uni_num, u.name, c.std_comm, date_format(c.comm_date, "%Y %c/%e %r") as comm_date
+		from comment as c, user as u
+		where c.uni_num = u.uni_num
+		and post_num = #{post_num}
+	</select>
+	
+	<delete id="delComm" parameterType="hashmap">
+		delete from comment
+		where comm_num = #{comm_num}
+	</delete>
 </mapper>
