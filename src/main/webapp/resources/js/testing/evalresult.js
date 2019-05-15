@@ -13,6 +13,21 @@ as.controller('evaluatelistctrl', function($scope,$http) {
 		location.href =  "finaleval";
     }
 	
+	$scope.selectedTeamList = {};
+	
+	// 팀을 불러온다.
+	$scope.getEvalList = function(row) {
+		console.log(row);
+		$http({method: 'POST', url:"/testing/getEvalList", params: row})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.selectedTeamList = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	
 	$scope.teamList = {};
 	$scope.getTeamList = function() {
 		$http({method: 'POST', url:"/testing/selectTeamAll"})
@@ -26,16 +41,28 @@ as.controller('evaluatelistctrl', function($scope,$http) {
 	}
 	$scope.getTeamList();
 	
+	$scope.getResultEval = function(row) {
+		var score = 0;
+		
+		score += row.article1;
+		score += row.article2;
+		score += row.article3;
+		score += row.article4;
+		score += row.article5;
+		score += row.article6;
+		score += row.article7;
+		
+		if(score >= 54)
+			return "합격";
+		else if(score >= 45)
+			return "재심사";
+		else
+			return "불합격";
+		
+	}
 	
-	$scope.team = [ 
-		{id : "1팀"},
-		{id : "2팀"},
-		{id : "3팀"},
-		{id : "4팀"},
-		{id : "5팀"},
-		{id : "6팀"}
-	];
-	$scope.responsibility = function(row){
+	
+	$scope.logging = function(row){
 		console.log(row)
 		
 	};

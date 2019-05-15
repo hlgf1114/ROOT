@@ -30,16 +30,14 @@
     		<table class="table table-striped">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">진행 상황</th>
-						<th scope="col">담당 교수</th>
+						<th scope="col">교수님 이름</th>
 						<th scope="col">결과</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr data-ng-repeat="row in pro" id = "proBox">
-						<td>{{row.progress}}</td>
+					<tr data-ng-repeat="row in selectedTeamList" id = "proBox">
 						<td>{{row.name}}</td>
-						<td>{{row.result}}</td>
+						<td>{{getResultEval(row)}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -47,10 +45,10 @@
 			<button type="button" class="btn btn-success btn-round" data-ng-click=" final()">최종 평가 하기</button>
     	</div>
     	</article>
-    	
-    	    <article>
-			<div data-ng-repeat="row in team" id = "teamBox" data-ng-click = "responsibility(row)">
-				{{row.id}}
+    	<article>
+			<div data-ng-repeat="row in teamList" 
+			id = "teamBox" data-ng-click = "getEvalList(row)">
+				{{row.team_name}}
 			</div>
 		</article>
 		<div class = "button2">

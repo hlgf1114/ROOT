@@ -14,10 +14,9 @@
 	</insert>
 	
 	<select id="selectTeamAll" resultType="hashmap">
-		select t.team_name, t.team_id, e.eval_team_no
-		from team as t, eval_article as e
-		where t.team_id = e.team_id
-		and t.team_id != 0
+		select team_name, team_id
+		from team
+		where team_id != 0
 	</select>
 	
 	<select id="selectProfAll" resultType="hashmap">
@@ -52,4 +51,6 @@
 		from eval_article
 		where eval_team_no = #{eval_team_no};
 	</select>
+	
+	<!-- evalresult.jsp -->
 </mapper>
