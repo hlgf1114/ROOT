@@ -1,0 +1,24 @@
+body{
+  background-image: url('/resources/img/board/img_bg.png');
+}
+section{
+  background-color: #E6F7FF;
+  min-height: 50vh;
+  margin: 3vh 3% 3vh 3%;
+  border-radius: 5px;
+}
+.title{
+	text-align: center;
+	margin-top: 3vh;
+	border-radius: 5px;
+	background-color: #D1DAE8;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.teamBox{
+	text-align: center;
+	margin: 3vh 10% 3vh 10%;
+}
+.button{
+	text-align: center;
+}

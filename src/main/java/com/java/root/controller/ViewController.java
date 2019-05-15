@@ -142,5 +142,18 @@ public class ViewController {
 		}
 	}
 	
+	@RequestMapping(value = "/adminlogin", method = RequestMethod.GET)
+	public String adminlogin() {
+		return "adminlogin";
+	}
+	
+	@RequestMapping(value = "/testing/evalselect", method = RequestMethod.GET)
+	public String evalselect(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			return "/testing/evalselect";
+		}else {
+			return "redirect:/login";
+		}
+	}
 	
 }

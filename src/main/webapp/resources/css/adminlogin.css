@@ -1,0 +1,19 @@
+body{
+  background-image: url('/resources/img/board/img_bg.png');
+}
+section{
+    margin: 5vh 10% 5vh 10%;
+}
+.button,.title{
+	text-align: center;
+	margin-top: 5vh;
+}
+
+
+.loginform{
+	margin : 5vh 10% 5vh 10%;
+	max-width : 80%;
+	min-height: 25vh;
+	border-radius: 5px;
+	background-color: #D1FAF8;
+}
