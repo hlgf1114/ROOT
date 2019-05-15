@@ -80,4 +80,15 @@
 		where postType = 1
 		and delYn = "N"
 	</select>
+	
+	<!-- manager -->
+	<select id="getUserAll" parameterType="hashmap" resultType="hashmap">
+		select uni_num, authorization, name 
+		from user;
+	</select>
+	
+	<update id="setAuth" parameterType="hashmap">
+		update user set authorization = #{authorization} 
+		where uni_num = #{uni_num}
+	</update>
 </mapper>

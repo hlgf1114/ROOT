@@ -16,7 +16,8 @@
 	<select id="selectTeamAll" resultType="hashmap">
 		select t.team_name, t.team_id, e.eval_team_no
 		from team as t, eval_article as e
-		where team_id != 0
+		where t.team_id = e.team_id
+		and t.team_id != 0
 	</select>
 	
 	<select id="selectProfAll" resultType="hashmap">

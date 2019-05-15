@@ -20,20 +20,26 @@
    		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
 				<tr>
+					<th>사용자 번호</th>
 					<th>사용자 이름</th>
+					<th>권한</th>
 					<th>권한 지정</th>
 					<th>적용</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr data-ng-repeat="row in user | filter: search">
+				<tr data-ng-repeat="row in user">
+					<td>{{row.uni_num}}</td>
 					<td>{{row.name}}</td>
+					<td>{{row.authorization}}</td>
 					<td>
-					<select class="form-control" id="exampleFormControlSelect1">
-					<option data-ng-repeat="x in manager" class="btn btn-default dropdown-toggle">{{x}}</option>
+					<select class="form-control" data-ng-options="x.authName for x in manager" data-ng-model="selectedAuth">
+						<option class="btn btn-default dropdown-toggle" value="">--권한선택--</option>
 					</select>
 					</td>
-					<td><button type="button" class="btn btn-danger" data-ng-click="exit()">나가기</button></td>
+					<td>
+						<button type="button" class="btn btn-danger" data-ng-click="setAuth(selectedAuth, row)">적용</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>

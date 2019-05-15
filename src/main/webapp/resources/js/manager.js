@@ -3,19 +3,50 @@ var manageApp = angular.module('manage',[]);
 manageApp.controller('ManageCtrl', function($scope,$http) {
 	
 	
-	$scope.exit = function(){
-		location.href =  "/login";
+	$scope.exit = function() {
+		location.href = "/login";
+	}
+	
+	$scope.setAuth = function(row, selectedUser){
+		var param = {
+				authorization : row.authorization,
+				uni_num : selectedUser.uni_num
+		}
+		console.log(param);
+		
+		$http({method: 'POST', url:"/setAuth", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.state == 1)
+				alert("권한이 수정되었습니다.");
+			else
+				alert("문제가 발생하였습니다.");
+			location.href ="/manager";
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
     }
 	
-	$scope.user = [//아이디를 받아와 출력
-		{ name : "김점구"},
-		{ name : "김정길"},
-		{ name : "송은지"},
-		{ name : "몰라" },
-		{ name : "암거나"},
-		{ name : "사람" }
-	];
-	$scope.manager = ["0 : 일반인", "1 : 팀장" ,"2 : 교수", "3 : 학과장", "4 : 관리자"];
+	$scope.user = {};
+	$scope.getUserAll = function() {
+		$http({method: 'POST', url:"/getUserAll"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.user = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.getUserAll();
+	
+	$scope.manager = [
+		{authorization : 0, authName : "학생(기본) (권한:0)"},
+		{authorization : 1, authName : "팀장 (권한:1)"},
+		{authorization : 2, authName : "교수 (권한:2)"},
+		{authorization : 3, authName : "학과장 (권한:3)"}
+	]
 	
 	
 

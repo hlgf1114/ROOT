@@ -13,6 +13,19 @@ as.controller('evaluatelistctrl', function($scope,$http) {
 		location.href =  "finaleval";
     }
 	
+	$scope.teamList = {};
+	$scope.getTeamList = function() {
+		$http({method: 'POST', url:"/testing/selectTeamAll"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.teamList = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.getTeamList();
+	
 	
 	$scope.team = [ 
 		{id : "1팀"},

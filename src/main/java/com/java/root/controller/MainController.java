@@ -62,5 +62,23 @@ public class MainController {
 		HttpUtile.printJsonList(resp, resultMap);
 	}
 	
+	// manager.jsp
+	@RequestMapping(value="/getUserAll", method=RequestMethod.POST)
+	public void getUserAll(HttpServletResponse resp) {
+		List<HashMap<String, Object>> resultMap = session.selectList("main.getUserAll");
+		System.out.println(resultMap);
+		HttpUtile.printJsonList(resp, resultMap);
+	}
+	
+	@RequestMapping(value="/setAuth", method=RequestMethod.POST)
+	public void setAuth(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		HashMap<String, Object> resultMap = new HashMap<String, Object>();
+		int state =	session.update("main.setAuth", paramMap);
+		resultMap.put("state", state);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
 	
 }
