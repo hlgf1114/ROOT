@@ -4,7 +4,7 @@
 <head>
 	<script src="/js/angularjs/1.5.11/angular.min.js"></script>
 	<link rel="stylesheet" href="/resources/lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/board/s.css">
+    <link rel="stylesheet" href="/resources/css/board/write.css">
     <script src="/js/jquery/3.3.1/dist/jquery.min.js"></script>
     <script src="/resources/lib/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <script src="/resources/js/board/script.js"></script>

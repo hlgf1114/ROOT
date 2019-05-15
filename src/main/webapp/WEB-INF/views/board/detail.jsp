@@ -4,7 +4,7 @@
 <head>
 	<script src="/js/angularjs/1.5.11/angular.min.js"></script>
 	<link rel="stylesheet" href="/js/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/board/style.css">
+    <link rel="stylesheet" href="/resources/css/board/detail.css">
     <script src="/resources/js/board/script.js"></script>
     
     <meta charset = "UTF-8">

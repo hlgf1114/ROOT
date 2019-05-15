@@ -52,21 +52,21 @@ footer {
 #title {
 	float: left;
 	height: 100%;
-	width: 20%;
+/* 	width: 20%; */
 	margin: 25px 15px 00px;
 }
 
 #title2 {
-	float: left;
+	float: right;
 	height: 100%;
-	width: 20%;
+/* 	width: 20%; */
 	margin: 25px 00px 00px;
 }
 
 #title1 {
-	float: left;
+	float: right;
 	height: 100%;
-	width: 20%;
+/* 	width: 20%; */
 	margin: 25px 00px 00px;
 }
 
