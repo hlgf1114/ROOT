@@ -85,4 +85,17 @@ public class TestingController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
+	/************************
+	 *evalread.jsp functions*
+	 ************************/
+	@RequestMapping(value = "/testing/getEvalInfo", method = RequestMethod.POST)
+	public void getEvalInfo(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		HashMap<String, Object> resultMap = session.selectOne("testing.getEvalInfo", paramMap);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
+	
+	
 }

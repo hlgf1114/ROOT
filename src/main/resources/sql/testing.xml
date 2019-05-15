@@ -14,8 +14,8 @@
 	</insert>
 	
 	<select id="selectTeamAll" resultType="hashmap">
-		select team_name, team_id 
-		from team 
+		select t.team_name, t.team_id, e.eval_team_no
+		from team as t, eval_article as e
 		where team_id != 0
 	</select>
 	
@@ -45,4 +45,10 @@
 		set eval_end = #{eval_end}, eval_end_comm = #{eval_end_comm} 
 		where team_id = #{team_id}
 	</update>
+	
+	<select id="getEvalInfo" parameterType="hashmap" resultType="hashmap">
+		select *
+		from eval_article
+		where eval_team_no = #{eval_team_no};
+	</select>
 </mapper>

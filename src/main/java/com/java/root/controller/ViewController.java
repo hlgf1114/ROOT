@@ -119,6 +119,15 @@ public class ViewController {
 		}
 	}
 	
+	@RequestMapping(value = "/testing/evalread", method = RequestMethod.GET)
+	public String evalread(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			return "/testing/evalread";
+		}else {
+			return "redirect:/login";
+		}
+	}
+	
 	@RequestMapping(value = "/manager", method = RequestMethod.GET)
 	public String manager(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
@@ -127,5 +136,6 @@ public class ViewController {
 			return "redirect:/login";
 		}
 	}
+	
 	
 }

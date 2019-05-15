@@ -1,0 +1,64 @@
+body{
+  background-image: url('/resources/img/board/img_bg.png');
+}
+header{
+  margin-top : 1%;
+  width: 80%;
+  margin-left: 10%;
+  min-height: 5vh;
+  border-radius: 5px;
+  background-color: #7A90E1;
+}
+section{
+  width: 80%;
+  margin-left:  10%;
+  margin-right : 10%;
+  min-height: 50vh;
+  float: left;
+  margin-bottom: 1vh;
+  
+}
+footer{
+  margin-top: 3%;
+  border-radius: 5px;
+}
+.title{
+	text-align: center;
+	margin-top: 1%;
+}
+.button{
+	text-align: center;
+}
+.totscore{
+	margin-top : 1%;
+	text-align: center;
+	background-color: #ffffff;
+	font-size: 1.5em;
+}
+.teamreport{
+	text-align: center;
+	font-size: 1.5em;
+}
+.question{
+	text-align: center;
+	background-color: #ffffff ;
+	height: 3vh;
+	border: solid 1px #000000;
+}
+.score{
+	text-align: center;
+	background-color: #D3D2D3;
+	height: 3vh;
+	border: solid 1px #000000;
+	
+}
+.select{
+	margin-top: 1%;
+}
+.opinion{
+	text-align: center;
+	background-color: #A8A8A9;
+	min-height: 4%; 
+	border: solid 1px #000000;
+	
+}
