@@ -49,7 +49,7 @@
 	<select id="getEvalInfo" parameterType="hashmap" resultType="hashmap">
 		select *
 		from eval_article
-		where eval_team_no = #{eval_team_no};
+		where eval_team_no = #{eval_team_no}
 	</select>
 	
 	<update id="setEvalSetting" parameterType="hashmap">

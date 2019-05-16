@@ -2,6 +2,9 @@ var evalApp = angular.module('evalSetting',[]);
 
 evalApp.controller('EvalSetCtrl', function($scope,$http) {
 	
+	
+	$scope.selectedProf = {};
+	
 	$scope.exit = function(){
 		location.href =  "/mypage";
     }
@@ -20,6 +23,8 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 		.error(function (data, status, header, config) {
 			console.log(data);
 		});
+		
+		return $scope.setEvalProf();
     }
 	
 	$scope.teamList = {};
@@ -49,7 +54,7 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 	$scope.selectProfAll();
 	
 
-	$scope.selectedProf = {};
+
 	$scope.setEvalProf = function() {
 		console.log($scope.selectedProf);
 		var tried = 0;
@@ -59,20 +64,17 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 				var param = {uni_num : key};
 				$http({method: 'POST', url:"/testing/setEvalProf", params: param})
 				.success(function (data, status, headers, config) {
-					console.log(data);
+					console.log(data.state);
 					check += data.state;
 				})
 				.error(function (data, status, header, config) {
 					console.log(data);
+					return alert("교수님 등록 실패, 이미 등록된 교수가 있거나, 오류가 있습니다.");
 				});
 				tried++;
 			}
 		});
-		
-		if(tried == check)
-			alert("정상 입력 되었습니다.");
-		else
-			alert("입력에 오류가 생겼습니다.");
+
 		
 //		console.log(param);
 	}
