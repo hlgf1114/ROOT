@@ -57,7 +57,7 @@
 		set startYn = #{startYn}
 	</update>
 	
-	<insert id="setEvalProf", parameterType="hashmap">
+	<insert id="setEvalProf" parameterType="hashmap">
 		insert into eval_prof(uni_num)
 		values(#{uni_num})
 	</insert>
