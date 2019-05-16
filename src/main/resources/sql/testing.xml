@@ -52,5 +52,8 @@
 		where eval_team_no = #{eval_team_no};
 	</select>
 	
-	<!-- evalresult.jsp -->
+	<update id="setEvalSetting" parameterType="hashmap">
+		update eval_set 
+		set startYn = #{startYn}
+	</update>
 </mapper>

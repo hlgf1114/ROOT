@@ -96,6 +96,20 @@ public class TestingController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
+	/***************************
+	 *evalsetting.jsp functions*
+	 ***************************/
+	@RequestMapping(value = "/testing/setEvalSetting", method = RequestMethod.POST)
+	public void setEvalSetting(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		int state = session.update("testing.setEvalSetting", paramMap);
+		HashMap<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("state", state);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
+	
 	
 	
 }

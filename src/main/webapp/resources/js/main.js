@@ -125,7 +125,7 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 	}
 	
 	$scope.goEval = function() {
-		
+		location.href = "/testing/evalselect";
 	}
 	
 	$scope.postEvent = function(row){

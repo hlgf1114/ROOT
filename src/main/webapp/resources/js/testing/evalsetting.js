@@ -6,7 +6,20 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 		location.href =  "/mypage";
     }
 	$scope.setEvalSetting = function(){
-		location.href =  "/main";
+		var param = {startYn : "Y"};
+		$http({method: 'POST', url:"/testing/setEvalSetting", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			if(data.state == 1)
+				alert("평가를 활성화 하였습니다.");
+			else
+				alert("평가를 실행하지 못했습니다.");
+			
+			location.href = "/mypage";
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
     }
 	
 	$scope.teamList = {};
