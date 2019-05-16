@@ -40,7 +40,7 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 		$http({method: 'POST', url:"/testing/selectProfAll"})
 		.success(function (data, status, headers, config) {
 			$scope.profList = data;
-			console.log($scope.teamList);
+			console.log($scope.profList);
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);
@@ -48,5 +48,33 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 	}
 	$scope.selectProfAll();
 	
+
+	$scope.selectedProf = {};
+	$scope.setEvalProf = function() {
+		console.log($scope.selectedProf);
+		var tried = 0;
+		var check = 0;
+		angular.forEach($scope.selectedProf, function(value, key) {
+			if(value == true) {
+				var param = {uni_num : key};
+				$http({method: 'POST', url:"/testing/setEvalProf", params: param})
+				.success(function (data, status, headers, config) {
+					console.log(data);
+					check += data.state;
+				})
+				.error(function (data, status, header, config) {
+					console.log(data);
+				});
+				tried++;
+			}
+		});
+		
+		if(tried == check)
+			alert("정상 입력 되었습니다.");
+		else
+			alert("입력에 오류가 생겼습니다.");
+		
+//		console.log(param);
+	}
 	
 });

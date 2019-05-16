@@ -25,8 +25,8 @@
 		</article>
 		<article>
 			<div class="form-check" data-ng-repeat="row in profList" id = "proflist">
-			  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-			  <label class="form-check-label" for="defaultCheck1">
+			  <input class="form-check-input" type="checkbox" data-ng-model="selectedProf[row.uni_num]">
+			  <label class="form-check-label">
 			    {{row.name}}
 			  </label>
 			</div>
@@ -35,6 +35,7 @@
     <footer>
       <button type="button" class="btn btn-info" data-ng-click="setEvalSetting()">평가를 시작 합니다</button>
 	  <button type="button" class="btn btn-danger" data-ng-click="exit()">평가를 취소 합니다</button>
+	  <button type="button" class="btn btn-danger" data-ng-click="setEvalProf()">테스트</button>
     </footer>
     </form>
   </body>

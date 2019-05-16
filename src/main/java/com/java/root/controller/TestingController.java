@@ -109,7 +109,14 @@ public class TestingController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
-	
-	
+	@RequestMapping(value = "/testing/setEvalProf", method = RequestMethod.POST)
+	public void setEvalProf(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		int state = session.insert("testing.setEvalProf", paramMap);
+		HashMap<String, Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("state", state);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
 	
 }
