@@ -35,7 +35,6 @@
     <footer>
       <button type="button" class="btn btn-info" data-ng-click="setEvalSetting()">평가를 시작 합니다</button>
 	  <button type="button" class="btn btn-danger" data-ng-click="exit()">평가를 취소 합니다</button>
-	  <button type="button" class="btn btn-danger" data-ng-click="setEvalProf()">테스트</button>
     </footer>
     </form>
   </body>
