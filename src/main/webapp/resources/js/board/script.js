@@ -35,7 +35,6 @@ app.controller('DetailCtrl', function($scope, $http) {
 		$http({method: 'POST', url:"/Board/Select", params: $scope.params})
 		.success(function (data, status, headers, config) {
 			console.log(data);
-//			data.postField = replaceAll(data.postField, "\n", "<br>");
 			$scope.boardData = data;
 		})
 		.error(function (data, status, header, config) {

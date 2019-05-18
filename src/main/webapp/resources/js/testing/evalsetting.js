@@ -79,4 +79,17 @@ evalApp.controller('EvalSetCtrl', function($scope,$http) {
 //		console.log(param);
 	}
 	
+	$scope.participatedProf = {};
+	$scope.existProf = function() {
+		$http({method: 'POST', url:"/testing/existProf"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.participatedProf = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	$scope.existProf();
+	
 });

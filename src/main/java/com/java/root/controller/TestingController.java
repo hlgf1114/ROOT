@@ -119,4 +119,12 @@ public class TestingController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
+	@RequestMapping(value = "/testing/existProf", method = RequestMethod.POST)
+	public void existProf(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> resultMapList = session.selectList("testing.existProf", paramMap);
+		System.out.println(resultMapList);
+		HttpUtile.printJsonList(resp, resultMapList);
+	}
+	
 }

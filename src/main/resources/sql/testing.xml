@@ -61,4 +61,10 @@
 		insert into eval_prof(uni_num)
 		values(#{uni_num})
 	</insert>
+	
+	<select id="existProf" parameterType="hashmap" resultType="hashmap">
+		select u.name, u.uni_num
+		from eval_prof as e, user as u
+		where e.uni_num = u.uni_num;
+	</select>
 </mapper>

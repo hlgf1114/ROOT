@@ -14,13 +14,21 @@
   <body data-ng-app="evalSetting" data-ng-controller="EvalSetCtrl">
     <header>
       <div id = "team">평가할 팀</div>
-      <div id = "pros">평가에 참여할 교수 선택</div>
+      <div id = "selectpros">평가 등록된 교수</div>
+      <div id = "pros">평가 미등록 교수</div>
     </header>
 	<form>
     <section>
        	<article>
 			<div data-ng-repeat="row in teamList" id = "teamlist">
 				{{row.team_name}}
+			</div>
+		</article>
+		<article>
+			<div class="form-check" data-ng-repeat="row in participatedProf" id = "selectproflist">
+			  <label class="form-check-label">
+			    {{row.name}}
+			  </label>
 			</div>
 		</article>
 		<article>
