@@ -18,6 +18,10 @@ app.controller('DetailCtrl', function($scope, $http) {
 	$scope.getData();
 	
 	
+	function replaceAll(str, searchStr, replaceStr) {
+		  return str.split(searchStr).join(replaceStr);
+	}
+	
 	$scope.boardData = {};
 	$scope.getPost = function() {
 		var href = location.href;
@@ -31,6 +35,7 @@ app.controller('DetailCtrl', function($scope, $http) {
 		$http({method: 'POST', url:"/Board/Select", params: $scope.params})
 		.success(function (data, status, headers, config) {
 			console.log(data);
+//			data.postField = replaceAll(data.postField, "\n", "<br>");
 			$scope.boardData = data;
 		})
 		.error(function (data, status, header, config) {

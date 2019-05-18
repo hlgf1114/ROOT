@@ -30,7 +30,7 @@
 		data-ng-if="boardData.file_name != ''" 
 		data-ng-click="fileDownload()">{{boardData.file_name}} 파일 다운로드</button>
         <hr style="border: solid 1px Black; width: 100%; height: 1px;">   
-        <div id = "text">{{boardData.postField}}</div>
+        <pre id = "text">{{boardData.postField}}</pre>
         <br>
         <div>
         	<table class="table" id="commBox">
