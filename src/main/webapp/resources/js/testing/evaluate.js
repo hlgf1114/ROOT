@@ -2,6 +2,8 @@ var scoreEval = angular.module('scoreEval', []);
 
 scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 	
+	$scope.teamInfo = {};
+	
 	// 개인정보 가져오기
 	$scope.info = {};
 	$scope.getData = function(){
@@ -9,6 +11,8 @@ scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 		.success(function (data, status, headers, config) {
 			console.log(data);
 			$scope.info = data;	
+			
+			return 	$scope.getTeamInfo();
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);
@@ -16,6 +20,26 @@ scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 		});
 	}
 	$scope.getData();
+	
+	$scope.getTeamInfo = function() {
+		var href = location.href;
+		var params = href.substring(href.indexOf("?") + 1, href.length);
+		var value = params.split("=")[1];
+		console.log(value);
+		
+		var param = {team_id : value};
+		console.log(param);
+		
+		$http({method: 'POST', url:"/testing/getTeamInfo", params: param})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			
+			$scope.teamInfo = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
 	
 	
 	// 변수
@@ -50,8 +74,13 @@ scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 		result["article_opinion7"] = $scope.article_opi.article_opinion7;
 		// 평가한 교수님 고유번호 추가
 		result["uni_num"] = $scope.info.uni_num;
+		
 		// 평가한 팀 아이디 추가
-		result["team_id"] = 2;
+		var href = location.href;
+		var params = href.substring(href.indexOf("?") + 1, href.length);
+		var value = params.split("=")[1];
+		console.log(value);
+		result["team_id"] = value;
 		console.log(result);
 		
 		var selected = confirm("정말 이대로 평가를 종료 하시겠습니까?")
@@ -60,7 +89,7 @@ scoreEval.controller('ScoreCtrl', ['$scope', '$http', function($scope, $http) {
 			.success(function (data, status, headers, config) {
 				console.log(data);
 				alert("평가 내용이 정상적으로 완료되었습니다.");
-				location.href="/main";
+				location.href="/testing/evalselect";
 			})
 			.error(function (data, status, header, config) {
 				console.log(data);

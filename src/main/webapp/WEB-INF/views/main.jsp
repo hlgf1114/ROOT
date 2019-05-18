@@ -30,7 +30,7 @@
         <div id = "form">
         	<div id="evalNotice" data-ng-hide="disableEval()">
         		<p>평가가 진행중입니다.</p>
-        		<button type="button" class="btn btn-danger" data-ng-click="goEval()">평가하기</button>
+        		<button type="button" class="btn btn-danger" data-ng-click="checkEvalAuth()">평가하기</button>
         	</div>
 	        <div id="notice">
 	        	<div class="alert alert-primary" role="alert">

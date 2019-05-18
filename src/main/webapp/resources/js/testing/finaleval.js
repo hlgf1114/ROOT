@@ -77,6 +77,8 @@ finalApp.controller('FinalEvalCtrl', function($scope,$http) {
 			.success(function (data, status, headers, config) {
 				$scope.checkSend = data;
 				console.log($scope.checkSend);
+				
+				location.href ="/testing/evalresult";
 			})
 			.error(function (data, status, header, config) {
 				console.log(data);

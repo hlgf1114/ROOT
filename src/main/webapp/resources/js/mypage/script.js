@@ -558,5 +558,9 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 		location.href = "/testing/evalsetting"
 	}
 	
+	$scope.goFinalEval = function() {
+		location.href="/testing/evalresult";
+	}
+	
 	
 });

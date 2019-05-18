@@ -4,7 +4,8 @@ manageApp.controller('ManageCtrl', function($scope,$http) {
 	
 	
 	$scope.exit = function() {
-		location.href = "/login";
+		
+		location.href = "/Logout";
 	}
 	
 	$scope.setAuth = function(row, selectedUser){
@@ -21,7 +22,7 @@ manageApp.controller('ManageCtrl', function($scope,$http) {
 				alert("권한이 수정되었습니다.");
 			else
 				alert("문제가 발생하였습니다.");
-			location.href ="/manager";
+			location.href ="/admin";
 		})
 		.error(function (data, status, header, config) {
 			console.log(data);

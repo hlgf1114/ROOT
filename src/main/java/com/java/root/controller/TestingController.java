@@ -57,6 +57,14 @@ public class TestingController {
 		HttpUtile.printJsonList(resp, resultList);
 	}
 	
+	@RequestMapping(value = "/testing/getTeamInfo", method = RequestMethod.POST)
+	public void getTeamInfo(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> resultMapList = session.selectList("testing.getTeamInfo", paramMap);
+		System.out.println(resultMapList);
+		HttpUtile.printJsonList(resp, resultMapList);
+	}
+	
 	/************************
 	 *finaleval.jsp functions*
 	 ************************/
@@ -126,5 +134,24 @@ public class TestingController {
 		System.out.println(resultMapList);
 		HttpUtile.printJsonList(resp, resultMapList);
 	}
+	
+	/**************************
+	 *evalselect.jsp functions*
+	 **************************/
+	@RequestMapping(value = "/testing/getEvalTeamList", method = RequestMethod.POST)
+	public void getEvalTeamList(HttpServletResponse resp, HttpServletRequest req) {
+		List<HashMap<String, Object>> resultMapList = session.selectList("testing.getEvalTeamList");
+		System.out.println(resultMapList);
+		HttpUtile.printJsonList(resp, resultMapList);
+	}
+	
+	@RequestMapping(value = "/testing/checkEval", method = RequestMethod.POST)
+	public void checkEval(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		HashMap<String, Object> resultMap = session.selectOne("testing.checkEval", paramMap);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
 	
 }

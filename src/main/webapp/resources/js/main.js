@@ -124,8 +124,19 @@ mainPage.controller('MainCtrl', function($scope, $http) {
 		}
 	}
 	
-	$scope.goEval = function() {
-		location.href = "/testing/evalselect";
+	$scope.checkEvalAuth = function() {
+		$http({method: 'POST', url:"/main/checkEvalAuth", params: $scope.info})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			
+			if(data.count == 0)
+				alert("평가할 권한이 없습니다.");
+			else
+				location.href = "/testing/evalselect";
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
 	}
 	
 	$scope.postEvent = function(row){

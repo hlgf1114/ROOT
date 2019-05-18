@@ -38,7 +38,7 @@
 					<tr data-ng-repeat="row in uni_comm">
 						<td id="commName">{{row.name}}</td>
 						<td>{{row.comm_date}}</td>
-						<td>{{row.std_comm}}</td>
+						<td><pre>{{row.std_comm}}</pre></td>
 						<td><button type="button" class="btn btn-danger" 
 						data-ng-click="delComm(row)">삭제</button></td>
 					</tr>

@@ -12,7 +12,7 @@
     <script src = "/resources/js/testing/evalselect.js"></script>
   </head>
   
-  <body data-ng-app="evalselect" data-ng-controller="evalselectCtrl">
+  <body data-ng-app="evalSel" data-ng-controller="EvalSelCtrl">
   	<h3 class = title>팀 평가</h3>
     <header>
       <h5 class ="title">평가할 팀을 선택해 주세요.</h5>
@@ -29,12 +29,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr data-ng-repeat="team in teamlist">
-							<td>{{team.name}}</td>
-							<td>{{team.progresssituation}}</td>
+						<tr data-ng-repeat="team in teamList">
+							<td>{{team.team_name}}</td>
+							<td>{{team.checked}}</td>
 							<td>
 							<span>
-       							<button type="button" class="btn btn-primary" data-ng-click="evaluate()">평가하기</button>
+       							<button type="button" class="btn btn-primary" data-ng-click="evaluate(team)">평가하기</button>
        						</span>
 							</td>
 						</tr>

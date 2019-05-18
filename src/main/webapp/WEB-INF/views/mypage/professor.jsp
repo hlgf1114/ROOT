@@ -53,6 +53,8 @@
 		 data-ng-click="relocate_mainView()">메인 페이지로 돌아가기</button>
 		<button id="stopEval" type="button" class="btn btn-danger" data-ng-hide="disableEvalButton()"
 		 data-ng-click="stopEval()">평가 중단하기</button>
+		<button id="stopEval" type="button" class="btn btn-success" data-ng-hide="disableEvalButton()"
+		 data-ng-click="goFinalEval()">최종 평가하기</button>
 		<button id="testPlan" type="button" class="btn btn-warning" data-ng-hide="disableButton()"
 		 data-ng-click="relocate_evalSetView()">평가 계획서 설정</button>
 		<!-- 탭 내용 -->

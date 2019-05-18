@@ -52,5 +52,10 @@ id ฐüทร css
 #teamName {
 }
 
+#teamStd {
+	display: inline-block;
+	margin-left: 10px;
+}
+
 #teamColleague {
 }

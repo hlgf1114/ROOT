@@ -81,4 +81,12 @@ public class MainController {
 	}
 	
 	
+	@RequestMapping(value="/main/checkEvalAuth", method=RequestMethod.POST)
+	public void checkEvalAuth(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		HashMap<String, Object> resultMap =  session.selectOne("main.checkEvalAuth", paramMap);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
 }

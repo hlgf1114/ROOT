@@ -27,11 +27,11 @@
 	<div id="selectedTeam">
 		<div id="teamName">
 			<h3>조 이름</h3>
-			<p>캡틴 아메리카</p>
+			<p>{{teamInfo[0].team_name}}</p>
 		</div>
 		<div id="teamColleague">
 			<h3>팀원</h3>
-			<p>팀원, 팀원, 팀원, 팀원</p>
+			<p><div data-ng-repeat="row in teamInfo" id="teamStd">{{row.name}}</div></p>
 		</div>
 	</div>
 	<div id="main_check">

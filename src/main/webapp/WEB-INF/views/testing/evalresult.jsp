@@ -26,31 +26,30 @@
 
     <section>
     <article>
-    		
-    		<table class="table table-striped">
-				<thead class="thead-dark">
-					<tr>
-						<th scope="col">교수님 이름</th>
-						<th scope="col">결과</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr data-ng-repeat="row in selectedTeamList" id = "proBox">
-						<td>{{row.name}}</td>
-						<td>{{getResultEval(row)}}</td>
-					</tr>
-				</tbody>
-			</table>
+   		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">교수님 이름</th>
+					<th scope="col">결과</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="row in selectedTeamList" id = "proBox">
+					<td>{{row.name}}</td>
+					<td>{{getResultEval(row)}}</td>
+				</tr>
+			</tbody>
+		</table>
 		<div class = "button1">
 			<button type="button" class="btn btn-success btn-round" data-ng-click=" final()">최종 평가 하기</button>
     	</div>
-    	</article>
-    	<article>
+   	</article>
+   	<article>
 			<div data-ng-repeat="row in teamList" 
 			id = "teamBox" data-ng-click = "getEvalList(row)">
 				{{row.team_name}}
 			</div>
-		</article>
+	</article>
 		<div class = "button2">
 			<button type="button" class="btn btn-info btn-round" data-ng-click="myPage()">마이페이지 이동</button>
 	    	<button type="button" class="btn btn-danger btn-round" data-ng-click="exit()">평가를 종료 합니다</button>

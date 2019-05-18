@@ -91,4 +91,10 @@
 		update user set authorization = #{authorization} 
 		where uni_num = #{uni_num}
 	</update>
+	
+	<select id="checkEvalAuth" parameterType="hashmap" resultType="hashmap">
+		select count(uni_num) as count
+		from eval_prof
+		where uni_num = #{uni_num}
+	</select>
 </mapper>

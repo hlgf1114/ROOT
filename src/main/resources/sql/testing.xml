@@ -67,4 +67,27 @@
 		from eval_prof as e, user as u
 		where e.uni_num = u.uni_num;
 	</select>
+	
+	<select id="getEvalTeamList" parameterType="hashmap" resultType="hashmap">
+		select team_name, team_id
+		from team
+		where team_id != 0
+	</select>
+	
+	<select id="checkEval" parameterType="hashmap" resultType="hashmap">
+		select count(e.uni_num) as count
+		from team as t
+		left join eval_article as e
+		on t.team_id = e.team_id
+		where t.team_id != 0
+		and e.uni_num = #{uni_num}
+		and t.team_id = #{team_id}
+	</select>
+	
+	<select id="getTeamInfo" parameterType="hashmap" resultType="hashmap">
+		select t.team_name, u.uni_num, u.name
+		from team as t, user as u
+		where t.team_id = u.team_id
+		and u.team_id = #{team_id}
+	</select>
 </mapper>
