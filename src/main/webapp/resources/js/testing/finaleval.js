@@ -66,6 +66,7 @@ finalApp.controller('FinalEvalCtrl', function($scope,$http) {
 		else
 			return "불합격";
 	}
+	
 	$scope.sendFinalEval = function() {
 		var selected = confirm("이대로 평가를 저장하겠습니까?");
 		if(selected) {

@@ -16,7 +16,9 @@
 		u.uni_num,
 		'Computer-Software' as dept,
 		t.team_name,
-		t.team_id
+		t.team_id,
+		t.eval_end,
+		t.eval_end_comm
 		from user as u
 		left outer join team as t
 		on

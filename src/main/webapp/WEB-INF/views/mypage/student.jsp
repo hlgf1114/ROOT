@@ -90,7 +90,7 @@
 								<tr>
 									<td>{{checkPassNo()}}</td>
 									<td><button class="btn btn-primary" 
-									data-ng-click="">자세히 보기</button>
+									data-ng-click="goFinalEvalCheck()">자세히 보기</button>
 									</td>
 								</tr>
 							</tbody>

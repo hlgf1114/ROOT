@@ -209,6 +209,10 @@ mypage.controller('StdCtrl', function($scope, $http) {
 		console.log(mypost.post_num);
 		location.href = "/board/detail?post_num=" + mypost.post_num;
 	}
+	
+	$scope.goFinalEvalCheck = function() {
+		return location.href = "/testing/finalcheck"
+	}
 
 });
 

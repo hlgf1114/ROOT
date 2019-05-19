@@ -17,7 +17,7 @@
 	<h2 class = "title">최종 결과 확인 페이지</h2>
 	<header> 
 		<div class = "teamBox">
-			<div>팀 이름 :{{teamname}} <br>팀원 :<span data-ng-repeat="row in user">{{row.name}}  </span> </div> 
+			<div>팀 이름 :{{info.team_name}} <br>팀원 :<span data-ng-repeat="row in teamInfo">{{row.name}}  </span> </div> 
 			
 		</div>
 	</header>
@@ -31,16 +31,12 @@
 						<tr>
 							<th scope="col">평가 교수</th>
 							<th scope="col">결과</th>
-							<th scope="col">평가 내역</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr data-ng-repeat="eval in evalList" data-ng-click="">
 							<td>{{eval.name}}</td>
-							<td>{{eval.final}}</td>
-							<td>
-								<button type="button" class="btn btn-primary" data-ng-click="evalview()">평가 내역</button>
-							</td>
+							<td>{{checkPass(eval)}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -48,12 +44,12 @@
 			
 			<div class = "pass">
 			<label class = "pass1">합격 여부</label>
-			<div class = "pass2">{{pass}}</div> 
+			<div class = "pass2">{{finalPass()}}</div> 
 			</div>
 			
 			<div class = "opinion ">
 			<label>교수진 최종의견</label>
-			<div>{{opinion}}</div> 
+			<div>{{finalOpinion()}}</div> 
 			</div>
 		</div>
 	</section>
