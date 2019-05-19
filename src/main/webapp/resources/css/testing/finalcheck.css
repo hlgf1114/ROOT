@@ -1,0 +1,51 @@
+body{
+  background-image: url('/resources/img/board/img_bg.png');
+}
+section{
+	max-width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+	background-color: #ffffff;
+	min-height: 49vh;
+	border-radius: 5px;
+}
+.teamBox{
+	max-width: 70%;
+	margin : 5vh 15% 5vh 15%;
+	background-color : #6CB3FF;
+	text-align: center;
+	border-radius: 5px;
+	min-height: 5vh;
+}
+.finalBox{
+	text-align: center;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	background-color: #E6E6E6;
+}
+.boutton{
+	text-align: center;
+}
+.title{
+	margin-top : 5vh;
+	text-align: center;
+}
+.pass{
+	margin-top : 3vh;
+	font-size: 2em;
+	min-height: 10vh;
+	background-color: #ffffff; 
+	border-radius: 5px;
+}
+.pass1{
+	font-size: 0.5em;
+}
+.pass2{
+	font-size: 1em;
+	
+}
+.opinion{
+	min-height: 20vh;
+	background-color: #CAFFFA;
+	border-radius: 5px;
+}

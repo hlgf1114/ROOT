@@ -119,6 +119,15 @@ public class ViewController {
 		}
 	}
 	
+	@RequestMapping(value = "/testing/finalcheck", method = RequestMethod.GET)
+	public String testing_finalcheck(HttpSession session) {
+		if(SessionUtile.checkSession(session)) {
+			return "testing/finalcheck";
+		}else {
+			return "redirect:/login";
+		}
+	}
+	
 	@RequestMapping(value = "/testing/evalread", method = RequestMethod.GET)
 	public String evalread(HttpSession session) {
 		if(SessionUtile.checkSession(session)) {
