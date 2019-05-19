@@ -34,7 +34,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr data-ng-repeat="row in selectedTeamList" id = "proBox">
+				<tr data-ng-repeat="row in selectedTeamList" id = "proBox" data-ng-click="detail(row)">
 					<td>{{row.name}}</td>
 					<td>{{getResultEval(row)}}</td>
 				</tr>

@@ -90,4 +90,10 @@
 		where t.team_id = u.team_id
 		and u.team_id = #{team_id}
 	</select>
+	
+	<select id="getChargeProf" parameterType="hashmap" resultType="hashmap">
+		select name
+		from user
+		where uni_num = #{uni_num}
+	</select>
 </mapper>

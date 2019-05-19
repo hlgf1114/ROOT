@@ -104,6 +104,14 @@ public class TestingController {
 		HttpUtile.printJson(resp, resultMap);
 	}
 	
+	@RequestMapping(value = "/testing/getChargeProf", method = RequestMethod.POST)
+	public void getChargeProf(HttpServletResponse resp, HttpServletRequest req) {
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		HashMap<String, Object> resultMap = session.selectOne("testing.getChargeProf", paramMap);
+		System.out.println(resultMap);
+		HttpUtile.printJson(resp, resultMap);
+	}
+	
 	/***************************
 	 *evalsetting.jsp functions*
 	 ***************************/

@@ -14,11 +14,7 @@
             <img src = "/resources/img/login/nsu1.jpg" id = "nsu">
             <br>
                 남서울 대학교 학생 로그인
-<!--                 <div id = "naverIdLogin"> -->
-<!-- 	                <a href="/NaverLogin"> -->
-<!-- 	                	<img src = "/resources/img/login/네이버 아이디로 로그인_완성형_Green.PNG" id = "naver"> -->
-<!-- 	                </a> -->
-<!--                 </div> -->
+                			<p>Version 1.0</p>
                 <div>
 	                <a href="/KakaoLogin">
 	                	<img src = "/resources/img/login/kakao_account_login_btn_large_narrow.png" id = "kakao">
@@ -27,7 +23,6 @@
             </section>
         </div>
         <footer>
-
         </footer>
       
     </body>
