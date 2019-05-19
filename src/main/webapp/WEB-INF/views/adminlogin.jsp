@@ -18,19 +18,19 @@
         <div class = "loginform">
         <br>
 	          <div>
-	   			<label for="exampleInputEmail1">id</label>
+	   			<label for="exampleInputEmail1">ID</label>
 	    		<input class="form-control" id="exampleInputEmail1" data-ng-model = "ID">
 	  		  </div>
 	  		  <div>
-	    		<label for="exampleInputPassword1">sso</label>
+	    		<label for="exampleInputPassword1">Password</label>
 	    		<input class="form-control" id="exampleInputPassword1" data-ng-model = "Password">
 	  		  </div>
   		  </div>
         </section>
         <footer>
 			<div class = "button">
-	  	 		<button type="button" class="btn btn-success" data-ng-click="login(ID, Password)">관리자 로그인</button>
-	  	 		<button type="button" class="btn btn-warning" data-ng-click="kakaologin()">카카오 로그인</button>
+	  	 		<button type="button" class="btn btn-success" data-ng-click="adminLogin(ID, Password)">관리자 로그인</button>
+<!-- 	  	 		<button type="button" class="btn btn-warning" data-ng-click="kakaologin()">카카오 로그인</button> -->
 	    	</div>
         </footer>
       </form>

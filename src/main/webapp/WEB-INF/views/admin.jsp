@@ -45,7 +45,7 @@
 		</table>
     </section>
     <footer>
-	  <button type="button" class="btn btn-primary btn-lg" data-ng-click="exit()">나가기</button>
+	  <button type="button" class="btn btn-primary btn-lg" data-ng-click="exit()">로그아웃 및 나가기</button>
     </footer>
   </body>
 </html>

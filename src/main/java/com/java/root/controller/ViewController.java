@@ -145,9 +145,9 @@ public class ViewController {
 			if(authorization == 4)
 				return "admin";
 			else
-				return "redirect:/login";
+				return "redirect:/adminlogin";
 		}else {
-			return "redirect:/login";
+			return "redirect:/adminlogin";
 		}
 	}
 	
@@ -161,7 +161,7 @@ public class ViewController {
 		if(SessionUtile.checkSession(session)) {
 			return "/testing/evalselect";
 		}else {
-			return "redirect:/login";
+			return "redirect:/adminlogin";
 		}
 	}
 	

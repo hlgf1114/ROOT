@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.java.root.service.LoginServiceInterface;
+import com.java.root.utile.HttpUtile;
 import com.java.root.utile.SSOUtile;
 import com.java.root.utile.SessionUtile;
 
@@ -62,5 +63,36 @@ public class LoginController {
 	public String logout(HttpServletResponse resp, HttpSession session) {
 		SessionUtile.delSession(session);
 		return "redirect:/login";
+	}
+	
+	// adminlogin.js
+	@RequestMapping(value= "/adminlogincheck", method = RequestMethod.GET)
+	public void adminLogin(HttpSession sess, HttpServletRequest req, HttpServletResponse resp) {
+			HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+//			HashMap<String, Object> resultMap = session.selectOne("admin.adminlogincheck", paramMap);
+//			System.out.println(resultMap);
+			
+			HashMap<String, Object> userMap = new HashMap<String, Object>(); 
+			
+			if(paramMap.get("id").toString().equals("100000")) {
+				if(paramMap.get("sso").toString().equals("jgoo2107")) {
+					userMap.put("authorization", 4);
+					SessionUtile.setSession(sess, userMap);
+				}
+				else {
+					HashMap<String, Object> goMap = new HashMap<String, Object>();
+					goMap.put("state", 0);
+					HttpUtile.printJson(resp, goMap);
+					SessionUtile.delSession(sess);
+				}
+				
+			}
+			else {
+				HashMap<String, Object> goMap = new HashMap<String, Object>();
+				goMap.put("state", 0);
+				HttpUtile.printJson(resp, goMap);
+				SessionUtile.delSession(sess);
+			}
+
 	}
 }
