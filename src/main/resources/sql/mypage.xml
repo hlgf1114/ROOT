@@ -158,7 +158,7 @@
 	
 	<update id="resetTeamStd" parameterType="hashmap">
 		update user
-		set team_id = 0
+		set team_id = 0, authorization = 0
 		where team_id = #{team_id}
 	</update>
 </mapper>
