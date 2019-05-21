@@ -49,7 +49,7 @@ mypage.controller('StdCtrl', function($scope, $http) {
 			console.log(data);
 			if(data.count == 0)
 				// 팀을 만든다.
-				return renameTeam();
+				return $scope.renameTeam();
 			else
 				alert("이미 있는 이름입니다. 다른 이름을 시도해 주세요.");
 		})
