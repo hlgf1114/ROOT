@@ -56,18 +56,6 @@ evalSelect.controller('EvalSelCtrl', function($scope, $http, $q) {
 		
 	}
 	
-
-	$scope.getEvalScore = function() {
-		$http({method: 'POST', url:"/testing/getEvalScore"})
-		.success(function (data, status, headers, config) {
-			console.log(data);
-			$scope.evalScore = data;
-		})
-		.error(function (data, status, header, config) {
-			console.log(data);
-		});
-	}
-	
 	$scope.calcScore = function(row) {
 		
 		if(row.article1 != null) {
