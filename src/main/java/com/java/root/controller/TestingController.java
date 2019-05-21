@@ -148,7 +148,8 @@ public class TestingController {
 	 **************************/
 	@RequestMapping(value = "/testing/getEvalTeamList", method = RequestMethod.POST)
 	public void getEvalTeamList(HttpServletResponse resp, HttpServletRequest req) {
-		List<HashMap<String, Object>> resultMapList = session.selectList("testing.getEvalTeamList");
+		HashMap<String, Object> paramMap = HttpUtile.getParam(req);
+		List<HashMap<String, Object>> resultMapList = session.selectList("testing.getEvalTeamList", paramMap);
 		System.out.println(resultMapList);
 		HttpUtile.printJsonList(resp, resultMapList);
 	}

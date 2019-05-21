@@ -21,13 +21,17 @@ evalSelect.controller('EvalSelCtrl', function($scope, $http, $q) {
 	
 	$scope.teamList = {};
 	$scope.getEvalTeamList = function() {
-		$http({method: 'POST', url:"/testing/getEvalTeamList"})
+		$http({method: 'POST', url:"/testing/getEvalTeamList", params: $scope.info})
 		.success(function (data, status, headers, config) {
 			console.log(data);
 			$scope.teamList = data;
 			
 //			
 			angular.forEach($scope.teamList, function(value, key) {
+				if(value.article1 != null)
+					data.score = $scope.calcScore(value);
+				else
+					data.score = null;
 				$scope.checkEval(value).then(function(data) {
 					if(data.count == 0)
 						value.checked = "평가 안됨";
@@ -50,6 +54,36 @@ evalSelect.controller('EvalSelCtrl', function($scope, $http, $q) {
 			
 		})
 		
+	}
+	
+
+	$scope.getEvalScore = function() {
+		$http({method: 'POST', url:"/testing/getEvalScore"})
+		.success(function (data, status, headers, config) {
+			console.log(data);
+			$scope.evalScore = data;
+		})
+		.error(function (data, status, header, config) {
+			console.log(data);
+		});
+	}
+	
+	$scope.calcScore = function(row) {
+		
+		if(row.article1 != null) {
+			var score = 0;
+			score += row.article1;
+			score += row.article2;
+			score += row.article3;
+			score += row.article4;
+			score += row.article5;
+			score += row.article6;
+			score += row.article7;
+			
+			return score;
+		}
+		else
+			return "점수 없음";
 	}
 	
 	$scope.checked = function() {

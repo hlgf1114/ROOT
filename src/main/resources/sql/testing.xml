@@ -69,9 +69,12 @@
 	</select>
 	
 	<select id="getEvalTeamList" parameterType="hashmap" resultType="hashmap">
-		select team_name, team_id
-		from team
-		where team_id != 0
+		select t.team_name, t.team_id, e.uni_num, e.article1, e.article2, e.article3, e.article4, e.article5, e.article6, e.article7
+		from team as t
+		left join eval_article as e
+		on t.team_id = e.team_id
+		and e.uni_num = #{uni_num}
+		where t.team_id != 0
 	</select>
 	
 	<select id="checkEval" parameterType="hashmap" resultType="hashmap">

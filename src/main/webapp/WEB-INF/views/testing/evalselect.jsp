@@ -24,6 +24,7 @@
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">팀</th>
+							<th scope="col">평가 점수</th>
 							<th scope="col">진행 상황</th>
 							<th scope="col">평가 버튼</th>
 						</tr>
@@ -31,6 +32,7 @@
 					<tbody>
 						<tr data-ng-repeat="team in teamList">
 							<td>{{team.team_name}}</td>
+							<td>{{calcScore(team)}}</td>
 							<td>{{team.checked}}</td>
 							<td>
 							<span>
