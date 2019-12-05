@@ -69,7 +69,7 @@ app.controller('DetailCtrl', function($scope, $http) {
 		var link = document.createElement("a");
 		console.log($scope.boardData.url);
 	    link.download = $scope.boardData.file_name;
-	    link.href = "http://xorms2485.cafe24.com/" + $scope.boardData.url;
+	    link.href = "http://capstonemanager.iptime.org/" + $scope.boardData.url;
 	    link.target = "_blank";
 	    link.click();
 	}
@@ -224,7 +224,9 @@ app.controller('WriteCtrl', function($scope, $http) {
 			formData.append("uni_num", "1");
 			formData.append('file', $scope.file[0]);
 			
-			$http.post("http://xorms2485.cafe24.com/FileStore/", formData, {
+			console.log(formData.file);
+			
+			$http.post("http://capstonemanager.iptime.org/FileStore/", formData, {
 			    transformRequest: angular.identity,
 			    headers: {'Content-Type': undefined}
 			})
@@ -242,6 +244,7 @@ app.controller('WriteCtrl', function($scope, $http) {
 			})
 			.error(function (data, status, header, config) {
 				console.log(data);
+				alert("Upload Failed!");
 			});
 		}else {
 			$scope.writeEvent(param);

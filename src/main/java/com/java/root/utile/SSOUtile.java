@@ -25,7 +25,8 @@ public class SSOUtile {
 	 *  - 토큰 요청
 	 *  - 사용자 정보
 	 *********************************************/
-	private static final String kakaoClientId = "a20855d3024b15636c42807d5201bede"; //애플리케이션 클라이언트 아이디값";
+//	private static final String kakaoClientId = "a20855d3024b15636c42807d5201bede"; //애플리케이션 클라이언트 아이디값";
+	private static final String kakaoClientId = "59e33b5785e66d915f73bb7352506a0a"; //애플리케이션 클라이언트 아이디값";
 	private static String kakaoRedirectURI = "http://%s/KakaoBack";
 	
 	private static final String naverClientId = "9x_ngmaP_W7dz9cVcoum";	//애플리케이션 클라이언트 아이디값";	
