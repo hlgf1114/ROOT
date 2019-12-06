@@ -275,8 +275,10 @@ mypage.controller('ProfCtrl', function($scope, $http, $timeout) {
 				console.log(data);
 			});
 			
-			if(state != 1)
+			if(state != 1) {
 				alert("팀장이 업데이트 되었습니다.");
+				location.href = "/mypage"
+			}
 	}
 	
 	
